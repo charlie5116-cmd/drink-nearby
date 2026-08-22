@@ -13,7 +13,7 @@ const OVERPASS_ENDPOINTS = [
 
 const TYPE_CONFIG = {
   convenience: { label: "便利商店", icon: "🏪" },
-  vending: { label: "飲料販賣機", icon: "🥤" },
+  coffee: { label: "連鎖咖啡", icon: "☕" },
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
 };
 
@@ -54,7 +54,7 @@ const els = {
   resultMeta: document.getElementById("resultMeta"),
   countAll: document.getElementById("countAll"),
   countConvenience: document.getElementById("countConvenience"),
-  countVending: document.getElementById("countVending"),
+  countCoffee: document.getElementById("countCoffee"),
   countBubbleTea: document.getElementById("countBubbleTea"),
 };
 
@@ -197,7 +197,7 @@ function removeCenterMarker() {
   }
 }
 
-// ---------- V0.2：Nominatim 地點搜尋 ----------
+// ---------- V0.3：Nominatim 地點搜尋 ----------
 async function handleLocationSearch(event) {
   event.preventDefault();
 
@@ -240,7 +240,7 @@ async function geocodePlace(query, signal) {
     return geocodeCache.get(cacheKey);
   }
 
-  // 公共 Nominatim 不適合高頻連打；V0.2 主動將請求間隔拉到至少約 1.1 秒。
+  // 公共 Nominatim 不適合高頻連打；V0.3 主動將請求間隔拉到至少約 1.1 秒。
   const elapsed = Date.now() - geocodeLastRequestAt;
   if (elapsed < GEOCODE_MIN_INTERVAL_MS) {
     await sleep(GEOCODE_MIN_INTERVAL_MS - elapsed);
@@ -353,14 +353,19 @@ function sleep(ms) {
 // ---------- Overpass ----------
 function buildOverpassQuery(lat, lng) {
   const around = `(around:${SEARCH_RADIUS_METERS},${lat},${lng})`;
+  // V0.3 咖啡先鎖定主要連鎖品牌，避免把所有一般咖啡廳一次混進結果。
+  const coffeeChains = "Starbucks|星巴克|Louisa|路易莎|cama|85.?C|85度C|85度Ｃ|丹堤|Dante|伯朗|Mr\.? ?Brown|客美多|Komeda";
 
   return `
 [out:json][timeout:20];
 (
   nwr${around}["shop"="convenience"];
 
-  nwr${around}["amenity"="vending_machine"]["vending"~"drinks|coffee|water|milk",i];
-  nwr${around}["amenity"="vending_machine"]["name"~"飲料|咖啡|coffee|drink",i];
+  nwr${around}["amenity"="cafe"]["name"~"${coffeeChains}",i];
+  nwr${around}["amenity"="cafe"]["brand"~"${coffeeChains}",i];
+  nwr${around}["amenity"="cafe"]["operator"~"${coffeeChains}",i];
+  nwr${around}["shop"="coffee"]["name"~"${coffeeChains}",i];
+  nwr${around}["shop"="bakery"]["name"~"${coffeeChains}",i];
 
   nwr${around}["cuisine"~"bubble_tea",i];
   nwr${around}["drink:bubble_tea"="yes"];
@@ -393,16 +398,16 @@ async function searchNearby(lat, lng) {
     updateCounts();
     applyFilter(activeFilter);
 
-    const vendingCount = places.filter((p) => p.type === "vending").length;
+    const coffeeCount = places.filter((p) => p.type === "coffee").length;
     const centerLabel = activeCenter?.label || "搜尋位置";
     const centerPrefix = activeCenter?.mode === "current" ? "你的目前位置" : `「${centerLabel}」`;
 
     setStatus(
       "success",
       `找到 ${places.length} 個地點`,
-      vendingCount === 0
-        ? `以${centerPrefix}為中心；附近 OSM 販賣機資料可能不完整。`
-        : `以${centerPrefix}為中心，其中有 ${vendingCount} 台飲料販賣機。`
+      coffeeCount === 0
+        ? `以${centerPrefix}為中心；目前沒有抓到支援名單內的連鎖咖啡。`
+        : `以${centerPrefix}為中心，其中有 ${coffeeCount} 間連鎖咖啡。`
     );
   } catch (error) {
     if (error.name === "AbortError") return;
@@ -418,7 +423,7 @@ async function searchNearby(lat, lng) {
     );
     showEmptyState(
       "資料服務暫時沒有回應",
-      "這不一定是網站壞掉；V0.2 仍使用免費公共 Overpass API，偶爾可能忙碌。",
+      "這不一定是網站壞掉；V0.3 仍使用免費公共 Overpass API，偶爾可能忙碌。",
       false
     );
   } finally {
@@ -483,6 +488,7 @@ function parseOverpassElements(elements, centerLat, centerLng) {
         openingHours: tags.opening_hours || "",
         brand: tags.brand || "",
         operator: tags.operator || "",
+        coffeeBrand: type === "coffee" ? getCoffeeBrand(tags) : "",
         tags,
       };
     })
@@ -490,8 +496,9 @@ function parseOverpassElements(elements, centerLat, centerLng) {
 }
 
 function classifyPlace(tags) {
-  if (tags.amenity === "vending_machine") return "vending";
   if (tags.shop === "convenience") return "convenience";
+
+  if (getCoffeeBrand(tags)) return "coffee";
 
   const cuisine = (tags.cuisine || "").toLowerCase();
   if (
@@ -505,12 +512,28 @@ function classifyPlace(tags) {
   return null;
 }
 
+function getCoffeeBrand(tags) {
+  const haystack = [tags.name, tags.brand, tags.operator]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  if (/starbucks|星巴克/.test(haystack)) return "星巴克";
+  if (/louisa|路易莎/.test(haystack)) return "路易莎";
+  if (/cama/.test(haystack)) return "cama";
+  if (/85.?c|85度[cｃ]/i.test(haystack)) return "85°C";
+  if (/dante|丹堤/.test(haystack)) return "丹堤";
+  if (/mr\.?\s*brown|伯朗/.test(haystack)) return "伯朗";
+  if (/komeda|客美多/.test(haystack)) return "客美多";
+  return "";
+}
+
 function getPlaceName(tags, type) {
   if (tags.name) return tags.name;
   if (tags.brand) return tags.brand;
   if (tags.operator) return tags.operator;
 
-  if (type === "vending") return "飲料販賣機";
+  if (type === "coffee") return "連鎖咖啡";
   if (type === "convenience") return "便利商店";
   return "手搖／飲料店";
 }
@@ -623,7 +646,7 @@ function renderResults(items) {
         <article class="place-card" id="card-${escapeAttr(place.id)}">
           <div class="place-icon">${config.icon}</div>
           <div class="place-info">
-            <div class="place-type">${config.label}</div>
+            <div class="place-type">${config.label}${place.coffeeBrand ? ` · ${escapeHtml(place.coffeeBrand)}` : ""}</div>
             <div class="place-name" title="${escapeAttr(place.name)}">${escapeHtml(place.name)}</div>
             <p class="place-meta">
               <strong>${formatDistance(place.distance)}</strong>
@@ -650,12 +673,12 @@ function buildGoogleMapsUrl(place) {
 
 function updateCounts() {
   const convenience = places.filter((p) => p.type === "convenience").length;
-  const vending = places.filter((p) => p.type === "vending").length;
+  const coffee = places.filter((p) => p.type === "coffee").length;
   const bubbleTea = places.filter((p) => p.type === "bubble_tea").length;
 
   els.countAll.textContent = places.length;
   els.countConvenience.textContent = convenience;
-  els.countVending.textContent = vending;
+  els.countCoffee.textContent = coffee;
   els.countBubbleTea.textContent = bubbleTea;
 }
 

@@ -102,7 +102,7 @@ h2 {
   transform: translateY(1px);
 }
 
-/* ---------- V0.2 地點搜尋 ---------- */
+/* ---------- V0.3 地點搜尋 ---------- */
 .location-search {
   position: relative;
   z-index: 10;
