@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Drink Nearby V0.1</title>
+
+  <link
+    href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">DRINK NEARBY · V0.1</p>
+        <h1>現在最快去哪裡喝？</h1>
+      </div>
+      <button id="locateBtn" class="icon-button" type="button" title="重新定位" aria-label="重新定位">
+        ◎
+      </button>
+    </header>
+
+    <section class="status-card" aria-live="polite">
+      <div class="status-dot" id="statusDot"></div>
+      <div>
+        <strong id="statusTitle">等待定位</strong>
+        <p id="statusText">允許瀏覽器取得位置後，會自動搜尋附近 1.5 公里。</p>
+      </div>
+    </section>
+
+    <nav class="filters" aria-label="地點類型">
+      <button class="filter active" data-filter="all" type="button">全部 <span id="countAll">0</span></button>
+      <button class="filter" data-filter="convenience" type="button">🏪 超商 <span id="countConvenience">0</span></button>
+      <button class="filter" data-filter="vending" type="button">🥤 販賣機 <span id="countVending">0</span></button>
+      <button class="filter" data-filter="bubble_tea" type="button">🧋 手搖 <span id="countBubbleTea">0</span></button>
+    </nav>
+
+    <main>
+      <section class="map-wrap">
+        <div id="map" aria-label="附近飲料地圖"></div>
+        <div id="mapLoading" class="map-loading hidden">搜尋附近地點中…</div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">NEARBY</p>
+            <h2>距離最近</h2>
+          </div>
+          <span id="resultMeta" class="result-meta">尚未搜尋</span>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">📍</div>
+          <h3>先取得你的位置</h3>
+          <p>第一次開啟時，請允許瀏覽器使用定位。</p>
+          <button id="startBtn" class="primary-button" type="button">開始定位</button>
+          <button id="taipeiTestBtn" class="secondary-button" type="button">改用台北車站測試</button>
+        </div>
+
+        <div id="results" class="results-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      V0.1 資料來自 OpenStreetMap / Overpass；地圖來自 OpenFreeMap。資料可能不完整。
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
