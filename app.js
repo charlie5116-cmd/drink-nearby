@@ -1,6 +1,8 @@
 const SEARCH_RADIUS_METERS = 1500;
 const MAX_RESULTS = 50;
 const DEFAULT_CENTER = { lat: 25.0478, lng: 121.5170 }; // 台北車站
+const NOMINATIM_ENDPOINT = "https://nominatim.openstreetmap.org/search";
+const GEOCODE_MIN_INTERVAL_MS = 1100;
 
 // 免費公共 Overpass 服務僅適合 MVP / 小型測試。
 // 主站失敗時會自動切換到備援站。
@@ -17,22 +19,38 @@ const TYPE_CONFIG = {
 
 let map;
 let userMarker;
+let centerMarker;
 let userPosition = null;
+let activeCenter = null;
 let places = [];
 let placeMarkers = [];
 let activeFilter = "all";
 let requestController = null;
+let geocodeController = null;
+let geocodeLastRequestAt = 0;
+let centerIntentVersion = 0;
+
+const geocodeCache = new Map();
 
 const els = {
   locateBtn: document.getElementById("locateBtn"),
+  useMyLocationBtn: document.getElementById("useMyLocationBtn"),
   startBtn: document.getElementById("startBtn"),
   taipeiTestBtn: document.getElementById("taipeiTestBtn"),
+  searchForm: document.getElementById("searchForm"),
+  searchInput: document.getElementById("searchInput"),
+  searchBtn: document.getElementById("searchBtn"),
+  geocodePanel: document.getElementById("geocodePanel"),
+  geocodeTitle: document.getElementById("geocodeTitle"),
+  geocodeResults: document.getElementById("geocodeResults"),
+  closeGeocodeBtn: document.getElementById("closeGeocodeBtn"),
   statusDot: document.getElementById("statusDot"),
   statusTitle: document.getElementById("statusTitle"),
   statusText: document.getElementById("statusText"),
   mapLoading: document.getElementById("mapLoading"),
   results: document.getElementById("results"),
   emptyState: document.getElementById("emptyState"),
+  resultsTitle: document.getElementById("resultsTitle"),
   resultMeta: document.getElementById("resultMeta"),
   countAll: document.getElementById("countAll"),
   countConvenience: document.getElementById("countConvenience"),
@@ -64,30 +82,47 @@ function setLoading(isLoading, text = "搜尋附近地點中…") {
 }
 
 function locateUser() {
+  const intentVersion = ++centerIntentVersion;
+  closeGeocodePanel();
+
   if (!navigator.geolocation) {
-    setStatus("error", "瀏覽器不支援定位", "可以先按「台北車站測試」確認搜尋功能是否正常。");
-    showEmptyState("無法使用定位", "你的瀏覽器不支援 Geolocation API。", true);
+    setStatus("error", "瀏覽器不支援定位", "你仍然可以直接搜尋地點，或先按「台北車站測試」。");
+    showEmptyState("無法使用定位", "你的瀏覽器不支援 Geolocation API，但地點搜尋仍可使用。", true);
     return;
   }
 
-  setStatus("loading", "正在取得位置…", "如果瀏覽器跳出權限詢問，請選擇允許。");
+  setStatus("loading", "正在取得目前位置…", "如果瀏覽器跳出權限詢問，請選擇允許。");
   setLoading(true, "取得目前位置中…");
 
   navigator.geolocation.getCurrentPosition(
     async (position) => {
+      // 使用者在定位途中改去搜尋別的地點時，不讓舊的定位結果把畫面搶回來。
+      if (intentVersion !== centerIntentVersion) return;
+
       const { latitude, longitude, accuracy } = position.coords;
-      await usePosition(latitude, longitude, `定位成功，誤差約 ${Math.round(accuracy)} 公尺`);
+      userPosition = { lat: latitude, lng: longitude };
+      setUserMarker(latitude, longitude);
+
+      await setActiveCenter({
+        lat: latitude,
+        lng: longitude,
+        label: "我的位置",
+        mode: "current",
+        detail: `定位誤差約 ${Math.round(accuracy)} 公尺`,
+      });
     },
     (error) => {
+      if (intentVersion !== centerIntentVersion) return;
+
       setLoading(false);
-      let message = "請確認瀏覽器的定位權限後再試一次。";
+      let message = "請確認瀏覽器的定位權限後再試一次，也可以直接搜尋地點。";
 
       if (error.code === error.PERMISSION_DENIED) {
-        message = "你拒絕了定位權限；可以重新允許，或先用台北車站測試。";
+        message = "你拒絕了定位權限；可以重新允許，或直接搜尋想查看的地點。";
       } else if (error.code === error.POSITION_UNAVAILABLE) {
-        message = "目前無法取得位置，請稍後重試。";
+        message = "目前無法取得位置；你仍然可以直接搜尋地點。";
       } else if (error.code === error.TIMEOUT) {
-        message = "定位逾時，請再按一次重新定位。";
+        message = "定位逾時，請再按一次定位，或直接搜尋地點。";
       }
 
       setStatus("error", "定位失敗", message);
@@ -101,18 +136,32 @@ function locateUser() {
   );
 }
 
-async function usePosition(lat, lng, statusMessage = "") {
-  userPosition = { lat, lng };
-  setUserMarker(lat, lng);
+async function setActiveCenter(center) {
+  activeCenter = center;
+
+  if (center.mode === "current") {
+    removeCenterMarker();
+  } else {
+    setCenterMarker(center.lat, center.lng, center.label);
+  }
+
+  els.resultsTitle.textContent = `${center.label}附近`;
 
   map.easeTo({
-    center: [lng, lat],
+    center: [center.lng, center.lat],
     zoom: 15,
     duration: 900,
   });
 
-  setStatus("success", "位置已取得", statusMessage || `${lat.toFixed(5)}, ${lng.toFixed(5)}`);
-  await searchNearby(lat, lng);
+  setStatus(
+    "success",
+    `正在查看：${center.label}`,
+    center.mode === "current"
+      ? center.detail || "以下距離以你的目前位置為中心。"
+      : "以下距離以這個搜尋位置為中心，不是你目前所在的位置。"
+  );
+
+  await searchNearby(center.lat, center.lng);
 }
 
 function setUserMarker(lat, lng) {
@@ -124,10 +173,184 @@ function setUserMarker(lat, lng) {
 
   userMarker = new maplibregl.Marker({ element: el })
     .setLngLat([lng, lat])
-    .setPopup(new maplibregl.Popup({ offset: 14 }).setText("你在這裡"))
+    .setPopup(new maplibregl.Popup({ offset: 14 }).setText("你目前在這裡"))
     .addTo(map);
 }
 
+function setCenterMarker(lat, lng, label) {
+  removeCenterMarker();
+
+  const el = document.createElement("div");
+  el.className = "marker-search-center";
+  el.title = `搜尋中心：${label}`;
+
+  centerMarker = new maplibregl.Marker({ element: el, anchor: "bottom" })
+    .setLngLat([lng, lat])
+    .setPopup(new maplibregl.Popup({ offset: 18 }).setText(`搜尋中心：${label}`))
+    .addTo(map);
+}
+
+function removeCenterMarker() {
+  if (centerMarker) {
+    centerMarker.remove();
+    centerMarker = null;
+  }
+}
+
+// ---------- V0.2：Nominatim 地點搜尋 ----------
+async function handleLocationSearch(event) {
+  event.preventDefault();
+
+  const query = els.searchInput.value.trim();
+  if (!query) {
+    openGeocodeMessage("請先輸入地點，例如「台北101」、「西門站」或一段地址。", "請輸入地點");
+    els.searchInput.focus();
+    return;
+  }
+
+  // 使用者明確選擇搜尋時，讓尚未完成的初始 GPS 定位失效。
+  centerIntentVersion += 1;
+
+  if (geocodeController) geocodeController.abort();
+  geocodeController = new AbortController();
+
+  els.searchBtn.disabled = true;
+  els.searchBtn.textContent = "搜尋中";
+  openGeocodeMessage(`正在搜尋「${query}」…`, "搜尋地點");
+
+  try {
+    const results = await geocodePlace(query, geocodeController.signal);
+    renderGeocodeResults(results, query);
+  } catch (error) {
+    if (error.name === "AbortError") return;
+    console.error("Geocoding failed:", error);
+    openGeocodeMessage(
+      "地點搜尋服務暫時沒有回應。請稍後再試，或使用目前位置。",
+      "搜尋失敗"
+    );
+  } finally {
+    els.searchBtn.disabled = false;
+    els.searchBtn.textContent = "搜尋";
+  }
+}
+
+async function geocodePlace(query, signal) {
+  const cacheKey = query.trim().toLowerCase();
+  if (geocodeCache.has(cacheKey)) {
+    return geocodeCache.get(cacheKey);
+  }
+
+  // 公共 Nominatim 不適合高頻連打；V0.2 主動將請求間隔拉到至少約 1.1 秒。
+  const elapsed = Date.now() - geocodeLastRequestAt;
+  if (elapsed < GEOCODE_MIN_INTERVAL_MS) {
+    await sleep(GEOCODE_MIN_INTERVAL_MS - elapsed);
+  }
+
+  const params = new URLSearchParams({
+    format: "jsonv2",
+    q: query,
+    limit: "5",
+    countrycodes: "tw",
+    addressdetails: "1",
+    "accept-language": "zh-TW,zh,en",
+  });
+
+  geocodeLastRequestAt = Date.now();
+
+  const response = await fetch(`${NOMINATIM_ENDPOINT}?${params.toString()}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+    signal,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Nominatim 回傳 HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+  const normalized = (Array.isArray(data) ? data : [])
+    .map((item) => ({
+      placeId: item.place_id,
+      lat: Number(item.lat),
+      lng: Number(item.lon),
+      title: getGeocodeTitle(item),
+      displayName: item.display_name || "",
+      type: item.addresstype || item.type || "place",
+    }))
+    .filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lng));
+
+  geocodeCache.set(cacheKey, normalized);
+  return normalized;
+}
+
+function getGeocodeTitle(item) {
+  if (item.name) return item.name;
+  if (item.display_name) return item.display_name.split(",")[0].trim();
+  return "搜尋地點";
+}
+
+function renderGeocodeResults(results, query) {
+  els.geocodePanel.classList.remove("hidden");
+
+  if (!results.length) {
+    els.geocodeTitle.textContent = "找不到地點";
+    els.geocodeResults.innerHTML = `
+      <div class="geocode-message">
+        找不到「${escapeHtml(query)}」。可以改用更完整的名稱，例如「台北101 台北」或直接輸入地址。
+      </div>
+    `;
+    return;
+  }
+
+  els.geocodeTitle.textContent = `請選擇地點 · ${results.length} 個結果`;
+  els.geocodeResults.innerHTML = results
+    .map(
+      (result, index) => `
+        <button class="geocode-item" type="button" data-geocode-index="${index}">
+          <strong>📍 ${escapeHtml(result.title)}</strong>
+          <span>${escapeHtml(result.displayName)}</span>
+        </button>
+      `
+    )
+    .join("");
+
+  els.geocodeResults.querySelectorAll("[data-geocode-index]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const result = results[Number(button.dataset.geocodeIndex)];
+      if (!result) return;
+
+      centerIntentVersion += 1;
+      closeGeocodePanel();
+      els.searchInput.value = result.title;
+
+      await setActiveCenter({
+        lat: result.lat,
+        lng: result.lng,
+        label: result.title,
+        mode: "search",
+        detail: result.displayName,
+      });
+    });
+  });
+}
+
+function openGeocodeMessage(message, title = "搜尋結果") {
+  els.geocodeTitle.textContent = title;
+  els.geocodeResults.innerHTML = `<div class="geocode-message">${escapeHtml(message)}</div>`;
+  els.geocodePanel.classList.remove("hidden");
+}
+
+function closeGeocodePanel() {
+  els.geocodePanel.classList.add("hidden");
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// ---------- Overpass ----------
 function buildOverpassQuery(lat, lng) {
   const around = `(around:${SEARCH_RADIUS_METERS},${lat},${lng})`;
 
@@ -171,12 +394,15 @@ async function searchNearby(lat, lng) {
     applyFilter(activeFilter);
 
     const vendingCount = places.filter((p) => p.type === "vending").length;
+    const centerLabel = activeCenter?.label || "搜尋位置";
+    const centerPrefix = activeCenter?.mode === "current" ? "你的目前位置" : `「${centerLabel}」`;
+
     setStatus(
       "success",
       `找到 ${places.length} 個地點`,
       vendingCount === 0
-        ? "這附近的 OSM 販賣機資料可能不完整，這正是後續要補強的地方。"
-        : `其中有 ${vendingCount} 台飲料販賣機。`
+        ? `以${centerPrefix}為中心；附近 OSM 販賣機資料可能不完整。`
+        : `以${centerPrefix}為中心，其中有 ${vendingCount} 台飲料販賣機。`
     );
   } catch (error) {
     if (error.name === "AbortError") return;
@@ -188,11 +414,11 @@ async function searchNearby(lat, lng) {
     setStatus(
       "error",
       "附近資料暫時抓不到",
-      "免費 Overpass 伺服器可能忙碌。稍後可按右上角 ◎ 重新搜尋。"
+      "免費 Overpass 伺服器可能忙碌。稍後可重新搜尋或按右上角 ◎ 回到目前位置。"
     );
     showEmptyState(
       "資料服務暫時沒有回應",
-      "這不一定是你的網站壞掉；V0.1 使用免費公共 Overpass API，偶爾可能忙碌。",
+      "這不一定是網站壞掉；V0.2 仍使用免費公共 Overpass API，偶爾可能忙碌。",
       false
     );
   } finally {
@@ -230,7 +456,7 @@ async function fetchOverpassWithFallback(query, signal) {
   throw lastError || new Error("所有 Overpass 伺服器皆無回應");
 }
 
-function parseOverpassElements(elements, userLat, userLng) {
+function parseOverpassElements(elements, centerLat, centerLng) {
   return elements
     .map((element) => {
       const tags = element.tags || {};
@@ -241,7 +467,7 @@ function parseOverpassElements(elements, userLat, userLng) {
       if (!Number.isFinite(lat) || !Number.isFinite(lng) || !type) return null;
 
       const name = getPlaceName(tags, type);
-      const distance = haversineMeters(userLat, userLng, lat, lng);
+      const distance = haversineMeters(centerLat, centerLng, lat, lng);
       const minutes = Math.max(1, Math.ceil(distance / 80));
 
       return {
@@ -470,10 +696,23 @@ function escapeAttr(value) {
 
 function bindEvents() {
   els.locateBtn.addEventListener("click", locateUser);
+  els.useMyLocationBtn.addEventListener("click", locateUser);
   els.startBtn.addEventListener("click", locateUser);
+  els.searchForm.addEventListener("submit", handleLocationSearch);
+  els.closeGeocodeBtn.addEventListener("click", closeGeocodePanel);
 
   els.taipeiTestBtn.addEventListener("click", async () => {
-    await usePosition(DEFAULT_CENTER.lat, DEFAULT_CENTER.lng, "目前使用台北車站作為測試位置");
+    centerIntentVersion += 1;
+    closeGeocodePanel();
+    els.searchInput.value = "台北車站";
+
+    await setActiveCenter({
+      lat: DEFAULT_CENTER.lat,
+      lng: DEFAULT_CENTER.lng,
+      label: "台北車站",
+      mode: "test",
+      detail: "目前使用台北車站作為測試位置",
+    });
   });
 
   document.querySelectorAll(".filter").forEach((button) => {
@@ -484,7 +723,7 @@ function bindEvents() {
 initMap();
 bindEvents();
 
-// 首次進站就嘗試定位；若使用者拒絕，畫面仍保留台北車站測試入口。
+// 首次進站仍自動嘗試定位；使用者若開始搜尋，搜尋意圖會優先，不會被稍後完成的 GPS 搶回畫面。
 window.addEventListener("load", () => {
   setTimeout(locateUser, 350);
 });

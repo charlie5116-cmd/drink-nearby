@@ -26,11 +26,13 @@ body {
 }
 
 button,
+input,
 a {
   font: inherit;
 }
 
-button {
+button,
+input {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -93,10 +95,168 @@ h2 {
 .primary-button:active,
 .secondary-button:active,
 .filter:active,
-.nav-button:active {
+.nav-button:active,
+.search-button:active,
+.my-location-button:active,
+.geocode-item:active {
   transform: translateY(1px);
 }
 
+/* ---------- V0.2 地點搜尋 ---------- */
+.location-search {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 12px;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.search-input-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#searchInput {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px 0 42px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(18, 28, 20, 0.04);
+  font-size: 15px;
+}
+
+#searchInput::placeholder {
+  color: #949a94;
+}
+
+#searchInput:focus {
+  border-color: #aeb5ad;
+  box-shadow: 0 0 0 3px rgba(23, 26, 23, 0.06);
+}
+
+.search-button {
+  height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 15px;
+  background: #171a17;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.search-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.my-location-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 5px 3px;
+  border: 0;
+  background: transparent;
+  color: #3f4740;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.geocode-panel {
+  margin-top: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 14px 30px rgba(18, 28, 20, 0.11);
+}
+
+.geocode-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 13px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.text-button {
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.geocode-results {
+  max-height: 290px;
+  overflow-y: auto;
+}
+
+.geocode-item {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid #eef0ed;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.geocode-item:last-child {
+  border-bottom: 0;
+}
+
+.geocode-item strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.geocode-item span {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.geocode-message {
+  padding: 18px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ---------- 狀態 ---------- */
 .status-card {
   display: flex;
   align-items: flex-start;
@@ -243,6 +403,26 @@ h2 {
   box-shadow: 0 0 0 7px rgba(40, 120, 255, 0.17), 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.marker-search-center {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 8px;
+  transform: rotate(-45deg);
+  background: #171a17;
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+}
+
+.marker-search-center::after {
+  content: "•";
+  transform: rotate(45deg);
+  font-size: 24px;
+  line-height: 1;
+}
+
 .maplibregl-popup-content {
   border-radius: 12px;
   font-family: inherit;
@@ -263,6 +443,7 @@ h2 {
 .result-meta {
   color: var(--muted);
   font-size: 12px;
+  text-align: right;
 }
 
 .results-list {
@@ -402,5 +583,16 @@ footer {
 
   .results-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .search-button {
+    padding-inline: 13px;
+  }
+
+  .place-card {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    gap: 10px;
   }
 }
