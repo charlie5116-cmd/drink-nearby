@@ -17,6 +17,34 @@ const TYPE_CONFIG = {
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
 };
 
+// V0.4：品牌識別。
+// 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
+// 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
+const BRAND_CONFIG = {
+  "7eleven": { label: "7-ELEVEN", short: "7", className: "brand-7eleven" },
+  familymart: { label: "全家", short: "全家", className: "brand-familymart" },
+  hilife: { label: "萊爾富", short: "Hi", className: "brand-hilife" },
+  okmart: { label: "OK Mart", short: "OK", className: "brand-okmart" },
+
+  starbucks: { label: "星巴克", short: "★", className: "brand-starbucks" },
+  louisa: { label: "路易莎", short: "L", className: "brand-louisa" },
+  cama: { label: "cama", short: "cama", className: "brand-cama" },
+  "85c": { label: "85°C", short: "85°", className: "brand-85c" },
+  dante: { label: "丹堤", short: "D", className: "brand-dante" },
+  mrbrown: { label: "伯朗", short: "伯朗", className: "brand-mrbrown" },
+  komeda: { label: "客美多", short: "K", className: "brand-komeda" },
+
+  "50lan": { label: "50嵐", short: "50嵐", className: "brand-50lan" },
+  kebuke: { label: "可不可", short: "可", className: "brand-kebuke" },
+  milksha: { label: "迷客夏", short: "迷", className: "brand-milksha" },
+  chingshin: { label: "清心福全", short: "清", className: "brand-chingshin" },
+  coco: { label: "CoCo", short: "CoCo", className: "brand-coco" },
+  macu: { label: "麻古茶坊", short: "麻古", className: "brand-macu" },
+  dejeng: { label: "得正", short: "得", className: "brand-dejeng" },
+  yimu: { label: "一沐日", short: "沐", className: "brand-yimu" },
+  gongcha: { label: "貢茶", short: "貢", className: "brand-gongcha" },
+};
+
 let map;
 let userMarker;
 let centerMarker;
@@ -197,7 +225,7 @@ function removeCenterMarker() {
   }
 }
 
-// ---------- V0.3：Nominatim 地點搜尋 ----------
+// ---------- V0.4：Nominatim 地點搜尋 ----------
 async function handleLocationSearch(event) {
   event.preventDefault();
 
@@ -240,7 +268,7 @@ async function geocodePlace(query, signal) {
     return geocodeCache.get(cacheKey);
   }
 
-  // 公共 Nominatim 不適合高頻連打；V0.3 主動將請求間隔拉到至少約 1.1 秒。
+  // 公共 Nominatim 不適合高頻連打；V0.4 主動將請求間隔拉到至少約 1.1 秒。
   const elapsed = Date.now() - geocodeLastRequestAt;
   if (elapsed < GEOCODE_MIN_INTERVAL_MS) {
     await sleep(GEOCODE_MIN_INTERVAL_MS - elapsed);
@@ -353,7 +381,7 @@ function sleep(ms) {
 // ---------- Overpass ----------
 function buildOverpassQuery(lat, lng) {
   const around = `(around:${SEARCH_RADIUS_METERS},${lat},${lng})`;
-  // V0.3 咖啡先鎖定主要連鎖品牌，避免把所有一般咖啡廳一次混進結果。
+  // V0.4 咖啡仍先鎖定主要連鎖品牌，避免把所有一般咖啡廳一次混進結果。
   const coffeeChains = "Starbucks|星巴克|Louisa|路易莎|cama|85.?C|85度C|85度Ｃ|丹堤|Dante|伯朗|Mr\.? ?Brown|客美多|Komeda";
 
   return `
@@ -423,7 +451,7 @@ async function searchNearby(lat, lng) {
     );
     showEmptyState(
       "資料服務暫時沒有回應",
-      "這不一定是網站壞掉；V0.3 仍使用免費公共 Overpass API，偶爾可能忙碌。",
+      "這不一定是網站壞掉；V0.4 仍使用免費公共 Overpass API，偶爾可能忙碌。",
       false
     );
   } finally {
@@ -489,6 +517,7 @@ function parseOverpassElements(elements, centerLat, centerLng) {
         brand: tags.brand || "",
         operator: tags.operator || "",
         coffeeBrand: type === "coffee" ? getCoffeeBrand(tags) : "",
+        brandKey: detectBrand(tags, type),
         tags,
       };
     })
@@ -510,6 +539,50 @@ function classifyPlace(tags) {
   }
 
   return null;
+}
+
+function detectBrand(tags, type) {
+  const haystack = normalizeBrandText([tags.name, tags.brand, tags.operator, tags.branch].filter(Boolean).join(" "));
+
+  if (type === "convenience") {
+    if (/7[\s-]?eleven|seven[\s-]?eleven|統一超商/.test(haystack)) return "7eleven";
+    if (/familymart|全家便利商店|全家/.test(haystack)) return "familymart";
+    if (/hi[\s-]?life|hilife|萊爾富/.test(haystack)) return "hilife";
+    if (/ok[\s-]?(mart|便利商店|超商)|來來超商/.test(haystack)) return "okmart";
+  }
+
+  if (type === "coffee") {
+    if (/starbucks|星巴克/.test(haystack)) return "starbucks";
+    if (/louisa|路易莎/.test(haystack)) return "louisa";
+    if (/cama/.test(haystack)) return "cama";
+    if (/85.?c|85度[cｃ]/.test(haystack)) return "85c";
+    if (/dante|丹堤/.test(haystack)) return "dante";
+    if (/mr\.?\s*brown|伯朗/.test(haystack)) return "mrbrown";
+    if (/komeda|客美多/.test(haystack)) return "komeda";
+  }
+
+  if (type === "bubble_tea") {
+    if (/50嵐|五十嵐|50lan/.test(haystack)) return "50lan";
+    if (/可不可|kebuke/.test(haystack)) return "kebuke";
+    if (/迷客夏|milksha/.test(haystack)) return "milksha";
+    if (/清心福全|清心|chingshin/.test(haystack)) return "chingshin";
+    if (/coco都可|coco fresh|coco/.test(haystack)) return "coco";
+    if (/麻古|macu/.test(haystack)) return "macu";
+    if (/得正|dejeng|dejeng1923/.test(haystack)) return "dejeng";
+    if (/一沐日|yimuri|yi mu ri/.test(haystack)) return "yimu";
+    if (/貢茶|gong cha|gongcha/.test(haystack)) return "gongcha";
+  }
+
+  return "";
+}
+
+function normalizeBrandText(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[＿_]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function getCoffeeBrand(tags) {
@@ -635,6 +708,24 @@ function applyFilter(filter) {
     : "沒有結果";
 }
 
+function renderBrandIcon(place) {
+  const brand = BRAND_CONFIG[place.brandKey];
+  if (!brand) {
+    return `<div class="place-icon place-icon-fallback" aria-hidden="true">${TYPE_CONFIG[place.type].icon}</div>`;
+  }
+
+  return `
+    <div
+      class="place-icon brand-icon ${brand.className}"
+      role="img"
+      aria-label="${escapeAttr(brand.label)} 品牌圖示"
+      title="${escapeAttr(brand.label)}"
+    >
+      <span>${escapeHtml(brand.short)}</span>
+    </div>
+  `;
+}
+
 function renderResults(items) {
   els.results.innerHTML = items
     .map((place) => {
@@ -644,9 +735,9 @@ function renderResults(items) {
 
       return `
         <article class="place-card" id="card-${escapeAttr(place.id)}">
-          <div class="place-icon">${config.icon}</div>
+          ${renderBrandIcon(place)}
           <div class="place-info">
-            <div class="place-type">${config.label}${place.coffeeBrand ? ` · ${escapeHtml(place.coffeeBrand)}` : ""}</div>
+            <div class="place-type">${config.label}${place.brandKey && BRAND_CONFIG[place.brandKey] ? ` · ${escapeHtml(BRAND_CONFIG[place.brandKey].label)}` : place.coffeeBrand ? ` · ${escapeHtml(place.coffeeBrand)}` : ""}</div>
             <div class="place-name" title="${escapeAttr(place.name)}">${escapeHtml(place.name)}</div>
             <p class="place-meta">
               <strong>${formatDistance(place.distance)}</strong>

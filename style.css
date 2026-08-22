@@ -102,7 +102,7 @@ h2 {
   transform: translateY(1px);
 }
 
-/* ---------- V0.3 地點搜尋 ---------- */
+/* ---------- V0.4 地點搜尋 ---------- */
 .location-search {
   position: relative;
   z-index: 10;
@@ -468,10 +468,87 @@ h2 {
   place-items: center;
   width: 46px;
   height: 46px;
+  overflow: hidden;
+  border: 1px solid rgba(20, 24, 20, 0.06);
   border-radius: 14px;
   background: #f3f5f1;
   font-size: 23px;
 }
+
+.place-icon-fallback {
+  background: #f3f5f1;
+}
+
+.brand-icon {
+  position: relative;
+  isolation: isolate;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.brand-icon span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-width: 42px;
+  padding: 0 3px;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.brand-7eleven {
+  border-color: #d7ddd7;
+  background: linear-gradient(to bottom, #16834a 0 17%, #ffffff 17% 72%, #ea5a30 72% 82%, #e92e2f 82% 100%);
+  color: #e24c2b;
+}
+.brand-7eleven span { font-size: 27px; text-shadow: 0 1px 0 #fff; }
+
+.brand-familymart {
+  background: linear-gradient(to bottom, #18a9d4 0 18%, #ffffff 18% 78%, #35a96b 78% 100%);
+  color: #0874aa;
+}
+.brand-familymart span { font-size: 12px; }
+
+.brand-hilife { background: #e83732; color: #fff; }
+.brand-hilife span { font-size: 21px; font-style: italic; }
+.brand-okmart { background: #1967b3; color: #fff; }
+.brand-okmart span { font-size: 19px; }
+
+.brand-starbucks { border-radius: 50%; background: #08784b; color: #fff; }
+.brand-starbucks span { font-size: 23px; }
+.brand-louisa { background: #222; color: #fff; }
+.brand-louisa span { font-family: Georgia, serif; font-size: 24px; }
+.brand-cama { background: #f0c82c; color: #2a241b; }
+.brand-cama span { font-size: 12px; letter-spacing: -0.08em; }
+.brand-85c { background: #d8242e; color: #fff; }
+.brand-85c span { font-size: 17px; }
+.brand-dante { background: #742b21; color: #fff; }
+.brand-dante span { font-family: Georgia, serif; font-size: 22px; }
+.brand-mrbrown { background: #f3d6a5; color: #4e2d18; }
+.brand-mrbrown span { font-size: 11px; }
+.brand-komeda { background: #c8312b; color: #fff; }
+.brand-komeda span { font-family: Georgia, serif; font-size: 23px; }
+
+.brand-50lan { background: #ffd900; color: #171717; }
+.brand-50lan span { font-size: 12px; }
+.brand-kebuke { background: #173f32; color: #f4ead8; }
+.brand-kebuke span { font-family: serif; font-size: 22px; }
+.brand-milksha { background: #78badc; color: #fff; }
+.brand-milksha span { font-size: 21px; }
+.brand-chingshin { background: #177c42; color: #fff; }
+.brand-chingshin span { font-size: 21px; }
+.brand-coco { background: #f38b24; color: #fff; }
+.brand-coco span { font-size: 11px; }
+.brand-macu { background: #bb2a27; color: #fff; }
+.brand-macu span { font-size: 10px; }
+.brand-dejeng { background: #234f8b; color: #fff; }
+.brand-dejeng span { font-size: 21px; }
+.brand-yimu { background: #e6d9bd; color: #3c3028; }
+.brand-yimu span { font-family: serif; font-size: 21px; }
+.brand-gongcha { background: #b6252d; color: #fff; }
+.brand-gongcha span { font-size: 21px; }
 
 .place-info {
   min-width: 0;
