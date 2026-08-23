@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Drink Nearby V0.4</title>
+  <title>Drink Nearby V0.5</title>
 
   <link
     href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css"
@@ -16,7 +16,7 @@
   <div class="app-shell">
     <header class="topbar">
       <div>
-        <p class="eyebrow">DRINK NEARBY · V0.4</p>
+        <p class="eyebrow">DRINK NEARBY · V0.5</p>
         <h1>現在最快去哪裡喝？</h1>
       </div>
       <button id="locateBtn" class="icon-button" type="button" title="回到我的位置" aria-label="回到我的位置">
@@ -55,10 +55,35 @@
     </section>
 
     <section class="status-card" aria-live="polite">
-      <div class="status-dot" id="statusDot"></div>
-      <div>
-        <strong id="statusTitle">等待定位</strong>
-        <p id="statusText">允許瀏覽器取得位置，或直接搜尋想先查看的地點。</p>
+      <div class="status-main">
+        <div class="status-dot" id="statusDot"></div>
+        <div>
+          <strong id="statusTitle">等待定位</strong>
+          <p id="statusText">允許瀏覽器取得位置，或直接搜尋想先查看的地點。</p>
+        </div>
+      </div>
+      <button id="saveCenterBtn" class="save-center-button" type="button" disabled>
+        ☆ 常用地點
+      </button>
+    </section>
+
+    <section class="favorites-panel" aria-label="我的常用">
+      <div class="favorites-heading">
+        <div>
+          <p class="eyebrow">FAVORITES</p>
+          <h2 class="favorites-title">我的常用</h2>
+        </div>
+        <span class="favorites-note">儲存在這個瀏覽器</span>
+      </div>
+
+      <div class="favorites-group">
+        <div class="favorites-group-title">常用地點</div>
+        <div id="favoriteLocations" class="favorite-chips"></div>
+      </div>
+
+      <div class="favorites-group">
+        <div class="favorites-group-title">常去店家</div>
+        <div id="favoriteStores" class="favorite-store-list"></div>
       </div>
     </section>
 
@@ -97,8 +122,37 @@
     </main>
 
     <footer>
-      V0.4 地點資料來自 OpenStreetMap / Overpass；結果卡片會辨識常見超商、連鎖咖啡與手搖品牌並顯示品牌圖示；圖示為本站簡化識別圖，不代表品牌官方 Logo。地點搜尋由 OpenStreetMap Nominatim 提供；地圖來自 OpenFreeMap。資料可能不完整。
+      V0.5 地點資料來自 OpenStreetMap / Overpass；常用地點與常去店家目前只儲存在這個瀏覽器的 localStorage，不會跨裝置同步。結果卡片會辨識常見品牌並盡量以「品牌＋分店／地點」完整顯示；資料仍可能不完整。
     </footer>
+  </div>
+
+
+  <div id="favoriteLocationModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="favoriteLocationModalTitle">
+    <div class="modal-card">
+      <div class="modal-heading">
+        <div>
+          <p class="eyebrow">SAVE PLACE</p>
+          <h3 id="favoriteLocationModalTitle">儲存常用地點</h3>
+        </div>
+        <button id="closeFavoriteLocationModal" class="modal-close" type="button" aria-label="關閉">×</button>
+      </div>
+
+      <label class="field-label" for="favoriteLocationName">這個地點要叫什麼？</label>
+      <input id="favoriteLocationName" class="modal-input" type="text" maxlength="30" placeholder="例如：家裡、公司、球場" />
+
+      <div class="quick-labels" aria-label="快速名稱">
+        <button type="button" data-quick-label="家裡">🏠 家裡</button>
+        <button type="button" data-quick-label="公司">💼 公司</button>
+        <button type="button" data-quick-label="學校">🎓 學校</button>
+        <button type="button" data-quick-label="球場">🏀 球場</button>
+        <button type="button" data-quick-label="健身房">🏋️ 健身房</button>
+      </div>
+
+      <div class="modal-actions">
+        <button id="cancelFavoriteLocation" class="secondary-action" type="button">取消</button>
+        <button id="confirmFavoriteLocation" class="primary-action" type="button">儲存</button>
+      </div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>

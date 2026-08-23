@@ -4,6 +4,9 @@ const DEFAULT_CENTER = { lat: 25.0478, lng: 121.5170 }; // 台北車站
 const NOMINATIM_ENDPOINT = "https://nominatim.openstreetmap.org/search";
 const GEOCODE_MIN_INTERVAL_MS = 1100;
 
+const FAVORITE_STORES_KEY = "drinkNearby.favoriteStores.v1";
+const FAVORITE_LOCATIONS_KEY = "drinkNearby.favoriteLocations.v1";
+
 // 免費公共 Overpass 服務僅適合 MVP / 小型測試。
 // 主站失敗時會自動切換到備援站。
 const OVERPASS_ENDPOINTS = [
@@ -17,7 +20,7 @@ const TYPE_CONFIG = {
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
 };
 
-// V0.4：品牌識別。
+// V0.5：品牌識別。
 // 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
 // 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
 const BRAND_CONFIG = {
@@ -57,6 +60,8 @@ let requestController = null;
 let geocodeController = null;
 let geocodeLastRequestAt = 0;
 let centerIntentVersion = 0;
+let favoriteStores = loadLocalArray(FAVORITE_STORES_KEY);
+let favoriteLocations = loadLocalArray(FAVORITE_LOCATIONS_KEY);
 
 const geocodeCache = new Map();
 
@@ -84,6 +89,14 @@ const els = {
   countConvenience: document.getElementById("countConvenience"),
   countCoffee: document.getElementById("countCoffee"),
   countBubbleTea: document.getElementById("countBubbleTea"),
+  saveCenterBtn: document.getElementById("saveCenterBtn"),
+  favoriteLocations: document.getElementById("favoriteLocations"),
+  favoriteStores: document.getElementById("favoriteStores"),
+  favoriteLocationModal: document.getElementById("favoriteLocationModal"),
+  favoriteLocationName: document.getElementById("favoriteLocationName"),
+  closeFavoriteLocationModal: document.getElementById("closeFavoriteLocationModal"),
+  cancelFavoriteLocation: document.getElementById("cancelFavoriteLocation"),
+  confirmFavoriteLocation: document.getElementById("confirmFavoriteLocation"),
 };
 
 function initMap() {
@@ -166,6 +179,8 @@ function locateUser() {
 
 async function setActiveCenter(center) {
   activeCenter = center;
+  els.saveCenterBtn.disabled = false;
+  updateSaveCenterButton();
 
   if (center.mode === "current") {
     removeCenterMarker();
@@ -499,7 +514,8 @@ function parseOverpassElements(elements, centerLat, centerLng) {
 
       if (!Number.isFinite(lat) || !Number.isFinite(lng) || !type) return null;
 
-      const name = getPlaceName(tags, type);
+      const brandKey = detectBrand(tags, type);
+      const name = getPlaceDisplayName(tags, type, brandKey);
       const distance = haversineMeters(centerLat, centerLng, lat, lng);
       const minutes = Math.max(1, Math.ceil(distance / 80));
 
@@ -517,7 +533,8 @@ function parseOverpassElements(elements, centerLat, centerLng) {
         brand: tags.brand || "",
         operator: tags.operator || "",
         coffeeBrand: type === "coffee" ? getCoffeeBrand(tags) : "",
-        brandKey: detectBrand(tags, type),
+        brandKey,
+        branchName: getBranchName(tags, brandKey, type),
         tags,
       };
     })
@@ -601,14 +618,93 @@ function getCoffeeBrand(tags) {
   return "";
 }
 
-function getPlaceName(tags, type) {
-  if (tags.name) return tags.name;
-  if (tags.brand) return tags.brand;
-  if (tags.operator) return tags.operator;
+function getPlaceDisplayName(tags, type, brandKey) {
+  const brandLabel = BRAND_CONFIG[brandKey]?.label || "";
+  const branch = getBranchName(tags, brandKey, type);
+
+  if (brandLabel && branch) {
+    return `${brandLabel} ${formatBranchSuffix(branch, type)}`;
+  }
+
+  if (brandLabel) return brandLabel;
+  if (tags.name) return String(tags.name).trim();
+  if (tags.brand) return String(tags.brand).trim();
+  if (tags.operator) return String(tags.operator).trim();
 
   if (type === "coffee") return "連鎖咖啡";
   if (type === "convenience") return "便利商店";
   return "手搖／飲料店";
+}
+
+function getBranchName(tags, brandKey, type) {
+  const explicitBranch = String(tags.branch || "").trim();
+  if (explicitBranch) return cleanBranchText(explicitBranch);
+
+  const rawName = String(tags.name || "").trim();
+  if (!rawName || !brandKey) return "";
+
+  const stripped = stripBrandFromName(rawName, brandKey);
+  if (!stripped) return "";
+
+  const normalizedRaw = normalizeBrandText(rawName);
+  const normalizedBrand = normalizeBrandText(BRAND_CONFIG[brandKey]?.label || "");
+  if (normalizedRaw === normalizedBrand) return "";
+
+  return cleanBranchText(stripped);
+}
+
+function stripBrandFromName(value, brandKey) {
+  const patterns = {
+    "7eleven": /(7[\s-]?ELEVEN|SEVEN[\s-]?ELEVEN|統一超商)/ig,
+    familymart: /(FamilyMart|全家便利商店|全家)/ig,
+    hilife: /(Hi[\s-]?Life|萊爾富)/ig,
+    okmart: /(OK[\s-]?(Mart|便利商店|超商)|來來超商)/ig,
+    starbucks: /(Starbucks|星巴克)/ig,
+    louisa: /(Louisa(?:\s+Coffee)?|路易莎(?:咖啡)?)/ig,
+    cama: /(cama(?:\s+café)?)/ig,
+    "85c": /(85\s*°?\s*[CcＣｃ]|85度[CＣ])/ig,
+    dante: /(Dante|丹堤(?:咖啡)?)/ig,
+    mrbrown: /(Mr\.?\s*Brown|伯朗(?:咖啡)?)/ig,
+    komeda: /(Komeda|客美多)/ig,
+    "50lan": /(50嵐|五十嵐|50lan)/ig,
+    kebuke: /(可不可(?:熟成紅茶)?|KEBUKE)/ig,
+    milksha: /(迷客夏|Milksha)/ig,
+    chingshin: /(清心福全|清心|Ching\s*Shin)/ig,
+    coco: /(CoCo(?:都可)?|CoCo Fresh Tea)/ig,
+    macu: /(麻古(?:茶坊)?|MACU)/ig,
+    dejeng: /(得正|DEJENG(?:1923)?)/ig,
+    yimu: /(一沐日|YIMURI|Yi Mu Ri)/ig,
+    gongcha: /(貢茶|Gong\s*Cha|Gongcha)/ig,
+  };
+
+  const pattern = patterns[brandKey];
+  if (!pattern) return value;
+
+  return value
+    .replace(pattern, " ")
+    .replace(/[｜|·•／/\\—–_-]+/g, " ")
+    .replace(/[()（）【】\[\]]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function cleanBranchText(value) {
+  return String(value || "")
+    .replace(/^[-–—·•｜|／/\s]+|[-–—·•｜|／/\s]+$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function formatBranchSuffix(branch, type) {
+  const value = cleanBranchText(branch);
+  if (!value) return "";
+
+  if (/(門市|分店|店$|店舖|旗艦店|概念店|直營店|直營)$/.test(value)) {
+    return value;
+  }
+
+  if (type === "convenience") return `${value}門市`;
+  return `${value}店`;
 }
 
 function dedupePlaces(items) {
@@ -732,6 +828,7 @@ function renderResults(items) {
       const config = TYPE_CONFIG[place.type];
       const navigationUrl = buildGoogleMapsUrl(place);
       const openingText = place.openingHours === "24/7" ? " · 24 小時" : "";
+      const favorite = isFavoriteStore(place.id);
 
       return `
         <article class="place-card" id="card-${escapeAttr(place.id)}">
@@ -744,17 +841,262 @@ function renderResults(items) {
               · 約 ${place.minutes} 分鐘${openingText}
             </p>
           </div>
-          <a
-            class="nav-button"
-            href="${navigationUrl}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="導航到 ${escapeAttr(place.name)}"
-          >導航 ↗</a>
+          <div class="place-actions">
+            <button
+              class="favorite-store-button ${favorite ? "active" : ""}"
+              type="button"
+              data-favorite-store-id="${escapeAttr(place.id)}"
+              aria-label="${favorite ? "取消常去店家" : "加入常去店家"}：${escapeAttr(place.name)}"
+              title="${favorite ? "取消常用" : "加入常用"}"
+            >${favorite ? "★" : "☆"}</button>
+            <a
+              class="nav-button"
+              href="${navigationUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="導航到 ${escapeAttr(place.name)}"
+            >導航 ↗</a>
+          </div>
         </article>
       `;
     })
     .join("");
+}
+
+
+function loadLocalArray(key) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key) || "[]");
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveLocalArray(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.warn("localStorage save failed:", error);
+  }
+}
+
+function isFavoriteStore(id) {
+  return favoriteStores.some((item) => item.id === id);
+}
+
+function toggleFavoriteStore(place) {
+  const existingIndex = favoriteStores.findIndex((item) => item.id === place.id);
+
+  if (existingIndex >= 0) {
+    favoriteStores.splice(existingIndex, 1);
+  } else {
+    favoriteStores.unshift({
+      id: place.id,
+      name: place.name,
+      brandKey: place.brandKey || "",
+      type: place.type,
+      lat: place.lat,
+      lng: place.lng,
+      savedAt: new Date().toISOString(),
+    });
+  }
+
+  saveLocalArray(FAVORITE_STORES_KEY, favoriteStores);
+  renderFavorites();
+  applyFilter(activeFilter);
+}
+
+function getLocationFavoriteId(lat, lng) {
+  return `location:${Number(lat).toFixed(6)},${Number(lng).toFixed(6)}`;
+}
+
+function isActiveCenterFavorite() {
+  if (!activeCenter) return false;
+  const id = getLocationFavoriteId(activeCenter.lat, activeCenter.lng);
+  return favoriteLocations.some((item) => item.id === id);
+}
+
+function updateSaveCenterButton() {
+  if (!els.saveCenterBtn) return;
+
+  if (!activeCenter) {
+    els.saveCenterBtn.disabled = true;
+    els.saveCenterBtn.textContent = "☆ 常用地點";
+    return;
+  }
+
+  els.saveCenterBtn.disabled = false;
+  els.saveCenterBtn.textContent = isActiveCenterFavorite()
+    ? "★ 已存常用"
+    : "☆ 常用地點";
+  els.saveCenterBtn.classList.toggle("active", isActiveCenterFavorite());
+}
+
+function openFavoriteLocationModal() {
+  if (!activeCenter) return;
+
+  const existingId = getLocationFavoriteId(activeCenter.lat, activeCenter.lng);
+  const existing = favoriteLocations.find((item) => item.id === existingId);
+
+  els.favoriteLocationName.value =
+    existing?.label ||
+    (activeCenter.label && activeCenter.label !== "我的位置"
+      ? activeCenter.label
+      : "");
+
+  els.favoriteLocationModal.classList.remove("hidden");
+  setTimeout(() => els.favoriteLocationName.focus(), 30);
+}
+
+function closeFavoriteLocationModal() {
+  els.favoriteLocationModal.classList.add("hidden");
+}
+
+function saveActiveCenterFavorite() {
+  if (!activeCenter) return;
+
+  const label = els.favoriteLocationName.value.trim();
+  if (!label) {
+    els.favoriteLocationName.focus();
+    return;
+  }
+
+  const id = getLocationFavoriteId(activeCenter.lat, activeCenter.lng);
+  const item = {
+    id,
+    label,
+    lat: activeCenter.lat,
+    lng: activeCenter.lng,
+    detail: activeCenter.detail || "",
+    savedAt: new Date().toISOString(),
+  };
+
+  const index = favoriteLocations.findIndex((location) => location.id === id);
+  if (index >= 0) {
+    favoriteLocations[index] = item;
+  } else {
+    favoriteLocations.unshift(item);
+  }
+
+  saveLocalArray(FAVORITE_LOCATIONS_KEY, favoriteLocations);
+  closeFavoriteLocationModal();
+  renderFavorites();
+  updateSaveCenterButton();
+}
+
+function removeFavoriteLocation(id) {
+  favoriteLocations = favoriteLocations.filter((item) => item.id !== id);
+  saveLocalArray(FAVORITE_LOCATIONS_KEY, favoriteLocations);
+  renderFavorites();
+  updateSaveCenterButton();
+}
+
+function removeFavoriteStore(id) {
+  favoriteStores = favoriteStores.filter((item) => item.id !== id);
+  saveLocalArray(FAVORITE_STORES_KEY, favoriteStores);
+  renderFavorites();
+  applyFilter(activeFilter);
+}
+
+async function openFavoriteLocation(id) {
+  const location = favoriteLocations.find((item) => item.id === id);
+  if (!location) return;
+
+  centerIntentVersion += 1;
+  closeGeocodePanel();
+  els.searchInput.value = location.label;
+
+  await setActiveCenter({
+    lat: location.lat,
+    lng: location.lng,
+    label: location.label,
+    mode: "favorite-location",
+    detail: location.detail || "從常用地點開啟",
+  });
+}
+
+async function openFavoriteStore(id) {
+  const store = favoriteStores.find((item) => item.id === id);
+  if (!store) return;
+
+  centerIntentVersion += 1;
+  closeGeocodePanel();
+  els.searchInput.value = store.name;
+
+  await setActiveCenter({
+    lat: store.lat,
+    lng: store.lng,
+    label: store.name,
+    mode: "favorite-store",
+    detail: "從常去店家開啟；以下顯示這家店附近的結果。",
+  });
+}
+
+function renderFavorites() {
+  if (!favoriteLocations.length) {
+    els.favoriteLocations.innerHTML =
+      '<span class="favorite-empty">尚未加入常用地點</span>';
+  } else {
+    els.favoriteLocations.innerHTML = favoriteLocations
+      .map(
+        (location) => `
+          <div class="favorite-chip-wrap">
+            <button
+              class="favorite-chip"
+              type="button"
+              data-open-location="${escapeAttr(location.id)}"
+            >📍 ${escapeHtml(location.label)}</button>
+            <button
+              class="favorite-remove"
+              type="button"
+              data-remove-location="${escapeAttr(location.id)}"
+              aria-label="移除 ${escapeAttr(location.label)}"
+            >×</button>
+          </div>
+        `
+      )
+      .join("");
+  }
+
+  if (!favoriteStores.length) {
+    els.favoriteStores.innerHTML =
+      '<span class="favorite-empty">尚未加入常去店家；在搜尋結果按 ☆ 即可收藏</span>';
+  } else {
+    els.favoriteStores.innerHTML = favoriteStores
+      .map((store) => {
+        const typeIcon = TYPE_CONFIG[store.type]?.icon || "📍";
+        const nav = buildGoogleMapsUrl(store);
+
+        return `
+          <article class="favorite-store-card">
+            <button
+              class="favorite-store-main"
+              type="button"
+              data-open-store="${escapeAttr(store.id)}"
+              title="查看 ${escapeAttr(store.name)} 附近"
+            >
+              <span class="favorite-store-icon">${typeIcon}</span>
+              <span class="favorite-store-name">${escapeHtml(store.name)}</span>
+            </button>
+            <a
+              class="favorite-store-nav"
+              href="${nav}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="導航到 ${escapeAttr(store.name)}"
+            >↗</a>
+            <button
+              class="favorite-store-remove"
+              type="button"
+              data-remove-store="${escapeAttr(store.id)}"
+              aria-label="移除 ${escapeAttr(store.name)}"
+            >×</button>
+          </article>
+        `;
+      })
+      .join("");
+  }
 }
 
 function buildGoogleMapsUrl(place) {
@@ -814,6 +1156,56 @@ function bindEvents() {
   els.startBtn.addEventListener("click", locateUser);
   els.searchForm.addEventListener("submit", handleLocationSearch);
   els.closeGeocodeBtn.addEventListener("click", closeGeocodePanel);
+  els.saveCenterBtn.addEventListener("click", openFavoriteLocationModal);
+  els.closeFavoriteLocationModal.addEventListener("click", closeFavoriteLocationModal);
+  els.cancelFavoriteLocation.addEventListener("click", closeFavoriteLocationModal);
+  els.confirmFavoriteLocation.addEventListener("click", saveActiveCenterFavorite);
+
+  document.querySelectorAll("[data-quick-label]").forEach((button) => {
+    button.addEventListener("click", () => {
+      els.favoriteLocationName.value = button.dataset.quickLabel || "";
+      els.favoriteLocationName.focus();
+    });
+  });
+
+  els.favoriteLocationName.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") saveActiveCenterFavorite();
+    if (event.key === "Escape") closeFavoriteLocationModal();
+  });
+
+  els.favoriteLocationModal.addEventListener("click", (event) => {
+    if (event.target === els.favoriteLocationModal) closeFavoriteLocationModal();
+  });
+
+  els.results.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-favorite-store-id]");
+    if (!button) return;
+
+    const place = places.find((item) => item.id === button.dataset.favoriteStoreId);
+    if (place) toggleFavoriteStore(place);
+  });
+
+  els.favoriteLocations.addEventListener("click", async (event) => {
+    const removeButton = event.target.closest("[data-remove-location]");
+    if (removeButton) {
+      removeFavoriteLocation(removeButton.dataset.removeLocation);
+      return;
+    }
+
+    const openButton = event.target.closest("[data-open-location]");
+    if (openButton) await openFavoriteLocation(openButton.dataset.openLocation);
+  });
+
+  els.favoriteStores.addEventListener("click", async (event) => {
+    const removeButton = event.target.closest("[data-remove-store]");
+    if (removeButton) {
+      removeFavoriteStore(removeButton.dataset.removeStore);
+      return;
+    }
+
+    const openButton = event.target.closest("[data-open-store]");
+    if (openButton) await openFavoriteStore(openButton.dataset.openStore);
+  });
 
   els.taipeiTestBtn.addEventListener("click", async () => {
     centerIntentVersion += 1;
@@ -836,6 +1228,8 @@ function bindEvents() {
 
 initMap();
 bindEvents();
+renderFavorites();
+updateSaveCenterButton();
 
 // 首次進站仍自動嘗試定位；使用者若開始搜尋，搜尋意圖會優先，不會被稍後完成的 GPS 搶回畫面。
 window.addEventListener("load", () => {

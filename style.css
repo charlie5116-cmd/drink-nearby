@@ -673,3 +673,345 @@ footer {
     gap: 10px;
   }
 }
+
+
+/* ---------- V0.5 常用 ---------- */
+.status-card {
+  justify-content: space-between;
+}
+
+.status-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.save-center-button {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: #4e554f;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.save-center-button.active {
+  border-color: #d7b02f;
+  background: #fff8d8;
+  color: #7c6214;
+}
+
+.save-center-button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.favorites-panel {
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.favorites-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+}
+
+.favorites-title {
+  font-size: 18px;
+}
+
+.favorites-note {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.favorites-group + .favorites-group {
+  margin-top: 11px;
+}
+
+.favorites-group-title {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.favorite-chips {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.favorite-chips::-webkit-scrollbar,
+.favorite-store-list::-webkit-scrollbar {
+  display: none;
+}
+
+.favorite-chip-wrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.favorite-chip,
+.favorite-remove {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.favorite-chip {
+  padding: 8px 8px 8px 11px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.favorite-remove {
+  padding: 7px 9px 7px 5px;
+  color: #8c928c;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.favorite-store-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.favorite-store-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  flex: 0 0 min(280px, 85vw);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+}
+
+.favorite-store-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 9px 8px 9px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.favorite-store-icon {
+  flex: 0 0 auto;
+  font-size: 18px;
+}
+
+.favorite-store-name {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-store-nav,
+.favorite-store-remove {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 100%;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.favorite-store-remove {
+  color: #8c928c;
+  font-size: 17px;
+}
+
+.favorite-empty {
+  color: #979d97;
+  font-size: 11px;
+}
+
+/* 完整店名：V0.4 原本會單行省略，V0.5 改成完整換行。 */
+.place-name {
+  overflow: visible;
+  line-height: 1.35;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.place-actions {
+  display: grid;
+  justify-items: end;
+  gap: 7px;
+}
+
+.favorite-store-button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: #7c837d;
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.favorite-store-button.active {
+  border-color: #e3c04c;
+  background: #fff7cf;
+  color: #92710b;
+}
+
+/* ---------- V0.5 儲存地點 Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(10, 13, 10, 0.44);
+  backdrop-filter: blur(7px);
+}
+
+.modal-card {
+  width: min(100%, 390px);
+  padding: 18px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.modal-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-heading h3 {
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.modal-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  outline: none;
+  font-size: 15px;
+}
+
+.modal-input:focus {
+  border-color: #aeb5ad;
+  box-shadow: 0 0 0 3px rgba(23, 26, 23, 0.06);
+}
+
+.quick-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.quick-labels button {
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f8f9f7;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.primary-action,
+.secondary-action {
+  height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.primary-action {
+  border: 1px solid #171a17;
+  background: #171a17;
+  color: #fff;
+}
+
+.secondary-action {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+}
+
+@media (max-width: 520px) {
+  .status-card {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .save-center-button {
+    padding-inline: 8px;
+  }
+
+  .place-card {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+}
