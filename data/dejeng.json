@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "brand": "得正",
+    "brand_id": "dejeng",
+    "source": "dejeng_official_dom",
+    "synced_at": null,
+    "store_count": 0,
+    "note": "Run GitHub Action 'Sync Dejeng Stores' to populate this file."
+  },
+  "districts": [],
+  "stores": []
+}
