@@ -4,11 +4,13 @@
     "brand_id": "dejeng",
     "source": "dejeng_official_dom",
     "source_page": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-    "synced_at": "2026-08-23T04:54:02.418Z",
+    "synced_at": "2026-08-23T07:14:06.065Z",
     "district_count": 19,
     "raw_store_count": 210,
     "store_count": 210,
-    "note": "V2 使用 Playwright 讀取官方頁面 client-render 後的 DOM。lat/lng 尚未處理。"
+    "geocoded_count": 0,
+    "missing_coordinates": 210,
+    "geocoding_updated_at": "2026-08-23T09:04:40.829Z"
   },
   "districts": [
     {
@@ -101,8 +103,13 @@
       "phone": "02-23510069",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:14:22.576Z"
     },
     {
       "id": "dejeng:北車信陽",
@@ -116,8 +123,13 @@
       "phone": "02-23110977",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:14:55.367Z"
     },
     {
       "id": "dejeng:台北雙連",
@@ -131,8 +143,13 @@
       "phone": "02-25508775",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:15:27.139Z"
     },
     {
       "id": "dejeng:台北延三",
@@ -146,8 +163,13 @@
       "phone": "02-25350722",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:15:58.771Z"
     },
     {
       "id": "dejeng:台北大直",
@@ -161,8 +183,13 @@
       "phone": "02-25320255",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:16:30.133Z"
     },
     {
       "id": "dejeng:台北松江",
@@ -176,8 +203,13 @@
       "phone": "02-25176377",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:17:01.735Z"
     },
     {
       "id": "dejeng:新光南西(直營)",
@@ -191,8 +223,13 @@
       "phone": "02-25428152",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:17:33.554Z"
     },
     {
       "id": "dejeng:台北晴光",
@@ -206,8 +243,13 @@
       "phone": "02-25911198",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:18:05.336Z"
     },
     {
       "id": "dejeng:台北遼寧",
@@ -221,8 +263,13 @@
       "phone": "02-27111270",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:18:39.185Z"
     },
     {
       "id": "dejeng:南京三民",
@@ -236,8 +283,13 @@
       "phone": "02-37656989",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:19:10.854Z"
     },
     {
       "id": "dejeng:台北古亭",
@@ -251,8 +303,13 @@
       "phone": "02-23918746",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:19:42.326Z"
     },
     {
       "id": "dejeng:台北大安",
@@ -266,8 +323,13 @@
       "phone": "02-27755223",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:20:13.784Z"
     },
     {
       "id": "dejeng:科技大樓",
@@ -281,8 +343,13 @@
       "phone": "02-27080672",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:20:45.488Z"
     },
     {
       "id": "dejeng:台北龍山寺",
@@ -296,8 +363,13 @@
       "phone": "02-23020217",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:21:17.118Z"
     },
     {
       "id": "dejeng:台北西門",
@@ -311,8 +383,13 @@
       "phone": "02-23888166",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:21:48.714Z"
     },
     {
       "id": "dejeng:台北世貿",
@@ -326,8 +403,13 @@
       "phone": "02-27208200",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:22:20.329Z"
     },
     {
       "id": "dejeng:新光A8(直營)",
@@ -341,8 +423,13 @@
       "phone": "02-27225457",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:22:51.873Z"
     },
     {
       "id": "dejeng:台北虎林",
@@ -356,8 +443,13 @@
       "phone": "02-87869896",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:23:23.539Z"
     },
     {
       "id": "dejeng:台北士林",
@@ -371,8 +463,13 @@
       "phone": "02-28837744",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:23:55.210Z"
     },
     {
       "id": "dejeng:天母德行",
@@ -386,8 +483,13 @@
       "phone": "02-28380370",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:24:26.997Z"
     },
     {
       "id": "dejeng:石牌裕民",
@@ -401,8 +503,13 @@
       "phone": "02-28230611",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:24:58.479Z"
     },
     {
       "id": "dejeng:台北西湖",
@@ -416,8 +523,13 @@
       "phone": "02-26275355",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:25:29.944Z"
     },
     {
       "id": "dejeng:內湖江南",
@@ -431,8 +543,13 @@
       "phone": "02-26598379",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:26:01.613Z"
     },
     {
       "id": "dejeng:台北東湖",
@@ -446,8 +563,13 @@
       "phone": "02-26333533",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:26:33.193Z"
     },
     {
       "id": "dejeng:內湖康寧",
@@ -461,8 +583,13 @@
       "phone": "02-27940520",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:27:04.598Z"
     },
     {
       "id": "dejeng:台北公館",
@@ -476,8 +603,13 @@
       "phone": "02-23683130",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:27:36.314Z"
     },
     {
       "id": "dejeng:台北昆陽",
@@ -491,8 +623,13 @@
       "phone": "02-26516668",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:28:08.002Z"
     },
     {
       "id": "dejeng:台北南港",
@@ -506,8 +643,13 @@
       "phone": "02-26513860",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:28:39.490Z"
     },
     {
       "id": "dejeng:台北木新",
@@ -521,8 +663,13 @@
       "phone": "02-29390285",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:29:11.176Z"
     },
     {
       "id": "dejeng:台北政大",
@@ -536,8 +683,13 @@
       "phone": "02-29360658",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:29:42.666Z"
     },
     {
       "id": "dejeng:台北萬芳",
@@ -551,8 +703,13 @@
       "phone": "02-26667709",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
+      "geocode_last_failed_at": "2026-08-23T07:30:14.168Z"
     },
     {
       "id": "dejeng:基隆廟口",
@@ -566,8 +723,13 @@
       "phone": "02-24286877",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung",
+      "geocode_last_failed_at": "2026-08-23T07:30:45.796Z"
     },
     {
       "id": "dejeng:基隆海大",
@@ -581,8 +743,13 @@
       "phone": "02-24621016",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung",
+      "geocode_last_failed_at": "2026-08-23T07:31:17.431Z"
     },
     {
       "id": "dejeng:板橋中山",
@@ -596,8 +763,13 @@
       "phone": "02-29559899",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:31:49.120Z"
     },
     {
       "id": "dejeng:板橋莒光",
@@ -611,8 +783,13 @@
       "phone": "02-89696663",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:32:20.787Z"
     },
     {
       "id": "dejeng:板橋新民",
@@ -626,8 +803,13 @@
       "phone": "02-29523618",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:32:52.393Z"
     },
     {
       "id": "dejeng:汐止中興",
@@ -641,8 +823,13 @@
       "phone": "02-26955058",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:33:23.967Z"
     },
     {
       "id": "dejeng:汐止忠孝",
@@ -656,8 +843,13 @@
       "phone": "02-26903392",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:33:55.665Z"
     },
     {
       "id": "dejeng:新店區公所",
@@ -671,8 +863,13 @@
       "phone": "02-89118085",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:34:27.324Z"
     },
     {
       "id": "dejeng:新店大坪林",
@@ -686,8 +883,13 @@
       "phone": "02-86656100",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:34:58.791Z"
     },
     {
       "id": "dejeng:永和樂華",
@@ -701,8 +903,13 @@
       "phone": "02-86600158",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:35:30.350Z"
     },
     {
       "id": "dejeng:永和得和",
@@ -716,8 +923,13 @@
       "phone": "02-29264951",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:36:02.099Z"
     },
     {
       "id": "dejeng:中和環球",
@@ -731,8 +943,13 @@
       "phone": "02-22219830",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:36:33.586Z"
     },
     {
       "id": "dejeng:中和員山",
@@ -746,8 +963,13 @@
       "phone": "02-22236536",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:37:05.274Z"
     },
     {
       "id": "dejeng:中和南勢角",
@@ -761,8 +983,13 @@
       "phone": "02-89410199",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:37:36.630Z"
     },
     {
       "id": "dejeng:土城中央",
@@ -776,8 +1003,13 @@
       "phone": "02-82616116",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:38:08.228Z"
     },
     {
       "id": "dejeng:土城裕民",
@@ -791,8 +1023,13 @@
       "phone": "02-82620299",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:38:39.920Z"
     },
     {
       "id": "dejeng:三峽文化",
@@ -806,8 +1043,13 @@
       "phone": "02-86717086",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:39:11.295Z"
     },
     {
       "id": "dejeng:樹林中山",
@@ -821,8 +1063,13 @@
       "phone": "02-86875007",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:39:43.029Z"
     },
     {
       "id": "dejeng:鶯歌建國",
@@ -836,8 +1083,13 @@
       "phone": "02-26788825",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:40:14.643Z"
     },
     {
       "id": "dejeng:三重徐匯",
@@ -851,8 +1103,13 @@
       "phone": "02-82839868",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:40:46.092Z"
     },
     {
       "id": "dejeng:三重正義",
@@ -866,8 +1123,13 @@
       "phone": "02-29885010",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:41:17.871Z"
     },
     {
       "id": "dejeng:新莊民安",
@@ -881,8 +1143,13 @@
       "phone": "02-22060608",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:41:49.435Z"
     },
     {
       "id": "dejeng:新莊輔大",
@@ -896,8 +1163,13 @@
       "phone": "02-29015775",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:42:23.049Z"
     },
     {
       "id": "dejeng:新莊新泰",
@@ -911,8 +1183,13 @@
       "phone": "02-29960087",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:42:54.709Z"
     },
     {
       "id": "dejeng:泰山明志",
@@ -926,8 +1203,13 @@
       "phone": "02-29012900",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:43:26.203Z"
     },
     {
       "id": "dejeng:林口三井",
@@ -941,8 +1223,13 @@
       "phone": "02-26069034",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:43:57.850Z"
     },
     {
       "id": "dejeng:林口文化",
@@ -956,8 +1243,13 @@
       "phone": "02-26008732",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:44:29.561Z"
     },
     {
       "id": "dejeng:蘆洲光華",
@@ -971,8 +1263,13 @@
       "phone": "02-82857455",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:45:01.268Z"
     },
     {
       "id": "dejeng:淡水英專",
@@ -986,8 +1283,13 @@
       "phone": "02-26228877",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T07:45:32.830Z"
     },
     {
       "id": "dejeng:宜蘭中山",
@@ -1001,8 +1303,13 @@
       "phone": "03-9327700",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
+      "geocode_last_failed_at": "2026-08-23T07:46:04.431Z"
     },
     {
       "id": "dejeng:礁溪中山",
@@ -1016,8 +1323,13 @@
       "phone": "03-9880803",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
+      "geocode_last_failed_at": "2026-08-23T07:46:36.063Z"
     },
     {
       "id": "dejeng:宜蘭羅東",
@@ -1031,8 +1343,13 @@
       "phone": "03-9545077",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
+      "geocode_last_failed_at": "2026-08-23T07:47:07.767Z"
     },
     {
       "id": "dejeng:新竹民生",
@@ -1046,8 +1363,13 @@
       "phone": "03-5353070",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:47:39.572Z"
     },
     {
       "id": "dejeng:新竹光復",
@@ -1061,8 +1383,13 @@
       "phone": "03-5770297",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:48:11.239Z"
     },
     {
       "id": "dejeng:新竹香山",
@@ -1076,8 +1403,13 @@
       "phone": "03-5300678",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:48:42.711Z"
     },
     {
       "id": "dejeng:竹北勝利",
@@ -1091,8 +1423,13 @@
       "phone": "03-6588467",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:49:14.197Z"
     },
     {
       "id": "dejeng:竹北博愛",
@@ -1106,8 +1443,13 @@
       "phone": "03-5535708",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:49:45.936Z"
     },
     {
       "id": "dejeng:新竹湖口",
@@ -1121,8 +1463,13 @@
       "phone": "03-5901936",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:50:17.581Z"
     },
     {
       "id": "dejeng:新竹新豐",
@@ -1136,8 +1483,13 @@
       "phone": "03-5578887",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:50:49.067Z"
     },
     {
       "id": "dejeng:新竹寶山",
@@ -1151,8 +1503,13 @@
       "phone": "03-5200938",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:51:20.437Z"
     },
     {
       "id": "dejeng:新竹竹東",
@@ -1166,8 +1523,13 @@
       "phone": "03-5102061",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
+      "geocode_last_failed_at": "2026-08-23T07:51:52.121Z"
     },
     {
       "id": "dejeng:中壢中原",
@@ -1181,8 +1543,13 @@
       "phone": "03-4566668",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:52:23.851Z"
     },
     {
       "id": "dejeng:內壢忠孝",
@@ -1196,8 +1563,13 @@
       "phone": "03-4510258",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:52:55.648Z"
     },
     {
       "id": "dejeng:桃園青埔",
@@ -1211,8 +1583,13 @@
       "phone": "03-2875855",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:53:27.305Z"
     },
     {
       "id": "dejeng:中壢新生",
@@ -1226,8 +1603,13 @@
       "phone": "03-4255086",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:53:58.880Z"
     },
     {
       "id": "dejeng:中壢龍岡",
@@ -1241,8 +1623,13 @@
       "phone": "籌備中",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:54:31.466Z"
     },
     {
       "id": "dejeng:桃園平鎮",
@@ -1256,8 +1643,13 @@
       "phone": "03-4031500",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:55:03.137Z"
     },
     {
       "id": "dejeng:桃園龍潭",
@@ -1271,8 +1663,13 @@
       "phone": "03-4809977",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:55:34.810Z"
     },
     {
       "id": "dejeng:楊梅大成",
@@ -1286,8 +1683,13 @@
       "phone": "03-4751312",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:56:06.304Z"
     },
     {
       "id": "dejeng:桃園新屋",
@@ -1301,8 +1703,13 @@
       "phone": "03-4775598",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:56:37.975Z"
     },
     {
       "id": "dejeng:桃園觀音",
@@ -1316,8 +1723,13 @@
       "phone": "03-4832223",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:57:09.588Z"
     },
     {
       "id": "dejeng:桃園龍安",
@@ -1331,8 +1743,13 @@
       "phone": "03-3708208",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:57:41.234Z"
     },
     {
       "id": "dejeng:桃園中興",
@@ -1346,8 +1763,13 @@
       "phone": "03-3202022",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:58:12.825Z"
     },
     {
       "id": "dejeng:林口長庚",
@@ -1361,8 +1783,13 @@
       "phone": "03-3286286",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:58:44.546Z"
     },
     {
       "id": "dejeng:八德桃鶯",
@@ -1376,8 +1803,13 @@
       "phone": "03-3631669",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:59:16.296Z"
     },
     {
       "id": "dejeng:八德廣福",
@@ -1391,8 +1823,13 @@
       "phone": "03-3665699",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T07:59:48.069Z"
     },
     {
       "id": "dejeng:桃園大溪",
@@ -1406,8 +1843,13 @@
       "phone": "03-3883897",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T08:00:20.066Z"
     },
     {
       "id": "dejeng:桃園大園",
@@ -1421,8 +1863,13 @@
       "phone": "03-3858558",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T08:00:51.505Z"
     },
     {
       "id": "dejeng:桃園大竹",
@@ -1436,8 +1883,13 @@
       "phone": "03-3136655",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T08:01:23.155Z"
     },
     {
       "id": "dejeng:桃園南崁",
@@ -1451,8 +1903,13 @@
       "phone": "03-3530345",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T08:01:54.616Z"
     },
     {
       "id": "dejeng:竹南博愛",
@@ -1466,8 +1923,13 @@
       "phone": "037-469997",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
+      "geocode_last_failed_at": "2026-08-23T08:02:26.241Z"
     },
     {
       "id": "dejeng:頭份建國",
@@ -1481,8 +1943,13 @@
       "phone": "037-597321",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
+      "geocode_last_failed_at": "2026-08-23T08:02:57.722Z"
     },
     {
       "id": "dejeng:苗栗苑裡",
@@ -1496,8 +1963,13 @@
       "phone": "037-866279",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
+      "geocode_last_failed_at": "2026-08-23T08:03:29.537Z"
     },
     {
       "id": "dejeng:苗栗府前",
@@ -1511,8 +1983,13 @@
       "phone": "037-366946",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
+      "geocode_last_failed_at": "2026-08-23T08:04:01.303Z"
     },
     {
       "id": "dejeng:苗栗公館",
@@ -1526,8 +2003,13 @@
       "phone": "037-228999",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
+      "geocode_last_failed_at": "2026-08-23T08:04:32.865Z"
     },
     {
       "id": "dejeng:台中復興",
@@ -1541,8 +2023,13 @@
       "phone": "04-22221266",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:05:04.369Z"
     },
     {
       "id": "dejeng:台中工學",
@@ -1556,8 +2043,13 @@
       "phone": "04-22605331",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:05:35.998Z"
     },
     {
       "id": "dejeng:勤美誠品(直營)",
@@ -1571,8 +2063,13 @@
       "phone": "04-23218401",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:06:07.300Z"
     },
     {
       "id": "dejeng:台中美村(直營)",
@@ -1586,8 +2083,13 @@
       "phone": "04-23011291",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:06:38.966Z"
     },
     {
       "id": "dejeng:台中中友(直營)",
@@ -1601,8 +2103,13 @@
       "phone": "04-22299461",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:07:10.432Z"
     },
     {
       "id": "dejeng:台中一中",
@@ -1616,8 +2123,13 @@
       "phone": "04-22298168",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:07:42.200Z"
     },
     {
       "id": "dejeng:台中學士",
@@ -1631,8 +2143,13 @@
       "phone": "04-22366905",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:08:13.896Z"
     },
     {
       "id": "dejeng:台中北平",
@@ -1646,8 +2163,13 @@
       "phone": "04-22376757",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:08:45.570Z"
     },
     {
       "id": "dejeng:台中昌平",
@@ -1661,8 +2183,13 @@
       "phone": "04-22431563",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:09:17.229Z"
     },
     {
       "id": "dejeng:台中東山",
@@ -1676,8 +2203,13 @@
       "phone": "04-24362192",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:09:48.854Z"
     },
     {
       "id": "dejeng:新光台中(直營)",
@@ -1691,8 +2223,13 @@
       "phone": "籌備中",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:10:20.499Z"
     },
     {
       "id": "dejeng:台中水湳",
@@ -1706,8 +2243,13 @@
       "phone": "04-22955057",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:10:52.257Z"
     },
     {
       "id": "dejeng:台中中科",
@@ -1721,8 +2263,13 @@
       "phone": "04-24636018",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:11:23.897Z"
     },
     {
       "id": "dejeng:台中福星",
@@ -1736,8 +2283,13 @@
       "phone": "04-24520767",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:11:55.374Z"
     },
     {
       "id": "dejeng:台中嶺東",
@@ -1751,8 +2303,13 @@
       "phone": "04-23805860",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:12:27.456Z"
     },
     {
       "id": "dejeng:台中黎明",
@@ -1766,8 +2323,13 @@
       "phone": "04-23809922",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:12:58.929Z"
     },
     {
       "id": "dejeng:台中太平",
@@ -1781,8 +2343,13 @@
       "phone": "04-22760993",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:13:30.523Z"
     },
     {
       "id": "dejeng:太平樹孝",
@@ -1796,8 +2363,13 @@
       "phone": "04-23931245",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:14:02.201Z"
     },
     {
       "id": "dejeng:大里中興",
@@ -1811,8 +2383,13 @@
       "phone": "04-24831191",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:14:33.758Z"
     },
     {
       "id": "dejeng:大里成功",
@@ -1826,8 +2403,13 @@
       "phone": "04-24960066",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:15:05.509Z"
     },
     {
       "id": "dejeng:台中霧峰",
@@ -1841,8 +2423,13 @@
       "phone": "04-23391178",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:15:37.147Z"
     },
     {
       "id": "dejeng:烏日中山",
@@ -1856,8 +2443,13 @@
       "phone": "04-23377111",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:16:08.968Z"
     },
     {
       "id": "dejeng:高雄大寮",
@@ -1871,8 +2463,13 @@
       "phone": "07-7831936",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:16:40.577Z"
     },
     {
       "id": "dejeng:豐原廟東",
@@ -1886,8 +2483,13 @@
       "phone": "04-25268158",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:17:12.166Z"
     },
     {
       "id": "dejeng:豐原南陽",
@@ -1901,8 +2503,13 @@
       "phone": "04-25205299",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:17:43.787Z"
     },
     {
       "id": "dejeng:台中后里",
@@ -1916,8 +2523,13 @@
       "phone": "04-25588816",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:18:15.458Z"
     },
     {
       "id": "dejeng:台中東勢",
@@ -1931,8 +2543,13 @@
       "phone": "04-25774489",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:18:47.101Z"
     },
     {
       "id": "dejeng:台中潭子",
@@ -1946,8 +2563,13 @@
       "phone": "04-25351007",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:19:18.593Z"
     },
     {
       "id": "dejeng:大雅學府",
@@ -1961,8 +2583,13 @@
       "phone": "04-25608627",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:19:50.340Z"
     },
     {
       "id": "dejeng:台中神岡",
@@ -1976,8 +2603,13 @@
       "phone": "04-25634152",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:20:21.879Z"
     },
     {
       "id": "dejeng:台中大肚",
@@ -1991,8 +2623,13 @@
       "phone": "04-26990363",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:20:53.521Z"
     },
     {
       "id": "dejeng:台中沙鹿",
@@ -2006,8 +2643,13 @@
       "phone": "04-26369855",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:21:25.068Z"
     },
     {
       "id": "dejeng:台中東海",
@@ -2021,8 +2663,13 @@
       "phone": "04-26525098",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:21:56.671Z"
     },
     {
       "id": "dejeng:台中梧棲",
@@ -2036,8 +2683,13 @@
       "phone": "04-26567014",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:22:28.348Z"
     },
     {
       "id": "dejeng:梧棲文昌",
@@ -2051,8 +2703,13 @@
       "phone": "04-26576753",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:22:59.987Z"
     },
     {
       "id": "dejeng:台中清水",
@@ -2066,8 +2723,13 @@
       "phone": "04-26225992",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:23:31.706Z"
     },
     {
       "id": "dejeng:台中大甲",
@@ -2081,8 +2743,13 @@
       "phone": "04-26803722",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
+      "geocode_last_failed_at": "2026-08-23T08:24:03.327Z"
     },
     {
       "id": "dejeng:彰化大埔",
@@ -2096,8 +2763,13 @@
       "phone": "04-7117772",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:24:34.856Z"
     },
     {
       "id": "dejeng:彰化民族",
@@ -2111,8 +2783,13 @@
       "phone": "04-7277717",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:25:06.494Z"
     },
     {
       "id": "dejeng:彰化秀水",
@@ -2126,8 +2803,13 @@
       "phone": "04-7688522",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:25:38.184Z"
     },
     {
       "id": "dejeng:鹿港中山",
@@ -2141,8 +2823,13 @@
       "phone": "04-7784773",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:26:09.848Z"
     },
     {
       "id": "dejeng:彰化和美",
@@ -2156,8 +2843,13 @@
       "phone": "04-7558211",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:26:41.323Z"
     },
     {
       "id": "dejeng:彰化伸港",
@@ -2171,8 +2863,13 @@
       "phone": "04-7980211",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:27:13.101Z"
     },
     {
       "id": "dejeng:員林中正",
@@ -2186,8 +2883,13 @@
       "phone": "04-8399814",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:27:44.876Z"
     },
     {
       "id": "dejeng:彰化永靖",
@@ -2201,8 +2903,13 @@
       "phone": "04-8235777",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:28:16.430Z"
     },
     {
       "id": "dejeng:彰化溪湖",
@@ -2216,8 +2923,13 @@
       "phone": "04-8818588",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:28:48.117Z"
     },
     {
       "id": "dejeng:彰化大村",
@@ -2231,8 +2943,13 @@
       "phone": "04-8511111",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:29:19.788Z"
     },
     {
       "id": "dejeng:彰化田中",
@@ -2246,8 +2963,13 @@
       "phone": "04-8745777",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:29:51.286Z"
     },
     {
       "id": "dejeng:北斗中華",
@@ -2261,8 +2983,13 @@
       "phone": "04-8877321",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:30:22.986Z"
     },
     {
       "id": "dejeng:彰化二林",
@@ -2276,8 +3003,13 @@
       "phone": "04-8960888",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
+      "geocode_last_failed_at": "2026-08-23T08:30:54.471Z"
     },
     {
       "id": "dejeng:南投民族",
@@ -2291,8 +3023,13 @@
       "phone": "049-2248612",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
+      "geocode_last_failed_at": "2026-08-23T08:31:26.174Z"
     },
     {
       "id": "dejeng:南投草屯",
@@ -2306,8 +3043,13 @@
       "phone": "049-2300276",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
+      "geocode_last_failed_at": "2026-08-23T08:31:57.654Z"
     },
     {
       "id": "dejeng:埔里中正",
@@ -2321,8 +3063,13 @@
       "phone": "049-2423389",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
+      "geocode_last_failed_at": "2026-08-23T08:32:29.312Z"
     },
     {
       "id": "dejeng:南投水里",
@@ -2336,8 +3083,13 @@
       "phone": "049-2778505",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
+      "geocode_last_failed_at": "2026-08-23T08:33:00.822Z"
     },
     {
       "id": "dejeng:嘉義民族",
@@ -2351,8 +3103,13 @@
       "phone": "05-2277855",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
+      "geocode_last_failed_at": "2026-08-23T08:33:32.305Z"
     },
     {
       "id": "dejeng:嘉義太保",
@@ -2366,8 +3123,13 @@
       "phone": "05-2382699",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
+      "geocode_last_failed_at": "2026-08-23T08:34:03.795Z"
     },
     {
       "id": "dejeng:嘉義朴子",
@@ -2381,8 +3143,13 @@
       "phone": "05-3706543",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
+      "geocode_last_failed_at": "2026-08-23T08:34:35.434Z"
     },
     {
       "id": "dejeng:嘉義民雄",
@@ -2396,8 +3163,13 @@
       "phone": "05-2210852",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
+      "geocode_last_failed_at": "2026-08-23T08:35:06.981Z"
     },
     {
       "id": "dejeng:嘉義大林",
@@ -2411,8 +3183,13 @@
       "phone": "05-2650633",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
+      "geocode_last_failed_at": "2026-08-23T08:35:38.691Z"
     },
     {
       "id": "dejeng:雲林斗南",
@@ -2426,8 +3203,13 @@
       "phone": "05-5950089",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
+      "geocode_last_failed_at": "2026-08-23T08:36:10.245Z"
     },
     {
       "id": "dejeng:虎尾中正",
@@ -2441,8 +3223,13 @@
       "phone": "05-6323663",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
+      "geocode_last_failed_at": "2026-08-23T08:36:41.908Z"
     },
     {
       "id": "dejeng:斗六中山",
@@ -2456,8 +3243,13 @@
       "phone": "05-5353335",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
+      "geocode_last_failed_at": "2026-08-23T08:37:13.745Z"
     },
     {
       "id": "dejeng:西螺中山",
@@ -2471,8 +3263,13 @@
       "phone": "05-5875871",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
+      "geocode_last_failed_at": "2026-08-23T08:37:45.315Z"
     },
     {
       "id": "dejeng:北港大同",
@@ -2486,8 +3283,13 @@
       "phone": "05-7730001",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
+      "geocode_last_failed_at": "2026-08-23T08:38:19.203Z"
     },
     {
       "id": "dejeng:台南美術館",
@@ -2501,8 +3303,13 @@
       "phone": "06-2140008",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:38:50.846Z"
     },
     {
       "id": "dejeng:台南東門",
@@ -2516,8 +3323,13 @@
       "phone": "06-2890707",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:39:22.380Z"
     },
     {
       "id": "dejeng:台南金華",
@@ -2531,8 +3343,13 @@
       "phone": "06-2638218",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:39:54.030Z"
     },
     {
       "id": "dejeng:台南公園",
@@ -2546,8 +3363,13 @@
       "phone": "06-2515353",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:40:25.605Z"
     },
     {
       "id": "dejeng:台南安平",
@@ -2561,8 +3383,13 @@
       "phone": "06-2239955",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:40:57.268Z"
     },
     {
       "id": "dejeng:台南海佃",
@@ -2576,8 +3403,13 @@
       "phone": "06-2580977",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:41:28.745Z"
     },
     {
       "id": "dejeng:台南大灣",
@@ -2591,8 +3423,13 @@
       "phone": "06-2057636",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:42:00.196Z"
     },
     {
       "id": "dejeng:永康中正",
@@ -2606,8 +3443,13 @@
       "phone": "06-2530995",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:42:31.871Z"
     },
     {
       "id": "dejeng:永康中華",
@@ -2621,8 +3463,13 @@
       "phone": "06-3021221",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:43:03.520Z"
     },
     {
       "id": "dejeng:台南歸仁",
@@ -2636,8 +3483,13 @@
       "phone": "06-2390511",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:43:35.319Z"
     },
     {
       "id": "dejeng:仁德中清",
@@ -2651,8 +3503,13 @@
       "phone": "06-2796868",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:44:07.036Z"
     },
     {
       "id": "dejeng:麻豆中山",
@@ -2666,8 +3523,13 @@
       "phone": "06-5711309",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:44:38.612Z"
     },
     {
       "id": "dejeng:台南佳里",
@@ -2681,8 +3543,13 @@
       "phone": "06-7231088",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:45:10.334Z"
     },
     {
       "id": "dejeng:台南新營",
@@ -2696,8 +3563,13 @@
       "phone": "06-6321320",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:45:42.020Z"
     },
     {
       "id": "dejeng:台南善化",
@@ -2711,8 +3583,13 @@
       "phone": "06-5817713",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:46:13.509Z"
     },
     {
       "id": "dejeng:台南新市",
@@ -2726,8 +3603,13 @@
       "phone": "06-5895557",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
+      "geocode_last_failed_at": "2026-08-23T08:46:45.307Z"
     },
     {
       "id": "dejeng:高雄六合",
@@ -2741,8 +3623,13 @@
       "phone": "07-2859777",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:47:16.974Z"
     },
     {
       "id": "dejeng:高雄文橫",
@@ -2756,8 +3643,13 @@
       "phone": "07-3383385",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:47:48.495Z"
     },
     {
       "id": "dejeng:高雄自強",
@@ -2771,8 +3663,13 @@
       "phone": "07-2696667",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:48:20.121Z"
     },
     {
       "id": "dejeng:高雄文化",
@@ -2786,8 +3683,13 @@
       "phone": "07-7226663",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:48:51.803Z"
     },
     {
       "id": "dejeng:高雄武廟",
@@ -2801,8 +3703,13 @@
       "phone": "07-7225575",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:49:23.221Z"
     },
     {
       "id": "dejeng:高雄鹽埕",
@@ -2816,8 +3723,13 @@
       "phone": "07-5312208",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:49:54.790Z"
     },
     {
       "id": "dejeng:高雄美術館",
@@ -2831,8 +3743,13 @@
       "phone": "07-5528679",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:50:26.484Z"
     },
     {
       "id": "dejeng:高雄瑞隆",
@@ -2846,8 +3763,13 @@
       "phone": "07-7212001",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:50:58.243Z"
     },
     {
       "id": "dejeng:高雄大昌",
@@ -2861,8 +3783,13 @@
       "phone": "07-3983593",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:51:29.885Z"
     },
     {
       "id": "dejeng:高雄十全",
@@ -2876,8 +3803,13 @@
       "phone": "07-3221415",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:52:01.336Z"
     },
     {
       "id": "dejeng:楠梓德賢",
@@ -2891,8 +3823,13 @@
       "phone": "07-3650197",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:52:33.074Z"
     },
     {
       "id": "dejeng:高雄小港",
@@ -2906,8 +3843,13 @@
       "phone": "07-8071797",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:53:04.731Z"
     },
     {
       "id": "dejeng:左營左大",
@@ -2921,8 +3863,13 @@
       "phone": "07-5883563",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:53:36.201Z"
     },
     {
       "id": "dejeng:左營裕誠",
@@ -2936,8 +3883,13 @@
       "phone": "07-5506337",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:54:07.936Z"
     },
     {
       "id": "dejeng:高雄仁武",
@@ -2951,8 +3903,13 @@
       "phone": "07-3737123",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:54:39.449Z"
     },
     {
       "id": "dejeng:高雄大社",
@@ -2966,8 +3923,13 @@
       "phone": "07-3537711",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:55:11.202Z"
     },
     {
       "id": "dejeng:高雄岡山",
@@ -2981,8 +3943,13 @@
       "phone": "07-6225168",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:55:42.863Z"
     },
     {
       "id": "dejeng:高雄路竹",
@@ -2996,8 +3963,13 @@
       "phone": "07-6967739",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:56:14.367Z"
     },
     {
       "id": "dejeng:鳳山中山",
@@ -3011,8 +3983,13 @@
       "phone": "07-7101329",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:56:46.109Z"
     },
     {
       "id": "dejeng:高雄五甲",
@@ -3026,8 +4003,13 @@
       "phone": "07-8416575",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:57:17.755Z"
     },
     {
       "id": "dejeng:鳳山青年",
@@ -3041,8 +4023,13 @@
       "phone": "07-7777327",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:57:49.415Z"
     },
     {
       "id": "dejeng:高雄林園",
@@ -3056,8 +4043,13 @@
       "phone": "07-6417711",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
+      "geocode_last_failed_at": "2026-08-23T08:58:21.102Z"
     },
     {
       "id": "dejeng:澎湖馬公",
@@ -3071,8 +4063,13 @@
       "phone": "06-9262882",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=penghu"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=penghu",
+      "geocode_last_failed_at": "2026-08-23T08:58:52.979Z"
     },
     {
       "id": "dejeng:金門金湖",
@@ -3086,8 +4083,13 @@
       "phone": "082-330301",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan",
+      "geocode_last_failed_at": "2026-08-23T08:59:24.601Z"
     },
     {
       "id": "dejeng:金門金城",
@@ -3101,8 +4103,13 @@
       "phone": "082-330301",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan",
+      "geocode_last_failed_at": "2026-08-23T08:59:56.199Z"
     },
     {
       "id": "dejeng:屏東民生",
@@ -3116,8 +4123,13 @@
       "phone": "08-7663535",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
+      "geocode_last_failed_at": "2026-08-23T09:00:27.833Z"
     },
     {
       "id": "dejeng:屏東廣東",
@@ -3131,8 +4143,13 @@
       "phone": "08-7366560",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
+      "geocode_last_failed_at": "2026-08-23T09:00:59.596Z"
     },
     {
       "id": "dejeng:東港中正",
@@ -3146,8 +4163,13 @@
       "phone": "08-8322110",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
+      "geocode_last_failed_at": "2026-08-23T09:01:31.223Z"
     },
     {
       "id": "dejeng:屏東琉球",
@@ -3161,8 +4183,13 @@
       "phone": "08-8611661",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
+      "geocode_last_failed_at": "2026-08-23T09:02:02.825Z"
     },
     {
       "id": "dejeng:恆春恒南",
@@ -3176,8 +4203,13 @@
       "phone": "08-8880203",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
+      "geocode_last_failed_at": "2026-08-23T09:02:34.217Z"
     },
     {
       "id": "dejeng:台東傳廣",
@@ -3191,8 +4223,13 @@
       "phone": "089-334058",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taitung"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taitung",
+      "geocode_last_failed_at": "2026-08-23T09:03:05.797Z"
     },
     {
       "id": "dejeng:花蓮中山",
@@ -3206,8 +4243,13 @@
       "phone": "038-335688",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hualien"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hualien",
+      "geocode_last_failed_at": "2026-08-23T09:03:37.298Z"
     },
     {
       "id": "dejeng:桃園中正",
@@ -3221,8 +4263,13 @@
       "phone": "03-3318838",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
+      "geocode_last_failed_at": "2026-08-23T09:04:09.104Z"
     },
     {
       "id": "dejeng:淡水民生",
@@ -3236,8 +4283,13 @@
       "phone": "02-28096889",
       "lat": null,
       "lng": null,
+      "geocoded_at": null,
+      "geocode_provider": null,
+      "geocode_query": null,
+      "geocode_display_name": null,
       "source": "dejeng_official_dom",
-      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei"
+      "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
+      "geocode_last_failed_at": "2026-08-23T09:04:40.829Z"
     }
   ]
 }
