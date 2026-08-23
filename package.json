@@ -1,0 +1,12 @@
+{
+  "name": "drink-nearby-store-sync",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Official store data connectors for Drink Nearby",
+  "scripts": {
+    "sync:dejeng": "node scripts/fetch-dejeng-v2.js"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}
