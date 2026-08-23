@@ -1,0 +1,49 @@
+name: Sync Dejeng Stores
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每週日台灣時間約 04:20（UTC 週六 20:20）
+    - cron: "20 20 * * 6"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Sync Dejeng official stores
+        run: npm run sync:dejeng
+
+      - name: Show result
+        run: |
+          node -e "const d=require('./data/dejeng.json'); console.log('Stores:', d.meta.store_count); console.log('Districts:', d.meta.district_count)"
+
+      - name: Commit updated store data
+        run: |
+          if git diff --quiet -- data/dejeng.json; then
+            echo "No store data changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/dejeng.json
+          git commit -m "chore: sync Dejeng stores"
+          git push
