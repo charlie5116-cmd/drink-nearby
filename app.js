@@ -92,6 +92,10 @@ const I18N = {
     genericSearchPlace: "搜尋地點",
     noPlaceTitle: "找不到地點",
     noPlaceText: "找不到與「{query}」足夠相符的地點。可以改用更完整的名稱／地址，例如「臺北市政府 信義區」或直接輸入門牌地址。",
+    addressNoPlaceText: "找不到與「{query}」足夠吻合的門牌。系統已嘗試移除空格、台／臺轉換，並拆解行政區、路街、段巷弄與門牌號碼。",
+    searchMissKeepTitle: "找不到「{query}」",
+    searchMissKeepText: "下方仍顯示上一個搜尋位置「{name}」的結果，並不是「{query}」附近。",
+    searchMissEmptyText: "目前沒有切換搜尋中心。請補上縣市、行政區或更完整的門牌地址再試一次。",
     choosePlace: "請選擇地點 · {n} 個結果",
     searchingRadius: "搜尋 {km} km 內…",
     searchPosition: "搜尋位置",
@@ -179,7 +183,7 @@ const I18N = {
     quick_school: "School",
     quick_court: "Court",
     quick_gym: "Gym",
-    footer: "V0.5.5 uses OpenStreetMap / Overpass data and adds Bars / Pubs as a fourth category. The interface supports Traditional Chinese, English, and Japanese. Store names use OSM localized names when available; otherwise the original name is kept. Favorites are stored only in this browser. The 5-minute dice filter is still an estimate based on straight-line distance.",
+    footer: "V0.5.5 uses OpenStreetMap / Overpass data and adds Bars / Pubs as a fourth category. Taiwan street addresses are normalized and component-matched; the interface supports Traditional Chinese, English, and Japanese. Store names use OSM localized names when available; otherwise the original name is kept. Favorites are stored only in this browser. The 5-minute dice filter is still an estimate based on straight-line distance.",
     browserNoGeoTitle: "Location is not supported",
     browserNoGeoText: "You can still search for a place or use Taipei Main Station for testing.",
     cannotLocate: "Location unavailable",
@@ -211,6 +215,10 @@ const I18N = {
     genericSearchPlace: "Place",
     noPlaceTitle: "No matching place",
     noPlaceText: "No sufficiently relevant result was found for “{query}”. Try a fuller place name or street address.",
+    addressNoPlaceText: "No sufficiently close address match was found for “{query}”. We already tried trimming spaces, Taiwan address parsing, and component matching.",
+    searchMissKeepTitle: "Couldn’t find “{query}”",
+    searchMissKeepText: "The results below are still for your previous search center, “{name}” — not for “{query}”.",
+    searchMissEmptyText: "The search center was not changed. Try adding the city, district, or a more complete street address.",
     choosePlace: "Choose a place · {n} results",
     searchingRadius: "Searching within {km} km…",
     searchPosition: "search location",
@@ -298,7 +306,7 @@ const I18N = {
     quick_school: "学校",
     quick_court: "コート",
     quick_gym: "ジム",
-    footer: "V0.5.5 は OpenStreetMap / Overpass のデータを使用し、バー／パブを新しいカテゴリとして追加しています。繁體中文・English・日本語に切り替えられます。店舗名は OSM に日本語名がある場合はそれを使用し、なければ元の名称を表示します。お気に入りはこのブラウザだけに保存されます。徒歩5分の判定は現在、直線距離による概算です。",
+    footer: "V0.5.5 は OpenStreetMap / Overpass のデータを使用し、バー／パブを新しいカテゴリとして追加しています。台湾住所の正規化と住所要素の照合に対応し、繁體中文・English・日本語に切り替えられます。店舗名は OSM に日本語名がある場合はそれを使用し、なければ元の名称を表示します。お気に入りはこのブラウザだけに保存されます。徒歩5分の判定は現在、直線距離による概算です。",
     browserNoGeoTitle: "位置情報に対応していません",
     browserNoGeoText: "場所を検索するか、台北駅をテスト地点として使えます。",
     cannotLocate: "現在地を取得できません",
@@ -330,6 +338,10 @@ const I18N = {
     genericSearchPlace: "検索地点",
     noPlaceTitle: "場所が見つかりません",
     noPlaceText: "「{query}」に十分一致する場所が見つかりません。より詳しい名称や住所を入力してください。",
+    addressNoPlaceText: "「{query}」に十分一致する住所が見つかりません。空白除去、台湾住所の分解、住所要素の照合を試しました。",
+    searchMissKeepTitle: "「{query}」が見つかりません",
+    searchMissKeepText: "下の結果は前回の検索地点「{name}」のままです。「{query}」周辺の結果ではありません。",
+    searchMissEmptyText: "検索地点は変更されていません。市・区・より詳しい住所を追加して再検索してください。",
     choosePlace: "場所を選択 · {n} 件",
     searchingRadius: "{km} km 以内を検索中…",
     searchPosition: "検索地点",
@@ -421,7 +433,7 @@ const TYPE_CONFIG = {
   bar: { label: "酒吧／Pub", icon: "🍸" },
 };
 
-// V0.5.5：新增酒吧／Pub 分類；骰子仍維持超商／咖啡／手搖。
+// V0.5.6：台灣地址 parser + regex/component matching + 搜尋失敗狀態修正。
 // 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
 // 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
 const BRAND_CONFIG = {
@@ -802,6 +814,7 @@ async function handleLocationSearch(event) {
       t("geocodeFailText"),
       t("searchFailed")
     );
+    markFailedSearchWithoutChangingCenter(query);
   } finally {
     els.searchBtn.disabled = false;
     els.searchBtn.textContent = t("search");
@@ -809,12 +822,19 @@ async function handleLocationSearch(event) {
 }
 
 async function geocodePlace(query, signal) {
-  const cacheKey = `${currentLang}:${normalizeSearchText(query)}`;
+  const trimmedQuery = String(query || "").trim();
+  const addressParts = parseTaiwanAddress(trimmedQuery);
+  const mode = addressParts ? "address" : "poi";
+
+  const cacheKey = `${currentLang}:${mode}:${normalizeSearchText(trimmedQuery)}`;
   if (geocodeCache.has(cacheKey)) {
     return geocodeCache.get(cacheKey);
   }
 
-  const queryVariants = buildGeocodeQueryVariants(query);
+  const queryVariants = addressParts
+    ? buildTaiwanAddressQueryVariants(addressParts, trimmedQuery)
+    : buildGeocodeQueryVariants(trimmedQuery);
+
   let collected = [];
 
   for (const variant of queryVariants) {
@@ -827,17 +847,32 @@ async function geocodePlace(query, signal) {
       }))
     );
 
-    const rankedSoFar = rankGeocodeResults(collected, query);
-    if (rankedSoFar.length && rankedSoFar[0].relevance >= 80) {
+    const rankedSoFar = addressParts
+      ? rankAddressResults(collected, addressParts, trimmedQuery)
+      : rankGeocodeResults(collected, trimmedQuery);
+
+    const excellentScore = addressParts ? 185 : 80;
+    if (rankedSoFar.length && rankedSoFar[0].relevance >= excellentScore) {
       collected = rankedSoFar;
       break;
     }
   }
 
-  const normalized = rankGeocodeResults(collected, query)
-    .filter((item) => item.relevance >= getMinimumGeocodeRelevance(query))
+  const ranked = addressParts
+    ? rankAddressResults(collected, addressParts, trimmedQuery)
+    : rankGeocodeResults(collected, trimmedQuery);
+
+  const minScore = addressParts
+    ? getMinimumAddressRelevance(addressParts)
+    : getMinimumGeocodeRelevance(trimmedQuery);
+
+  const normalized = ranked
+    .filter((item) => item.relevance >= minScore)
     .slice(0, 5)
-    .map(({ relevance, searchVariant, ...item }) => item);
+    .map(({ relevance, searchVariant, ...item }) => ({
+      ...item,
+      matchMode: addressParts ? "address" : "poi",
+    }));
 
   geocodeCache.set(cacheKey, normalized);
   return normalized;
@@ -884,8 +919,306 @@ async function requestNominatim(query, signal) {
       displayName: item.display_name || "",
       type: item.addresstype || item.type || "place",
       importance: Number(item.importance || 0),
+      address: item.address || {},
+      namedetails: item.namedetails || {},
     }))
     .filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lng));
+}
+
+
+function normalizeTaiwanAddressInput(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .trim()
+    .replace(/[，,。．]/g, "")
+    .replace(/\s+/g, "")
+    .replace(/台/g, "臺");
+}
+
+function parseTaiwanAddress(value) {
+  const normalized = normalizeTaiwanAddressInput(value);
+  if (!normalized) return null;
+
+  // 一般 POI 名稱不要誤判成地址：至少要有「路／街／大道／道」，
+  // 且最好同時有門牌、段巷弄或行政區。
+  if (!/(?:大道|路|街|道)/.test(normalized)) return null;
+
+  let rest = normalized;
+  const result = {
+    raw: value,
+    normalized,
+    postalCode: "",
+    city: "",
+    district: "",
+    street: "",
+    section: "",
+    lane: "",
+    alley: "",
+    number: "",
+    floor: "",
+  };
+
+  let match = rest.match(/^(\d{3,6})/);
+  if (match) {
+    result.postalCode = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  // 縣市可省略。涵蓋「臺北市、新北市、嘉義縣」等常見格式。
+  match = rest.match(/^(.{2,4}?(?:縣|市))/);
+  if (match) {
+    result.city = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  // 區／鄉／鎮／縣轄市。若只輸入「信義區吳興街...」可正常拆出。
+  match = rest.match(/^(.{1,6}?(?:區|鄉|鎮|市))/);
+  if (match) {
+    result.district = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  // 道路名稱；「大道」要放在「道」之前。
+  match = rest.match(/^(.+?(?:大道|路|街|道))/);
+  if (!match) return null;
+  result.street = match[1];
+  rest = rest.slice(match[0].length);
+
+  match = rest.match(/^([一二三四五六七八九十百零〇\d]+)段/);
+  if (match) {
+    result.section = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  match = rest.match(/^(\d+)巷/);
+  if (match) {
+    result.lane = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  match = rest.match(/^(\d+)弄/);
+  if (match) {
+    result.alley = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  match = rest.match(/^(\d+(?:[-之]\d+)?)號?/);
+  if (match) {
+    result.number = match[1].replace("-", "之");
+    rest = rest.slice(match[0].length);
+  }
+
+  match = rest.match(/^([BＭM\d一二三四五六七八九十]+(?:樓|F))/i);
+  if (match) {
+    result.floor = match[1];
+    rest = rest.slice(match[0].length);
+  }
+
+  // 判定像地址：道路必須存在；且至少再有行政區、段巷弄或門牌之一。
+  const hasStructure =
+    result.city ||
+    result.district ||
+    result.section ||
+    result.lane ||
+    result.alley ||
+    result.number;
+
+  return hasStructure ? result : null;
+}
+
+function buildTaiwanAddressQueryVariants(parts, originalQuery) {
+  const variants = [];
+
+  const add = (value) => {
+    const cleaned = String(value || "").trim();
+    if (!cleaned) return;
+    if (!variants.some((item) => normalizeSearchText(item) === normalizeSearchText(cleaned))) {
+      variants.push(cleaned);
+    }
+  };
+
+  const streetFull = [
+    parts.street,
+    parts.section ? `${parts.section}段` : "",
+    parts.lane ? `${parts.lane}巷` : "",
+    parts.alley ? `${parts.alley}弄` : "",
+    parts.number ? `${parts.number}號` : "",
+  ].join("");
+
+  const admin = [parts.city, parts.district].filter(Boolean).join("");
+
+  // 1) 使用者輸入 trim/正規化版本
+  add(normalizeTaiwanAddressInput(originalQuery));
+
+  // 2) 標準「行政區 + 道路 + 門牌」
+  add(`${admin}${streetFull}`);
+
+  // 3) Nominatim 對逗號分段有時更友善
+  add([streetFull, parts.district, parts.city, "臺灣"].filter(Boolean).join(", "));
+
+  // 4) 沒有縣市時不要亂猜，但仍可用「道路 + 行政區 + 台灣」
+  if (!parts.city) {
+    add([streetFull, parts.district, "臺灣"].filter(Boolean).join(", "));
+  }
+
+  // 5) 台／臺雙版本
+  const snapshot = [...variants];
+  snapshot.forEach((variant) => {
+    if (variant.includes("臺")) add(variant.replace(/臺/g, "台"));
+    if (variant.includes("台")) add(variant.replace(/台/g, "臺"));
+  });
+
+  return variants.slice(0, 6);
+}
+
+function normalizeAddressComponent(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/臺/g, "台")
+    .replace(/[，,。．.\s\-_/()（）【】\[\]·•]/g, "")
+    .replace(/之/g, "");
+}
+
+function getResultAddressCorpus(result) {
+  const address = result.address || {};
+  return {
+    city: [
+      address.city,
+      address.county,
+      address.state,
+      address.municipality,
+    ].filter(Boolean),
+    district: [
+      address.city_district,
+      address.district,
+      address.suburb,
+      address.town,
+      address.borough,
+      address.quarter,
+      address.village,
+    ].filter(Boolean),
+    street: [
+      address.road,
+      address.pedestrian,
+      address.residential,
+      address.path,
+    ].filter(Boolean),
+    houseNumber: [
+      address.house_number,
+    ].filter(Boolean),
+    display: [result.title, result.displayName].filter(Boolean),
+  };
+}
+
+function corpusIncludes(values, expected) {
+  const needle = normalizeAddressComponent(expected);
+  if (!needle) return false;
+  return values.some((value) => normalizeAddressComponent(value).includes(needle));
+}
+
+function scoreAddressResult(result, parts, originalQuery) {
+  const corpus = getResultAddressCorpus(result);
+  const displayNorm = normalizeAddressComponent(
+    `${result.title || ""}${result.displayName || ""}`
+  );
+
+  let score = 0;
+
+  // 路名是台灣地址最重要的 anchor。
+  if (parts.street) {
+    if (corpusIncludes(corpus.street, parts.street)) score += 85;
+    else if (displayNorm.includes(normalizeAddressComponent(parts.street))) score += 65;
+    else score -= 100;
+  }
+
+  if (parts.city) {
+    if (corpusIncludes(corpus.city, parts.city) || displayNorm.includes(normalizeAddressComponent(parts.city))) {
+      score += 30;
+    } else {
+      score -= 20;
+    }
+  }
+
+  if (parts.district) {
+    if (
+      corpusIncludes(corpus.district, parts.district) ||
+      displayNorm.includes(normalizeAddressComponent(parts.district))
+    ) {
+      score += 35;
+    } else {
+      score -= 18;
+    }
+  }
+
+  if (parts.section) {
+    const sectionToken = normalizeAddressComponent(`${parts.section}段`);
+    if (displayNorm.includes(sectionToken)) score += 18;
+  }
+
+  if (parts.lane) {
+    const laneToken = normalizeAddressComponent(`${parts.lane}巷`);
+    if (displayNorm.includes(laneToken)) score += 18;
+  }
+
+  if (parts.alley) {
+    const alleyToken = normalizeAddressComponent(`${parts.alley}弄`);
+    if (displayNorm.includes(alleyToken)) score += 12;
+  }
+
+  if (parts.number) {
+    const expectedNumber = normalizeAddressComponent(parts.number);
+    const houseNumbers = corpus.houseNumber.map(normalizeAddressComponent);
+
+    if (houseNumbers.some((value) => value === expectedNumber)) {
+      score += 85;
+    } else if (
+      houseNumbers.some((value) => value.includes(expectedNumber) || expectedNumber.includes(value))
+    ) {
+      score += 55;
+    } else {
+      // display_name 常會是 "82, 吳興街, ..."
+      const numberPattern = new RegExp(`(^|[^0-9])${parts.number.replace("之", "[-之]?")}([^0-9]|$)`);
+      if (numberPattern.test(String(result.displayName || ""))) {
+        score += 55;
+      } else {
+        // 如果 query 明確有門牌，而結果回別的門牌，要重罰；
+        // 若只是 street centroid（沒有 house_number）則只小扣，仍可作 fallback。
+        if (houseNumbers.length) score -= 90;
+        else score -= 20;
+      }
+    }
+  }
+
+  // 完整 query 若剛好存在，額外加分。
+  const fullQuery = normalizeAddressComponent(originalQuery);
+  if (fullQuery && displayNorm.includes(fullQuery)) score += 45;
+
+  score += Math.min(8, Math.max(0, (result.importance || 0) * 8));
+  return score;
+}
+
+function rankAddressResults(results, parts, originalQuery) {
+  const unique = new Map();
+
+  for (const result of results) {
+    const key = result.placeId || `${result.lat},${result.lng}`;
+    const relevance = scoreAddressResult(result, parts, originalQuery);
+    const current = unique.get(key);
+
+    if (!current || relevance > current.relevance) {
+      unique.set(key, { ...result, relevance });
+    }
+  }
+
+  return [...unique.values()].sort((a, b) => b.relevance - a.relevance);
+}
+
+function getMinimumAddressRelevance(parts) {
+  // 有門牌號碼時要求較高，避免錯門牌；沒門牌時可接受 street/district centroid。
+  if (parts.number) return 120;
+  if (parts.district) return 85;
+  return 70;
 }
 
 function buildGeocodeQueryVariants(query) {
@@ -1054,12 +1387,19 @@ function renderGeocodeResults(results, query) {
   els.geocodePanel.classList.remove("hidden");
 
   if (!results.length) {
+    const addressParts = parseTaiwanAddress(query);
     els.geocodeTitle.textContent = t("noPlaceTitle");
     els.geocodeResults.innerHTML = `
       <div class="geocode-message">
-        ${escapeHtml(t("noPlaceText", { query }))}
+        ${escapeHtml(
+          addressParts
+            ? t("addressNoPlaceText", { query })
+            : t("noPlaceText", { query })
+        )}
       </div>
     `;
+
+    markFailedSearchWithoutChangingCenter(query);
     return;
   }
 
@@ -1067,7 +1407,7 @@ function renderGeocodeResults(results, query) {
   els.geocodeResults.innerHTML = results
     .map(
       (result, index) => `
-        <button class="geocode-item" type="button" data-geocode-index="${index}">
+        <button class="geocode-item ${result.matchMode === "address" ? "address-match" : ""}" type="button" data-geocode-index="${index}">
           <strong>📍 ${escapeHtml(result.title)}</strong>
           <span>${escapeHtml(result.displayName)}</span>
         </button>
@@ -1093,6 +1433,28 @@ function renderGeocodeResults(results, query) {
       });
     });
   });
+}
+
+
+function markFailedSearchWithoutChangingCenter(query) {
+  // 重要：搜尋失敗時不偷偷清掉上一個中心，但必須明確告知使用者
+  // 下方結果仍屬於舊中心，避免誤以為是新地址附近的結果。
+  if (activeCenter) {
+    setStatus(
+      "error",
+      t("searchMissKeepTitle", { query }),
+      t("searchMissKeepText", {
+        name: activeCenter.label,
+        query,
+      })
+    );
+  } else {
+    setStatus(
+      "error",
+      t("searchMissKeepTitle", { query }),
+      t("searchMissEmptyText")
+    );
+  }
 }
 
 function openGeocodeMessage(message, title = t("geocodeResults")) {

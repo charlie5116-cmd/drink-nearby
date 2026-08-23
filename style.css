@@ -1303,3 +1303,26 @@ html[lang="ja"] body {
 .place-card:has(.place-icon-fallback) {
   min-width: 0;
 }
+
+
+/* ---------- V0.5.6 台灣地址搜尋 ---------- */
+.geocode-item.address-match {
+  position: relative;
+}
+
+.geocode-item.address-match::after {
+  content: "ADDR";
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: #eef4ed;
+  color: #5e725f;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.status-dot.error {
+  background: #c85555;
+}
