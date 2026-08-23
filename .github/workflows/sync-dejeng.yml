@@ -74,4 +74,12 @@ jobs:
 
           git add data/dejeng.json
           git commit -m "chore: sync and geocode Dejeng stores"
-          git push
+
+          echo "Fetching latest main..."
+          git fetch origin main
+
+          echo "Rebasing store-data commit onto latest main..."
+          git rebase origin/main
+
+          echo "Pushing updated store data..."
+          git push origin HEAD:main
