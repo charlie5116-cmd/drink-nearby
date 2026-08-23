@@ -20,7 +20,7 @@ const TYPE_CONFIG = {
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
 };
 
-// V0.5：品牌識別。
+// V0.5.1：品牌識別＋地址提示。
 // 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
 // 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
 const BRAND_CONFIG = {
@@ -515,7 +515,9 @@ function parseOverpassElements(elements, centerLat, centerLng) {
       if (!Number.isFinite(lat) || !Number.isFinite(lng) || !type) return null;
 
       const brandKey = detectBrand(tags, type);
-      const name = getPlaceDisplayName(tags, type, brandKey);
+      const branchName = getBranchName(tags, brandKey, type);
+      const name = getPlaceDisplayName(tags, type, brandKey, branchName);
+      const locationHint = getLocationHint(tags);
       const distance = haversineMeters(centerLat, centerLng, lat, lng);
       const minutes = Math.max(1, Math.ceil(distance / 80));
 
@@ -534,7 +536,8 @@ function parseOverpassElements(elements, centerLat, centerLng) {
         operator: tags.operator || "",
         coffeeBrand: type === "coffee" ? getCoffeeBrand(tags) : "",
         brandKey,
-        branchName: getBranchName(tags, brandKey, type),
+        branchName,
+        locationHint,
         tags,
       };
     })
@@ -618,9 +621,8 @@ function getCoffeeBrand(tags) {
   return "";
 }
 
-function getPlaceDisplayName(tags, type, brandKey) {
+function getPlaceDisplayName(tags, type, brandKey, branch = "") {
   const brandLabel = BRAND_CONFIG[brandKey]?.label || "";
-  const branch = getBranchName(tags, brandKey, type);
 
   if (brandLabel && branch) {
     return `${brandLabel} ${formatBranchSuffix(branch, type)}`;
@@ -707,6 +709,51 @@ function formatBranchSuffix(branch, type) {
   return `${value}店`;
 }
 
+
+function getLocationHint(tags) {
+  const full = cleanAddressValue(tags["addr:full"]);
+  if (full) return full;
+
+  const street = cleanAddressValue(
+    tags["addr:street"] ||
+    tags["addr:place"] ||
+    tags["addr:neighbourhood"] ||
+    tags["addr:suburb"]
+  );
+  const houseNumber = cleanAddressValue(tags["addr:housenumber"]);
+
+  if (street && houseNumber) {
+    return `${street} ${houseNumber}號`;
+  }
+
+  if (street) return `${street}附近`;
+
+  const district = cleanAddressValue(
+    tags["addr:district"] ||
+    tags["addr:borough"] ||
+    tags["addr:quarter"]
+  );
+
+  if (district) return `${district}附近`;
+
+  return "";
+}
+
+function cleanAddressValue(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function shouldShowLocationHint(place) {
+  if (!place.locationHint) return false;
+
+  // 沒有可靠分店名稱時，地址提示最重要。
+  // 有分店名稱時也保留地址，讓同名門市更容易辨認。
+  return true;
+}
+
 function dedupePlaces(items) {
   const seen = new Map();
 
@@ -746,6 +793,7 @@ function renderMarkers() {
 
     const popupHtml = `
       <strong>${escapeHtml(place.name)}</strong><br>
+      ${place.locationHint ? `${escapeHtml(place.locationHint)}<br>` : ""}
       ${formatDistance(place.distance)} · 約 ${place.minutes} 分鐘
     `;
 
@@ -836,6 +884,7 @@ function renderResults(items) {
           <div class="place-info">
             <div class="place-type">${config.label}${place.brandKey && BRAND_CONFIG[place.brandKey] ? ` · ${escapeHtml(BRAND_CONFIG[place.brandKey].label)}` : place.coffeeBrand ? ` · ${escapeHtml(place.coffeeBrand)}` : ""}</div>
             <div class="place-name" title="${escapeAttr(place.name)}">${escapeHtml(place.name)}</div>
+            ${shouldShowLocationHint(place) ? `<div class="place-location" title="${escapeAttr(place.locationHint)}">📍 ${escapeHtml(place.locationHint)}</div>` : ""}
             <p class="place-meta">
               <strong>${formatDistance(place.distance)}</strong>
               · 約 ${place.minutes} 分鐘${openingText}
@@ -896,6 +945,7 @@ function toggleFavoriteStore(place) {
       name: place.name,
       brandKey: place.brandKey || "",
       type: place.type,
+      locationHint: place.locationHint || "",
       lat: place.lat,
       lng: place.lng,
       savedAt: new Date().toISOString(),
@@ -1077,7 +1127,10 @@ function renderFavorites() {
               title="查看 ${escapeAttr(store.name)} 附近"
             >
               <span class="favorite-store-icon">${typeIcon}</span>
-              <span class="favorite-store-name">${escapeHtml(store.name)}</span>
+              <span class="favorite-store-copy">
+                <span class="favorite-store-name">${escapeHtml(store.name)}</span>
+                ${store.locationHint ? `<span class="favorite-store-location">${escapeHtml(store.locationHint)}</span>` : ""}
+              </span>
             </button>
             <a
               class="favorite-store-nav"
