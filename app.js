@@ -3,6 +3,7 @@ const MAX_RESULTS = 50;
 const DEFAULT_CENTER = { lat: 25.0478, lng: 121.5170 }; // 台北車站
 const NOMINATIM_ENDPOINT = "https://nominatim.openstreetmap.org/search";
 const GEOCODE_MIN_INTERVAL_MS = 1100;
+const DICE_MAX_MINUTES = 5;
 
 const FAVORITE_STORES_KEY = "drinkNearby.favoriteStores.v1";
 const FAVORITE_LOCATIONS_KEY = "drinkNearby.favoriteLocations.v1";
@@ -20,7 +21,7 @@ const TYPE_CONFIG = {
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
 };
 
-// V0.5.1：品牌識別＋地址提示。
+// V0.5.2：品牌識別＋地址提示＋骰子推薦。
 // 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
 // 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
 const BRAND_CONFIG = {
@@ -62,6 +63,11 @@ let geocodeLastRequestAt = 0;
 let centerIntentVersion = 0;
 let favoriteStores = loadLocalArray(FAVORITE_STORES_KEY);
 let favoriteLocations = loadLocalArray(FAVORITE_LOCATIONS_KEY);
+let lastDicePickIds = {
+  convenience: "",
+  coffee: "",
+  bubble_tea: "",
+};
 
 const geocodeCache = new Map();
 
@@ -97,6 +103,11 @@ const els = {
   closeFavoriteLocationModal: document.getElementById("closeFavoriteLocationModal"),
   cancelFavoriteLocation: document.getElementById("cancelFavoriteLocation"),
   confirmFavoriteLocation: document.getElementById("confirmFavoriteLocation"),
+  diceBtn: document.getElementById("diceBtn"),
+  diceIcon: document.getElementById("diceIcon"),
+  diceButtonText: document.getElementById("diceButtonText"),
+  diceIntro: document.getElementById("diceIntro"),
+  diceResults: document.getElementById("diceResults"),
 };
 
 function initMap() {
@@ -179,6 +190,7 @@ function locateUser() {
 
 async function setActiveCenter(center) {
   activeCenter = center;
+  resetDiceRecommendations();
   els.saveCenterBtn.disabled = false;
   updateSaveCenterButton();
 
@@ -440,6 +452,7 @@ async function searchNearby(lat, lng) {
     renderMarkers();
     updateCounts();
     applyFilter(activeFilter);
+    updateDiceAvailability();
 
     const coffeeCount = places.filter((p) => p.type === "coffee").length;
     const centerLabel = activeCenter?.label || "搜尋位置";
@@ -459,6 +472,7 @@ async function searchNearby(lat, lng) {
     places = [];
     updateCounts();
     renderResults([]);
+    resetDiceRecommendations();
     setStatus(
       "error",
       "附近資料暫時抓不到",
@@ -820,6 +834,7 @@ function clearPlaces() {
   clearMarkers();
   els.results.innerHTML = "";
   updateCounts();
+  resetDiceRecommendations();
 }
 
 function applyFilter(filter) {
@@ -850,6 +865,128 @@ function applyFilter(filter) {
   els.resultMeta.textContent = places.length
     ? `${filtered.length} 個結果 · ${SEARCH_RADIUS_METERS / 1000} km 內`
     : "沒有結果";
+}
+
+
+function getDiceEligiblePlaces(type) {
+  return places.filter(
+    (place) =>
+      place.type === type &&
+      Number.isFinite(place.minutes) &&
+      place.minutes <= DICE_MAX_MINUTES
+  );
+}
+
+function pickRandomPlace(type) {
+  const pool = getDiceEligiblePlaces(type);
+  if (!pool.length) return null;
+
+  const previousId = lastDicePickIds[type];
+  const candidates =
+    pool.length > 1 && previousId
+      ? pool.filter((place) => place.id !== previousId)
+      : pool;
+
+  const selected = candidates[Math.floor(Math.random() * candidates.length)] || pool[0];
+  lastDicePickIds[type] = selected.id;
+  return selected;
+}
+
+function updateDiceAvailability() {
+  if (!els.diceBtn) return;
+
+  const totalEligible = places.filter(
+    (place) => Number.isFinite(place.minutes) && place.minutes <= DICE_MAX_MINUTES
+  ).length;
+
+  els.diceBtn.disabled = totalEligible === 0;
+
+  if (!totalEligible) {
+    els.diceIntro.textContent = `目前 ${DICE_MAX_MINUTES} 分鐘內沒有可抽的店家。`;
+  } else if (els.diceResults.classList.contains("hidden")) {
+    els.diceIntro.textContent =
+      `目前有 ${totalEligible} 個候選地點；按骰子各抽 1 間超商、咖啡、手搖。`;
+  }
+}
+
+function resetDiceRecommendations() {
+  lastDicePickIds = {
+    convenience: "",
+    coffee: "",
+    bubble_tea: "",
+  };
+
+  if (!els.diceBtn) return;
+
+  els.diceBtn.disabled = true;
+  els.diceButtonText.textContent = "骰一下";
+  els.diceResults.innerHTML = "";
+  els.diceResults.classList.add("hidden");
+  els.diceIntro.classList.remove("hidden");
+  els.diceIntro.textContent = "搜尋完成後按骰子，讓系統幫你決定。";
+}
+
+function rollDiceRecommendations() {
+  if (!places.length || els.diceBtn.disabled) return;
+
+  els.diceIcon.classList.remove("rolling");
+  // 觸發 reflow，讓每次點擊都能重新播放動畫
+  void els.diceIcon.offsetWidth;
+  els.diceIcon.classList.add("rolling");
+
+  const picks = [
+    { type: "convenience", place: pickRandomPlace("convenience") },
+    { type: "coffee", place: pickRandomPlace("coffee") },
+    { type: "bubble_tea", place: pickRandomPlace("bubble_tea") },
+  ];
+
+  renderDiceRecommendations(picks);
+
+  els.diceIntro.classList.add("hidden");
+  els.diceResults.classList.remove("hidden");
+  els.diceButtonText.textContent = "再骰一次";
+}
+
+function renderDiceRecommendations(picks) {
+  els.diceResults.innerHTML = picks
+    .map(({ type, place }) => {
+      const config = TYPE_CONFIG[type];
+
+      if (!place) {
+        return `
+          <article class="dice-pick-card empty">
+            <div class="dice-pick-category">${config.icon} ${config.label}</div>
+            <div class="dice-pick-empty">5 分鐘內暫時沒有資料</div>
+          </article>
+        `;
+      }
+
+      const navigationUrl = buildGoogleMapsUrl(place);
+
+      return `
+        <article class="dice-pick-card">
+          <div class="dice-pick-head">
+            <span class="dice-pick-category">${config.icon} ${config.label}</span>
+            <span class="dice-pick-time">${place.minutes} 分鐘</span>
+          </div>
+
+          <div class="dice-pick-name">${escapeHtml(place.name)}</div>
+          ${place.locationHint ? `<div class="dice-pick-location">📍 ${escapeHtml(place.locationHint)}</div>` : ""}
+
+          <div class="dice-pick-bottom">
+            <span>${formatDistance(place.distance)}</span>
+            <a
+              href="${navigationUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="dice-nav-button"
+              aria-label="導航到 ${escapeAttr(place.name)}"
+            >導航 ↗</a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 }
 
 function renderBrandIcon(place) {
@@ -1213,6 +1350,7 @@ function bindEvents() {
   els.closeFavoriteLocationModal.addEventListener("click", closeFavoriteLocationModal);
   els.cancelFavoriteLocation.addEventListener("click", closeFavoriteLocationModal);
   els.confirmFavoriteLocation.addEventListener("click", saveActiveCenterFavorite);
+  els.diceBtn.addEventListener("click", rollDiceRecommendations);
 
   document.querySelectorAll("[data-quick-label]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -1283,6 +1421,7 @@ initMap();
 bindEvents();
 renderFavorites();
 updateSaveCenterButton();
+resetDiceRecommendations();
 
 // 首次進站仍自動嘗試定位；使用者若開始搜尋，搜尋意圖會優先，不會被稍後完成的 GPS 搶回畫面。
 window.addEventListener("load", () => {
