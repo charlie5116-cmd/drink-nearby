@@ -1,5 +1,5 @@
 const SEARCH_RADIUS_METERS = 1500;
-const MAX_RESULTS = 50;
+const MAX_RESULTS = 80;
 const DEFAULT_CENTER = { lat: 25.0478, lng: 121.5170 }; // 台北車站
 const NOMINATIM_ENDPOINT = "https://nominatim.openstreetmap.org/search";
 const GEOCODE_MIN_INTERVAL_MS = 1100;
@@ -7,6 +7,405 @@ const DICE_MAX_MINUTES = 5;
 
 const FAVORITE_STORES_KEY = "drinkNearby.favoriteStores.v1";
 const FAVORITE_LOCATIONS_KEY = "drinkNearby.favoriteLocations.v1";
+
+const LANGUAGE_KEY = "drinkNearby.language.v1";
+let currentLang = localStorage.getItem(LANGUAGE_KEY) || "zh-TW";
+
+const I18N = {
+  "zh-TW": {
+    heroTitle: "現在最快去哪裡喝？",
+    locateTitle: "回到我的位置",
+    searchPlaceholder: "搜尋地點、捷運站或地址",
+    search: "搜尋",
+    searching: "搜尋中",
+    useCurrent: "使用我的目前位置",
+    geocodeResults: "搜尋結果",
+    close: "關閉",
+    waitingLocation: "等待定位",
+    waitingLocationText: "允許瀏覽器取得位置，或直接搜尋想先查看的地點。",
+    savePlace: "☆ 常用地點",
+    savedPlace: "★ 已存常用",
+    favoritesTitle: "我的常用",
+    browserOnly: "儲存在這個瀏覽器",
+    favoriteLocations: "常用地點",
+    favoriteStores: "常去店家",
+    all: "全部",
+    convenienceShort: "超商",
+    coffeeShort: "咖啡",
+    bubbleShort: "手搖",
+    barShort: "酒吧",
+    typeConvenience: "便利商店",
+    typeCoffee: "連鎖咖啡",
+    typeBubble: "手搖／飲料店",
+    typeBar: "酒吧／Pub",
+    diceTitle: "今天喝哪間？",
+    diceSubtitle: "從目前位置／搜尋地點 5 分鐘內，各抽 1 間超商、咖啡、手搖。",
+    roll: "骰一下",
+    rollAgain: "再骰一次",
+    diceInitial: "搜尋完成後按骰子，讓系統幫你決定。",
+    mapLoading: "搜尋附近地點中…",
+    nearest: "距離最近",
+    notSearched: "尚未搜尋",
+    emptyTitle: "先取得你的位置",
+    emptyText: "也可以直接在上方搜尋「台北101」、「西門站」或地址。",
+    startLocate: "開始定位",
+    taipeiTest: "改用台北車站測試",
+    saveModalTitle: "儲存常用地點",
+    favoriteNameLabel: "這個地點要叫什麼？",
+    favoriteNamePlaceholder: "例如：家裡、公司、球場",
+    cancel: "取消",
+    save: "儲存",
+    quick_home: "家裡",
+    quick_work: "公司",
+    quick_school: "學校",
+    quick_court: "球場",
+    quick_gym: "健身房",
+    footer: "V0.5.5 地點資料來自 OpenStreetMap / Overpass；新增酒吧／Pub 分類，介面可切換繁中、English、日本語。店名優先使用 OSM 的對應語言名稱，沒有時保留原始店名。常用資料只儲存在此瀏覽器。骰子推薦目前以直線距離估算步行時間，5 分鐘約等於 400 公尺。資料仍可能不完整。",
+    browserNoGeoTitle: "瀏覽器不支援定位",
+    browserNoGeoText: "你仍然可以直接搜尋地點，或先按「台北車站測試」。",
+    cannotLocate: "無法使用定位",
+    geolocationApiUnavailable: "你的瀏覽器不支援 Geolocation API，但地點搜尋仍可使用。",
+    locatingTitle: "正在取得目前位置…",
+    locatingText: "如果瀏覽器跳出權限詢問，請選擇允許。",
+    locatingLoading: "取得目前位置中…",
+    currentLocation: "我的位置",
+    accuracy: "定位誤差約 {n} 公尺",
+    locationDefaultError: "請確認瀏覽器的定位權限後再試一次，也可以直接搜尋地點。",
+    locationDenied: "你拒絕了定位權限；可以重新允許，或直接搜尋想查看的地點。",
+    locationUnavailable: "目前無法取得位置；你仍然可以直接搜尋地點。",
+    locationTimeout: "定位逾時，請再按一次定位，或直接搜尋地點。",
+    locationFailed: "定位失敗",
+    locationNotSuccess: "定位沒有成功",
+    nearbySuffix: "{name}附近",
+    viewing: "正在查看：{name}",
+    currentCenterText: "以下距離以你的目前位置為中心。",
+    searchCenterText: "以下距離以這個搜尋位置為中心，不是你目前所在的位置。",
+    yourLocation: "你的位置",
+    youAreHere: "你目前在這裡",
+    searchCenter: "搜尋中心：{name}",
+    inputPlaceFirst: "請先輸入地點，例如「台北101」、「西門站」或一段地址。",
+    inputPlaceTitle: "請輸入地點",
+    searchingFor: "正在搜尋「{query}」…",
+    searchPlaceTitle: "搜尋地點",
+    geocodeFailText: "地點搜尋服務暫時沒有回應。請稍後再試，或使用目前位置。",
+    searchFailed: "搜尋失敗",
+    genericSearchPlace: "搜尋地點",
+    noPlaceTitle: "找不到地點",
+    noPlaceText: "找不到與「{query}」足夠相符的地點。可以改用更完整的名稱／地址，例如「臺北市政府 信義區」或直接輸入門牌地址。",
+    choosePlace: "請選擇地點 · {n} 個結果",
+    searchingRadius: "搜尋 {km} km 內…",
+    searchPosition: "搜尋位置",
+    currentPositionPrefix: "你的目前位置",
+    foundPlaces: "找到 {n} 個地點",
+    noCoffee: "以{center}為中心；目前沒有抓到支援名單內的連鎖咖啡。",
+    coffeeFound: "以{center}為中心，其中有 {n} 間連鎖咖啡。",
+    nearbyDataFail: "附近資料暫時抓不到",
+    overpassBusy: "免費 Overpass 伺服器可能忙碌。稍後可重新搜尋或按右上角 ◎ 回到目前位置。",
+    dataServiceFail: "資料服務暫時沒有回應",
+    dataServiceText: "這不一定是網站壞掉；目前仍使用免費公共 Overpass API，偶爾可能忙碌。",
+    categoryEmpty: "這個分類目前沒有資料",
+    categoryEmptyText: "可能代表附近真的沒有，也可能是 OpenStreetMap 尚未收錄。",
+    resultCount: "{n} 個結果 · {km} km 內",
+    noResults: "沒有結果",
+    diceNone: "目前 {n} 分鐘內沒有可抽的店家。",
+    diceCandidates: "目前有 {n} 個候選地點；按骰子各抽 1 間超商、咖啡、手搖。",
+    diceNoData: "5 分鐘內暫時沒有資料",
+    minutes: "{n} 分鐘",
+    approxMinutes: "約 {n} 分鐘",
+    open24: "24 小時",
+    nav: "導航 ↗",
+    navigateTo: "導航到 {name}",
+    addFavoriteStore: "加入常去店家",
+    removeFavoriteStore: "取消常去店家",
+    addFavorite: "加入常用",
+    removeFavorite: "取消常用",
+    brandIcon: "{name} 品牌圖示",
+    noFavoriteLocations: "尚未加入常用地點",
+    noFavoriteStores: "尚未加入常去店家；在搜尋結果按 ☆ 即可收藏",
+    removeItem: "移除 {name}",
+    viewNearby: "查看 {name} 附近",
+    favoriteLocationDetail: "從常用地點開啟",
+    favoriteStoreDetail: "從常去店家開啟；以下顯示這家店附近的結果。",
+    taipeiMainStation: "台北車站",
+    taipeiTestDetail: "目前使用台北車站作為測試位置",
+    addressNearby: "{name}附近",
+    houseNumber: "{street} {number}號"
+  },
+  en: {
+    heroTitle: "Where can I get a drink fastest?",
+    locateTitle: "Back to my location",
+    searchPlaceholder: "Search a place, station, or address",
+    search: "Search",
+    searching: "Searching",
+    useCurrent: "Use my current location",
+    geocodeResults: "Search results",
+    close: "Close",
+    waitingLocation: "Waiting for location",
+    waitingLocationText: "Allow location access, or search a place you want to check.",
+    savePlace: "☆ Save place",
+    savedPlace: "★ Saved",
+    favoritesTitle: "Favorites",
+    browserOnly: "Saved in this browser",
+    favoriteLocations: "Saved places",
+    favoriteStores: "Favorite stores",
+    all: "All",
+    convenienceShort: "Convenience",
+    coffeeShort: "Coffee",
+    bubbleShort: "Bubble tea",
+    barShort: "Bars",
+    typeConvenience: "Convenience store",
+    typeCoffee: "Chain coffee",
+    typeBubble: "Bubble tea / drinks",
+    typeBar: "Bar / Pub",
+    diceTitle: "Where should I drink today?",
+    diceSubtitle: "Pick one convenience store, coffee shop, and bubble tea shop within about a 5-minute walk.",
+    roll: "Roll",
+    rollAgain: "Roll again",
+    diceInitial: "Search an area, then roll the dice and let us choose.",
+    mapLoading: "Searching nearby places…",
+    nearest: "Nearest",
+    notSearched: "Not searched yet",
+    emptyTitle: "Get your location first",
+    emptyText: "Or search for “Taipei 101”, “Ximen Station”, or an address above.",
+    startLocate: "Use my location",
+    taipeiTest: "Test with Taipei Main Station",
+    saveModalTitle: "Save this place",
+    favoriteNameLabel: "What do you want to call this place?",
+    favoriteNamePlaceholder: "e.g. Home, Office, Basketball court",
+    cancel: "Cancel",
+    save: "Save",
+    quick_home: "Home",
+    quick_work: "Office",
+    quick_school: "School",
+    quick_court: "Court",
+    quick_gym: "Gym",
+    footer: "V0.5.5 uses OpenStreetMap / Overpass data and adds Bars / Pubs as a fourth category. The interface supports Traditional Chinese, English, and Japanese. Store names use OSM localized names when available; otherwise the original name is kept. Favorites are stored only in this browser. The 5-minute dice filter is still an estimate based on straight-line distance.",
+    browserNoGeoTitle: "Location is not supported",
+    browserNoGeoText: "You can still search for a place or use Taipei Main Station for testing.",
+    cannotLocate: "Location unavailable",
+    geolocationApiUnavailable: "Your browser does not support the Geolocation API, but place search still works.",
+    locatingTitle: "Getting your location…",
+    locatingText: "If your browser asks for location permission, choose Allow.",
+    locatingLoading: "Getting current location…",
+    currentLocation: "My location",
+    accuracy: "Location accuracy: about {n} m",
+    locationDefaultError: "Check your browser location permission and try again, or search for a place.",
+    locationDenied: "Location permission was denied. You can allow it again or search for a place.",
+    locationUnavailable: "Your location is currently unavailable. Place search still works.",
+    locationTimeout: "Location timed out. Try again or search for a place.",
+    locationFailed: "Location failed",
+    locationNotSuccess: "Could not get your location",
+    nearbySuffix: "Near {name}",
+    viewing: "Viewing: {name}",
+    currentCenterText: "Distances are measured from your current location.",
+    searchCenterText: "Distances are measured from this searched location, not your current location.",
+    yourLocation: "Your location",
+    youAreHere: "You are here",
+    searchCenter: "Search center: {name}",
+    inputPlaceFirst: "Enter a place, such as “Taipei 101”, “Ximen Station”, or an address.",
+    inputPlaceTitle: "Enter a place",
+    searchingFor: "Searching for “{query}”…",
+    searchPlaceTitle: "Search place",
+    geocodeFailText: "The place search service is temporarily unavailable. Try again later or use your current location.",
+    searchFailed: "Search failed",
+    genericSearchPlace: "Place",
+    noPlaceTitle: "No matching place",
+    noPlaceText: "No sufficiently relevant result was found for “{query}”. Try a fuller place name or street address.",
+    choosePlace: "Choose a place · {n} results",
+    searchingRadius: "Searching within {km} km…",
+    searchPosition: "search location",
+    currentPositionPrefix: "your current location",
+    foundPlaces: "Found {n} places",
+    noCoffee: "Centered on {center}; no supported chain coffee shops were found.",
+    coffeeFound: "Centered on {center}; {n} chain coffee shops were found.",
+    nearbyDataFail: "Nearby data is temporarily unavailable",
+    overpassBusy: "The free Overpass server may be busy. Try again later or use ◎ to return to your location.",
+    dataServiceFail: "Data service is temporarily unavailable",
+    dataServiceText: "This does not necessarily mean the site is broken. The MVP still uses a free public Overpass API.",
+    categoryEmpty: "No data in this category",
+    categoryEmptyText: "There may be none nearby, or OpenStreetMap may not have mapped them yet.",
+    resultCount: "{n} results · within {km} km",
+    noResults: "No results",
+    diceNone: "There are no eligible stores within {n} minutes.",
+    diceCandidates: "{n} candidates available. Roll to pick one convenience store, coffee shop, and bubble tea shop.",
+    diceNoData: "No data within 5 minutes",
+    minutes: "{n} min",
+    approxMinutes: "about {n} min",
+    open24: "24 hours",
+    nav: "Directions ↗",
+    navigateTo: "Directions to {name}",
+    addFavoriteStore: "Add favorite store",
+    removeFavoriteStore: "Remove favorite store",
+    addFavorite: "Add favorite",
+    removeFavorite: "Remove favorite",
+    brandIcon: "{name} brand icon",
+    noFavoriteLocations: "No saved places yet",
+    noFavoriteStores: "No favorite stores yet. Tap ☆ on a result to save one.",
+    removeItem: "Remove {name}",
+    viewNearby: "View around {name}",
+    favoriteLocationDetail: "Opened from a saved place",
+    favoriteStoreDetail: "Opened from a favorite store. Showing places around this store.",
+    taipeiMainStation: "Taipei Main Station",
+    taipeiTestDetail: "Using Taipei Main Station as the test location",
+    addressNearby: "near {name}",
+    houseNumber: "{street} {number}"
+  },
+  ja: {
+    heroTitle: "今すぐ飲むならどこ？",
+    locateTitle: "現在地に戻る",
+    searchPlaceholder: "場所・駅・住所を検索",
+    search: "検索",
+    searching: "検索中",
+    useCurrent: "現在地を使う",
+    geocodeResults: "検索結果",
+    close: "閉じる",
+    waitingLocation: "現在地を待っています",
+    waitingLocationText: "位置情報を許可するか、確認したい場所を検索してください。",
+    savePlace: "☆ よく使う場所",
+    savedPlace: "★ 保存済み",
+    favoritesTitle: "お気に入り",
+    browserOnly: "このブラウザに保存",
+    favoriteLocations: "よく使う場所",
+    favoriteStores: "よく行くお店",
+    all: "すべて",
+    convenienceShort: "コンビニ",
+    coffeeShort: "カフェ",
+    bubbleShort: "ドリンク",
+    barShort: "バー",
+    typeConvenience: "コンビニ",
+    typeCoffee: "チェーンカフェ",
+    typeBubble: "ドリンク／タピオカ",
+    typeBar: "バー／パブ",
+    diceTitle: "今日はどこで飲む？",
+    diceSubtitle: "現在地／検索地点から約徒歩5分以内で、コンビニ・カフェ・ドリンク店を1軒ずつ選びます。",
+    roll: "サイコロ",
+    rollAgain: "もう一度",
+    diceInitial: "検索後にサイコロを押すと、お店をランダムに選びます。",
+    mapLoading: "周辺のお店を検索中…",
+    nearest: "近い順",
+    notSearched: "未検索",
+    emptyTitle: "まず現在地を取得",
+    emptyText: "上の検索欄から「台北101」「西門駅」や住所を検索することもできます。",
+    startLocate: "現在地を取得",
+    taipeiTest: "台北駅でテスト",
+    saveModalTitle: "よく使う場所に保存",
+    favoriteNameLabel: "この場所の名前は？",
+    favoriteNamePlaceholder: "例：自宅、会社、体育館",
+    cancel: "キャンセル",
+    save: "保存",
+    quick_home: "自宅",
+    quick_work: "会社",
+    quick_school: "学校",
+    quick_court: "コート",
+    quick_gym: "ジム",
+    footer: "V0.5.5 は OpenStreetMap / Overpass のデータを使用し、バー／パブを新しいカテゴリとして追加しています。繁體中文・English・日本語に切り替えられます。店舗名は OSM に日本語名がある場合はそれを使用し、なければ元の名称を表示します。お気に入りはこのブラウザだけに保存されます。徒歩5分の判定は現在、直線距離による概算です。",
+    browserNoGeoTitle: "位置情報に対応していません",
+    browserNoGeoText: "場所を検索するか、台北駅をテスト地点として使えます。",
+    cannotLocate: "現在地を取得できません",
+    geolocationApiUnavailable: "このブラウザは Geolocation API に対応していませんが、場所検索は利用できます。",
+    locatingTitle: "現在地を取得中…",
+    locatingText: "位置情報の許可が表示されたら「許可」を選んでください。",
+    locatingLoading: "現在地を取得中…",
+    currentLocation: "現在地",
+    accuracy: "位置精度：約 {n} m",
+    locationDefaultError: "ブラウザの位置情報設定を確認するか、場所を検索してください。",
+    locationDenied: "位置情報が拒否されました。再度許可するか、場所を検索できます。",
+    locationUnavailable: "現在地を取得できません。場所検索は利用できます。",
+    locationTimeout: "位置情報の取得がタイムアウトしました。再試行するか、場所を検索してください。",
+    locationFailed: "位置情報エラー",
+    locationNotSuccess: "現在地を取得できませんでした",
+    nearbySuffix: "{name} 周辺",
+    viewing: "表示中：{name}",
+    currentCenterText: "距離は現在地を基準にしています。",
+    searchCenterText: "距離は検索した地点を基準にしています。現在地基準ではありません。",
+    yourLocation: "現在地",
+    youAreHere: "現在地です",
+    searchCenter: "検索地点：{name}",
+    inputPlaceFirst: "「台北101」「西門駅」または住所を入力してください。",
+    inputPlaceTitle: "場所を入力",
+    searchingFor: "「{query}」を検索中…",
+    searchPlaceTitle: "場所を検索",
+    geocodeFailText: "場所検索サービスが一時的に利用できません。後でもう一度試すか、現在地を使ってください。",
+    searchFailed: "検索失敗",
+    genericSearchPlace: "検索地点",
+    noPlaceTitle: "場所が見つかりません",
+    noPlaceText: "「{query}」に十分一致する場所が見つかりません。より詳しい名称や住所を入力してください。",
+    choosePlace: "場所を選択 · {n} 件",
+    searchingRadius: "{km} km 以内を検索中…",
+    searchPosition: "検索地点",
+    currentPositionPrefix: "現在地",
+    foundPlaces: "{n} 件見つかりました",
+    noCoffee: "{center}を中心に検索しましたが、対象のチェーンカフェは見つかりませんでした。",
+    coffeeFound: "{center}を中心に、チェーンカフェが {n} 店見つかりました。",
+    nearbyDataFail: "周辺データを取得できません",
+    overpassBusy: "無料の Overpass サーバーが混雑している可能性があります。後でもう一度試してください。",
+    dataServiceFail: "データサービスが一時的に利用できません",
+    dataServiceText: "サイトの故障とは限りません。現在は無料の公開 Overpass API を使用しています。",
+    categoryEmpty: "このカテゴリのデータがありません",
+    categoryEmptyText: "近くにないか、OpenStreetMap にまだ登録されていない可能性があります。",
+    resultCount: "{n} 件 · {km} km 以内",
+    noResults: "結果なし",
+    diceNone: "{n} 分以内に選べるお店がありません。",
+    diceCandidates: "候補は {n} 件。サイコロでコンビニ・カフェ・ドリンク店を1軒ずつ選びます。",
+    diceNoData: "5分以内のデータなし",
+    minutes: "{n} 分",
+    approxMinutes: "約 {n} 分",
+    open24: "24時間",
+    nav: "経路 ↗",
+    navigateTo: "{name} への経路",
+    addFavoriteStore: "よく行くお店に追加",
+    removeFavoriteStore: "よく行くお店から削除",
+    addFavorite: "お気に入りに追加",
+    removeFavorite: "お気に入り解除",
+    brandIcon: "{name} のブランドアイコン",
+    noFavoriteLocations: "よく使う場所はまだありません",
+    noFavoriteStores: "よく行くお店はまだありません。検索結果の ☆ から保存できます。",
+    removeItem: "{name} を削除",
+    viewNearby: "{name} 周辺を見る",
+    favoriteLocationDetail: "よく使う場所から開きました",
+    favoriteStoreDetail: "よく行くお店から開きました。この店の周辺を表示しています。",
+    taipeiMainStation: "台北駅",
+    taipeiTestDetail: "台北駅をテスト地点として使用中",
+    addressNearby: "{name} 周辺",
+    houseNumber: "{street} {number}"
+  }
+};
+
+const BRAND_LABELS = {
+  "7eleven": {"zh-TW":"7-ELEVEN","en":"7-ELEVEN","ja":"7-ELEVEN"},
+  familymart: {"zh-TW":"全家","en":"FamilyMart","ja":"ファミリーマート"},
+  hilife: {"zh-TW":"萊爾富","en":"Hi-Life","ja":"Hi-Life"},
+  okmart: {"zh-TW":"OK Mart","en":"OK Mart","ja":"OK Mart"},
+  starbucks: {"zh-TW":"星巴克","en":"Starbucks","ja":"スターバックス"},
+  louisa: {"zh-TW":"路易莎","en":"Louisa Coffee","ja":"Louisa Coffee"},
+  cama: {"zh-TW":"cama","en":"cama","ja":"cama"},
+  "85c": {"zh-TW":"85°C","en":"85°C","ja":"85°C"},
+  dante: {"zh-TW":"丹堤","en":"Dante Coffee","ja":"Dante Coffee"},
+  mrbrown: {"zh-TW":"伯朗","en":"Mr. Brown Coffee","ja":"Mr. Brown Coffee"},
+  komeda: {"zh-TW":"客美多","en":"Komeda's Coffee","ja":"コメダ珈琲店"},
+  "50lan": {"zh-TW":"50嵐","en":"50 Lan","ja":"50嵐"},
+  kebuke: {"zh-TW":"可不可","en":"KEBUKE","ja":"KEBUKE"},
+  milksha: {"zh-TW":"迷客夏","en":"Milksha","ja":"Milksha"},
+  chingshin: {"zh-TW":"清心福全","en":"Ching Shin","ja":"清心福全"},
+  coco: {"zh-TW":"CoCo","en":"CoCo","ja":"CoCo"},
+  macu: {"zh-TW":"麻古茶坊","en":"MACU","ja":"MACU"},
+  dejeng: {"zh-TW":"得正","en":"DEJENG","ja":"DEJENG"},
+  yimu: {"zh-TW":"一沐日","en":"YI MU RI","ja":"一沐日"},
+  gongcha: {"zh-TW":"貢茶","en":"Gong cha","ja":"ゴンチャ"}
+};
+
+function t(key, vars = {}) {
+  let value = I18N[currentLang]?.[key] ?? I18N["zh-TW"]?.[key] ?? key;
+  return String(value).replace(/\{(\w+)\}/g, (_, name) =>
+    Object.prototype.hasOwnProperty.call(vars, name) ? String(vars[name]) : `{${name}}`
+  );
+}
+
+function getNominatimLanguage() {
+  if (currentLang === "en") return "en,zh-TW,zh";
+  if (currentLang === "ja") return "ja,zh-TW,zh,en";
+  return "zh-TW,zh,en";
+}
 
 // 免費公共 Overpass 服務僅適合 MVP / 小型測試。
 // 主站失敗時會自動切換到備援站。
@@ -19,9 +418,10 @@ const TYPE_CONFIG = {
   convenience: { label: "便利商店", icon: "🏪" },
   coffee: { label: "連鎖咖啡", icon: "☕" },
   bubble_tea: { label: "手搖／飲料店", icon: "🧋" },
+  bar: { label: "酒吧／Pub", icon: "🍸" },
 };
 
-// V0.5.2：品牌識別＋地址提示＋骰子推薦。
+// V0.5.5：新增酒吧／Pub 分類；骰子仍維持超商／咖啡／手搖。
 // 這些是本站自製的簡化品牌 badge，不是品牌官方 Logo；
 // 未來如果要換成正式圖片，只要替換 renderBrandIcon() 即可。
 const BRAND_CONFIG = {
@@ -73,6 +473,25 @@ const geocodeCache = new Map();
 
 const els = {
   locateBtn: document.getElementById("locateBtn"),
+  languageSelect: document.getElementById("languageSelect"),
+  mainTitle: document.getElementById("mainTitle"),
+  useMyLocationText: document.getElementById("useMyLocationText"),
+  favoritesTitle: document.getElementById("favoritesTitle"),
+  favoritesNote: document.getElementById("favoritesNote"),
+  favoriteLocationsTitle: document.getElementById("favoriteLocationsTitle"),
+  favoriteStoresTitle: document.getElementById("favoriteStoresTitle"),
+  filterAllLabel: document.getElementById("filterAllLabel"),
+  filterConvenienceLabel: document.getElementById("filterConvenienceLabel"),
+  filterCoffeeLabel: document.getElementById("filterCoffeeLabel"),
+  filterBubbleTeaLabel: document.getElementById("filterBubbleTeaLabel"),
+  filterBarLabel: document.getElementById("filterBarLabel"),
+  countBar: document.getElementById("countBar"),
+  diceTitle: document.getElementById("diceTitle"),
+  diceSubtitle: document.getElementById("diceSubtitle"),
+  emptyTitle: document.getElementById("emptyTitle"),
+  emptyText: document.getElementById("emptyText"),
+  footerText: document.getElementById("footerText"),
+  favoriteLocationLabel: document.getElementById("favoriteLocationLabel"),
   useMyLocationBtn: document.getElementById("useMyLocationBtn"),
   startBtn: document.getElementById("startBtn"),
   taipeiTestBtn: document.getElementById("taipeiTestBtn"),
@@ -110,6 +529,106 @@ const els = {
   diceResults: document.getElementById("diceResults"),
 };
 
+
+function applyLanguage(lang, { persist = true } = {}) {
+  if (!I18N[lang]) lang = "zh-TW";
+  currentLang = lang;
+
+  if (persist) localStorage.setItem(LANGUAGE_KEY, currentLang);
+
+  document.documentElement.lang =
+    currentLang === "zh-TW" ? "zh-Hant" : currentLang;
+  els.languageSelect.value = currentLang;
+
+  // Static UI
+  els.mainTitle.textContent = t("heroTitle");
+  els.locateBtn.title = t("locateTitle");
+  els.locateBtn.setAttribute("aria-label", t("locateTitle"));
+  els.searchInput.placeholder = t("searchPlaceholder");
+  els.searchInput.setAttribute("aria-label", t("searchPlaceholder"));
+  els.searchBtn.textContent = t("search");
+  els.useMyLocationText.textContent = t("useCurrent");
+  els.closeGeocodeBtn.textContent = t("close");
+  els.favoritesTitle.textContent = t("favoritesTitle");
+  els.favoritesNote.textContent = t("browserOnly");
+  els.favoriteLocationsTitle.textContent = t("favoriteLocations");
+  els.favoriteStoresTitle.textContent = t("favoriteStores");
+  els.filterAllLabel.textContent = t("all");
+  els.filterConvenienceLabel.textContent = t("convenienceShort");
+  els.filterCoffeeLabel.textContent = t("coffeeShort");
+  els.filterBubbleTeaLabel.textContent = t("bubbleShort");
+  els.filterBarLabel.textContent = t("barShort");
+  els.diceTitle.textContent = t("diceTitle");
+  els.diceSubtitle.textContent = t("diceSubtitle");
+  els.mapLoading.textContent = t("mapLoading");
+  els.emptyTitle.textContent = t("emptyTitle");
+  els.emptyText.textContent = t("emptyText");
+  els.startBtn.textContent = t("startLocate");
+  els.taipeiTestBtn.textContent = t("taipeiTest");
+  els.footerText.textContent = t("footer");
+  document.getElementById("favoriteLocationModalTitle").textContent = t("saveModalTitle");
+  els.favoriteLocationLabel.textContent = t("favoriteNameLabel");
+  els.favoriteLocationName.placeholder = t("favoriteNamePlaceholder");
+  els.cancelFavoriteLocation.textContent = t("cancel");
+  els.confirmFavoriteLocation.textContent = t("save");
+
+  document.querySelectorAll("[data-quick-key]").forEach((button) => {
+    const key = button.dataset.quickKey;
+    const text = button.querySelector("[data-quick-text]");
+    if (text) text.textContent = t(`quick_${key}`);
+  });
+
+  // Mutable localized labels used by render functions.
+  TYPE_CONFIG.convenience.label = t("typeConvenience");
+  TYPE_CONFIG.coffee.label = t("typeCoffee");
+  TYPE_CONFIG.bubble_tea.label = t("typeBubble");
+  TYPE_CONFIG.bar.label = t("typeBar");
+  Object.entries(BRAND_CONFIG).forEach(([key, config]) => {
+    config.label = BRAND_LABELS[key]?.[currentLang] || BRAND_LABELS[key]?.["zh-TW"] || config.label;
+  });
+
+  // Clear language-sensitive geocoder cache.
+  geocodeCache.clear();
+
+  if (activeCenter?.mode === "current") {
+    activeCenter.label = t("currentLocation");
+  }
+
+  if (activeCenter) {
+    els.resultsTitle.textContent = t("nearbySuffix", { name: activeCenter.label });
+    setStatus(
+      "success",
+      t("viewing", { name: activeCenter.label }),
+      activeCenter.mode === "current" ? t("currentCenterText") : t("searchCenterText")
+    );
+  } else {
+    els.statusTitle.textContent = t("waitingLocation");
+    els.statusText.textContent = t("waitingLocationText");
+    els.resultsTitle.textContent = t("nearest");
+    els.resultMeta.textContent = t("notSearched");
+  }
+
+  updateSaveCenterButton();
+  renderFavorites();
+
+  if (places.length) {
+    // Rebuild localized place names from original OSM tags.
+    places = places.map((place) => ({
+      ...place,
+      name: getPlaceDisplayName(place.tags, place.type, place.brandKey, place.branchName),
+      locationHint: getLocationHint(place.tags),
+    }));
+    renderMarkers();
+    applyFilter(activeFilter);
+    resetDiceRecommendations();
+    updateDiceAvailability();
+  } else {
+    resetDiceRecommendations();
+  }
+
+  closeGeocodePanel();
+}
+
 function initMap() {
   map = new maplibregl.Map({
     container: "map",
@@ -128,7 +647,7 @@ function setStatus(state, title, text) {
   els.statusText.textContent = text;
 }
 
-function setLoading(isLoading, text = "搜尋附近地點中…") {
+function setLoading(isLoading, text = t("mapLoading")) {
   els.mapLoading.textContent = text;
   els.mapLoading.classList.toggle("hidden", !isLoading);
 }
@@ -138,13 +657,13 @@ function locateUser() {
   closeGeocodePanel();
 
   if (!navigator.geolocation) {
-    setStatus("error", "瀏覽器不支援定位", "你仍然可以直接搜尋地點，或先按「台北車站測試」。");
-    showEmptyState("無法使用定位", "你的瀏覽器不支援 Geolocation API，但地點搜尋仍可使用。", true);
+    setStatus("error", t("browserNoGeoTitle"), t("browserNoGeoText"));
+    showEmptyState(t("cannotLocate"), t("geolocationApiUnavailable"), true);
     return;
   }
 
-  setStatus("loading", "正在取得目前位置…", "如果瀏覽器跳出權限詢問，請選擇允許。");
-  setLoading(true, "取得目前位置中…");
+  setStatus("loading", t("locatingTitle"), t("locatingText"));
+  setLoading(true, t("locatingLoading"));
 
   navigator.geolocation.getCurrentPosition(
     async (position) => {
@@ -158,27 +677,27 @@ function locateUser() {
       await setActiveCenter({
         lat: latitude,
         lng: longitude,
-        label: "我的位置",
+        label: t("currentLocation"),
         mode: "current",
-        detail: `定位誤差約 ${Math.round(accuracy)} 公尺`,
+        detail: t("accuracy", { n: Math.round(accuracy) }),
       });
     },
     (error) => {
       if (intentVersion !== centerIntentVersion) return;
 
       setLoading(false);
-      let message = "請確認瀏覽器的定位權限後再試一次，也可以直接搜尋地點。";
+      let message = t("locationDefaultError");
 
       if (error.code === error.PERMISSION_DENIED) {
-        message = "你拒絕了定位權限；可以重新允許，或直接搜尋想查看的地點。";
+        message = t("locationDenied");
       } else if (error.code === error.POSITION_UNAVAILABLE) {
-        message = "目前無法取得位置；你仍然可以直接搜尋地點。";
+        message = t("locationUnavailable");
       } else if (error.code === error.TIMEOUT) {
-        message = "定位逾時，請再按一次定位，或直接搜尋地點。";
+        message = t("locationTimeout");
       }
 
-      setStatus("error", "定位失敗", message);
-      showEmptyState("定位沒有成功", message, true);
+      setStatus("error", t("locationFailed"), message);
+      showEmptyState(t("locationNotSuccess"), message, true);
     },
     {
       enableHighAccuracy: true,
@@ -200,7 +719,7 @@ async function setActiveCenter(center) {
     setCenterMarker(center.lat, center.lng, center.label);
   }
 
-  els.resultsTitle.textContent = `${center.label}附近`;
+  els.resultsTitle.textContent = t("nearbySuffix", { name: center.label });
 
   map.easeTo({
     center: [center.lng, center.lat],
@@ -210,10 +729,10 @@ async function setActiveCenter(center) {
 
   setStatus(
     "success",
-    `正在查看：${center.label}`,
+    t("viewing", { name: center.label }),
     center.mode === "current"
-      ? center.detail || "以下距離以你的目前位置為中心。"
-      : "以下距離以這個搜尋位置為中心，不是你目前所在的位置。"
+      ? center.detail || t("currentCenterText")
+      : t("searchCenterText")
   );
 
   await searchNearby(center.lat, center.lng);
@@ -224,11 +743,11 @@ function setUserMarker(lat, lng) {
 
   const el = document.createElement("div");
   el.className = "marker-user";
-  el.title = "你的位置";
+  el.title = t("yourLocation");
 
   userMarker = new maplibregl.Marker({ element: el })
     .setLngLat([lng, lat])
-    .setPopup(new maplibregl.Popup({ offset: 14 }).setText("你目前在這裡"))
+    .setPopup(new maplibregl.Popup({ offset: 14 }).setText(t("youAreHere")))
     .addTo(map);
 }
 
@@ -237,11 +756,11 @@ function setCenterMarker(lat, lng, label) {
 
   const el = document.createElement("div");
   el.className = "marker-search-center";
-  el.title = `搜尋中心：${label}`;
+  el.title = t("searchCenter", { name: label });
 
   centerMarker = new maplibregl.Marker({ element: el, anchor: "bottom" })
     .setLngLat([lng, lat])
-    .setPopup(new maplibregl.Popup({ offset: 18 }).setText(`搜尋中心：${label}`))
+    .setPopup(new maplibregl.Popup({ offset: 18 }).setText(t("searchCenter", { name: label })))
     .addTo(map);
 }
 
@@ -258,7 +777,7 @@ async function handleLocationSearch(event) {
 
   const query = els.searchInput.value.trim();
   if (!query) {
-    openGeocodeMessage("請先輸入地點，例如「台北101」、「西門站」或一段地址。", "請輸入地點");
+    openGeocodeMessage(t("inputPlaceFirst"), t("inputPlaceTitle"));
     els.searchInput.focus();
     return;
   }
@@ -270,8 +789,8 @@ async function handleLocationSearch(event) {
   geocodeController = new AbortController();
 
   els.searchBtn.disabled = true;
-  els.searchBtn.textContent = "搜尋中";
-  openGeocodeMessage(`正在搜尋「${query}」…`, "搜尋地點");
+  els.searchBtn.textContent = t("searching");
+  openGeocodeMessage(t("searchingFor", { query }), t("searchPlaceTitle"));
 
   try {
     const results = await geocodePlace(query, geocodeController.signal);
@@ -280,22 +799,51 @@ async function handleLocationSearch(event) {
     if (error.name === "AbortError") return;
     console.error("Geocoding failed:", error);
     openGeocodeMessage(
-      "地點搜尋服務暫時沒有回應。請稍後再試，或使用目前位置。",
-      "搜尋失敗"
+      t("geocodeFailText"),
+      t("searchFailed")
     );
   } finally {
     els.searchBtn.disabled = false;
-    els.searchBtn.textContent = "搜尋";
+    els.searchBtn.textContent = t("search");
   }
 }
 
 async function geocodePlace(query, signal) {
-  const cacheKey = query.trim().toLowerCase();
+  const cacheKey = `${currentLang}:${normalizeSearchText(query)}`;
   if (geocodeCache.has(cacheKey)) {
     return geocodeCache.get(cacheKey);
   }
 
-  // 公共 Nominatim 不適合高頻連打；V0.4 主動將請求間隔拉到至少約 1.1 秒。
+  const queryVariants = buildGeocodeQueryVariants(query);
+  let collected = [];
+
+  for (const variant of queryVariants) {
+    const results = await requestNominatim(variant, signal);
+
+    collected.push(
+      ...results.map((item) => ({
+        ...item,
+        searchVariant: variant,
+      }))
+    );
+
+    const rankedSoFar = rankGeocodeResults(collected, query);
+    if (rankedSoFar.length && rankedSoFar[0].relevance >= 80) {
+      collected = rankedSoFar;
+      break;
+    }
+  }
+
+  const normalized = rankGeocodeResults(collected, query)
+    .filter((item) => item.relevance >= getMinimumGeocodeRelevance(query))
+    .slice(0, 5)
+    .map(({ relevance, searchVariant, ...item }) => item);
+
+  geocodeCache.set(cacheKey, normalized);
+  return normalized;
+}
+
+async function requestNominatim(query, signal) {
   const elapsed = Date.now() - geocodeLastRequestAt;
   if (elapsed < GEOCODE_MIN_INTERVAL_MS) {
     await sleep(GEOCODE_MIN_INTERVAL_MS - elapsed);
@@ -304,10 +852,11 @@ async function geocodePlace(query, signal) {
   const params = new URLSearchParams({
     format: "jsonv2",
     q: query,
-    limit: "5",
+    limit: "10",
     countrycodes: "tw",
     addressdetails: "1",
-    "accept-language": "zh-TW,zh,en",
+    namedetails: "1",
+    "accept-language": getNominatimLanguage(),
   });
 
   geocodeLastRequestAt = Date.now();
@@ -325,7 +874,8 @@ async function geocodePlace(query, signal) {
   }
 
   const data = await response.json();
-  const normalized = (Array.isArray(data) ? data : [])
+
+  return (Array.isArray(data) ? data : [])
     .map((item) => ({
       placeId: item.place_id,
       lat: Number(item.lat),
@@ -333,33 +883,187 @@ async function geocodePlace(query, signal) {
       title: getGeocodeTitle(item),
       displayName: item.display_name || "",
       type: item.addresstype || item.type || "place",
+      importance: Number(item.importance || 0),
     }))
     .filter((item) => Number.isFinite(item.lat) && Number.isFinite(item.lng));
+}
 
-  geocodeCache.set(cacheKey, normalized);
-  return normalized;
+function buildGeocodeQueryVariants(query) {
+  const raw = String(query || "").trim();
+  const variants = [];
+
+  const add = (value) => {
+    const cleaned = String(value || "").trim();
+    if (!cleaned) return;
+    if (!variants.some((item) => normalizeSearchText(item) === normalizeSearchText(cleaned))) {
+      variants.push(cleaned);
+    }
+  };
+
+  add(raw);
+
+  // 台灣地名在 OSM 裡可能同時存在「台」和「臺」兩種寫法。
+  if (raw.includes("台")) add(raw.replace(/台/g, "臺"));
+  if (raw.includes("臺")) add(raw.replace(/臺/g, "台"));
+
+  // 部分市政府建築在 OSM 的正式名稱可能是「市政大樓」。
+  const normalized = normalizeSearchText(raw);
+  const cityGovernmentMatch = normalized.match(/^(.+市)政府$/);
+  if (cityGovernmentMatch) {
+    const city = cityGovernmentMatch[1];
+    add(`${city}市政大樓`);
+    if (city.includes("台")) add(`${city.replace(/台/g, "臺")}市政大樓`);
+    if (city.includes("臺")) add(`${city.replace(/臺/g, "台")}市政大樓`);
+  }
+
+  // 最後才補台灣，降低同名地點誤判。
+  add(`${raw}, 台灣`);
+
+  return variants.slice(0, 4);
+}
+
+function normalizeSearchText(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/臺/g, "台")
+    .replace(/[，,。．.\s\-_/()（）【】\[\]·•]/g, "");
+}
+
+function getSearchCoreTerms(query) {
+  const normalized = normalizeSearchText(query);
+
+  const stopTerms = [
+    "台灣",
+    "臺灣",
+    "台北市",
+    "臺北市",
+    "新北市",
+    "桃園市",
+    "台中市",
+    "臺中市",
+    "台南市",
+    "臺南市",
+    "高雄市",
+  ].map(normalizeSearchText);
+
+  let core = normalized;
+  for (const term of stopTerms) {
+    if (core.startsWith(term) && core.length > term.length) {
+      core = core.slice(term.length);
+      break;
+    }
+  }
+
+  return {
+    full: normalized,
+    core,
+  };
+}
+
+function scoreGeocodeResult(result, query) {
+  const { full, core } = getSearchCoreTerms(query);
+  const title = normalizeSearchText(result.title);
+  const display = normalizeSearchText(result.displayName);
+  const combined = `${title}${display}`;
+
+  let score = 0;
+
+  if (title === full) score += 140;
+  else if (title.includes(full)) score += 120;
+  else if (display.includes(full)) score += 100;
+
+  if (core && core.length >= 2) {
+    if (title === core) score += 100;
+    else if (title.includes(core)) score += 85;
+    else if (display.includes(core)) score += 65;
+  }
+
+  // 市政府與市政大樓視為高度相關詞。
+  const govAliases = ["市政府", "市政大樓"].map(normalizeSearchText);
+  const queryIsGovernment = govAliases.some((term) => full.includes(term));
+  const resultIsGovernment = govAliases.some((term) => combined.includes(term));
+  if (queryIsGovernment && resultIsGovernment) score += 80;
+
+  // 車站、捷運站、學校等明確類型詞也要真的出現在結果名稱／地址。
+  const semanticTerms = [
+    "政府",
+    "市政大樓",
+    "車站",
+    "捷運",
+    "機場",
+    "公園",
+    "醫院",
+    "大學",
+    "高中",
+    "國中",
+    "國小",
+    "球場",
+    "體育館",
+  ].map(normalizeSearchText);
+
+  for (const term of semanticTerms) {
+    if (full.includes(term)) {
+      const acceptable =
+        combined.includes(term) ||
+        (term === normalizeSearchText("政府") &&
+          combined.includes(normalizeSearchText("市政大樓")));
+      if (acceptable) score += 25;
+      else score -= 45;
+    }
+  }
+
+  // Nominatim importance 只當很小的 tie-breaker。
+  score += Math.min(10, Math.max(0, (result.importance || 0) * 10));
+
+  return score;
+}
+
+function rankGeocodeResults(results, query) {
+  const unique = new Map();
+
+  for (const result of results) {
+    const key = result.placeId || `${result.lat},${result.lng}`;
+    const relevance = scoreGeocodeResult(result, query);
+    const current = unique.get(key);
+
+    if (!current || relevance > current.relevance) {
+      unique.set(key, { ...result, relevance });
+    }
+  }
+
+  return [...unique.values()].sort((a, b) => b.relevance - a.relevance);
+}
+
+function getMinimumGeocodeRelevance(query) {
+  const normalized = normalizeSearchText(query);
+
+  // 中文 POI 名稱通常不長，3 字以上就要求至少有核心詞命中；
+  // 避免「台北市政府 → 政大附中」這種只靠地址與單字模糊命中的結果。
+  if (normalized.length >= 4) return 55;
+  return 35;
 }
 
 function getGeocodeTitle(item) {
   if (item.name) return item.name;
   if (item.display_name) return item.display_name.split(",")[0].trim();
-  return "搜尋地點";
+  return t("genericSearchPlace");
 }
 
 function renderGeocodeResults(results, query) {
   els.geocodePanel.classList.remove("hidden");
 
   if (!results.length) {
-    els.geocodeTitle.textContent = "找不到地點";
+    els.geocodeTitle.textContent = t("noPlaceTitle");
     els.geocodeResults.innerHTML = `
       <div class="geocode-message">
-        找不到「${escapeHtml(query)}」。可以改用更完整的名稱，例如「台北101 台北」或直接輸入地址。
+        ${escapeHtml(t("noPlaceText", { query }))}
       </div>
     `;
     return;
   }
 
-  els.geocodeTitle.textContent = `請選擇地點 · ${results.length} 個結果`;
+  els.geocodeTitle.textContent = t("choosePlace", { n: results.length });
   els.geocodeResults.innerHTML = results
     .map(
       (result, index) => `
@@ -391,7 +1095,7 @@ function renderGeocodeResults(results, query) {
   });
 }
 
-function openGeocodeMessage(message, title = "搜尋結果") {
+function openGeocodeMessage(message, title = t("geocodeResults")) {
   els.geocodeTitle.textContent = title;
   els.geocodeResults.innerHTML = `<div class="geocode-message">${escapeHtml(message)}</div>`;
   els.geocodePanel.classList.remove("hidden");
@@ -425,6 +1129,9 @@ function buildOverpassQuery(lat, lng) {
   nwr${around}["cuisine"~"bubble_tea",i];
   nwr${around}["drink:bubble_tea"="yes"];
   nwr${around}["shop"="beverages"];
+
+  nwr${around}["amenity"="bar"];
+  nwr${around}["amenity"="pub"];
 );
 out center tags;
 `;
@@ -437,7 +1144,7 @@ async function searchNearby(lat, lng) {
   clearPlaces();
   hideEmptyState();
   setLoading(true);
-  els.resultMeta.textContent = `搜尋 ${SEARCH_RADIUS_METERS / 1000} km 內…`;
+  els.resultMeta.textContent = t("searchingRadius", { km: SEARCH_RADIUS_METERS / 1000 });
 
   const query = buildOverpassQuery(lat, lng);
 
@@ -455,15 +1162,15 @@ async function searchNearby(lat, lng) {
     updateDiceAvailability();
 
     const coffeeCount = places.filter((p) => p.type === "coffee").length;
-    const centerLabel = activeCenter?.label || "搜尋位置";
-    const centerPrefix = activeCenter?.mode === "current" ? "你的目前位置" : `「${centerLabel}」`;
+    const centerLabel = activeCenter?.label || t("searchPosition");
+    const centerPrefix = activeCenter?.mode === "current" ? t("currentPositionPrefix") : `「${centerLabel}」`;
 
     setStatus(
       "success",
-      `找到 ${places.length} 個地點`,
+      t("foundPlaces", { n: places.length }),
       coffeeCount === 0
-        ? `以${centerPrefix}為中心；目前沒有抓到支援名單內的連鎖咖啡。`
-        : `以${centerPrefix}為中心，其中有 ${coffeeCount} 間連鎖咖啡。`
+        ? t("noCoffee", { center: centerPrefix })
+        : t("coffeeFound", { center: centerPrefix, n: coffeeCount })
     );
   } catch (error) {
     if (error.name === "AbortError") return;
@@ -475,12 +1182,12 @@ async function searchNearby(lat, lng) {
     resetDiceRecommendations();
     setStatus(
       "error",
-      "附近資料暫時抓不到",
-      "免費 Overpass 伺服器可能忙碌。稍後可重新搜尋或按右上角 ◎ 回到目前位置。"
+      t("nearbyDataFail"),
+      t("overpassBusy")
     );
     showEmptyState(
-      "資料服務暫時沒有回應",
-      "這不一定是網站壞掉；V0.4 仍使用免費公共 Overpass API，偶爾可能忙碌。",
+      t("dataServiceFail"),
+      t("dataServiceText"),
       false
     );
   } finally {
@@ -559,6 +1266,8 @@ function parseOverpassElements(elements, centerLat, centerLng) {
 }
 
 function classifyPlace(tags) {
+  if (tags.amenity === "bar" || tags.amenity === "pub") return "bar";
+
   if (tags.shop === "convenience") return "convenience";
 
   if (getCoffeeBrand(tags)) return "coffee";
@@ -635,6 +1344,17 @@ function getCoffeeBrand(tags) {
   return "";
 }
 
+
+function getLocalizedTagName(tags) {
+  if (currentLang === "en") {
+    return tags["name:en"] || tags.name || tags.brand || tags.operator || "";
+  }
+  if (currentLang === "ja") {
+    return tags["name:ja"] || tags["name:en"] || tags.name || tags.brand || tags.operator || "";
+  }
+  return tags["name:zh-Hant"] || tags["name:zh"] || tags.name || tags.brand || tags.operator || "";
+}
+
 function getPlaceDisplayName(tags, type, brandKey, branch = "") {
   const brandLabel = BRAND_CONFIG[brandKey]?.label || "";
 
@@ -643,13 +1363,10 @@ function getPlaceDisplayName(tags, type, brandKey, branch = "") {
   }
 
   if (brandLabel) return brandLabel;
-  if (tags.name) return String(tags.name).trim();
-  if (tags.brand) return String(tags.brand).trim();
-  if (tags.operator) return String(tags.operator).trim();
+  const localizedName = getLocalizedTagName(tags);
+  if (localizedName) return String(localizedName).trim();
 
-  if (type === "coffee") return "連鎖咖啡";
-  if (type === "convenience") return "便利商店";
-  return "手搖／飲料店";
+  return TYPE_CONFIG[type]?.label || t("genericSearchPlace");
 }
 
 function getBranchName(tags, brandKey, type) {
@@ -715,6 +1432,8 @@ function formatBranchSuffix(branch, type) {
   const value = cleanBranchText(branch);
   if (!value) return "";
 
+  if (currentLang !== "zh-TW") return value;
+
   if (/(門市|分店|店$|店舖|旗艦店|概念店|直營店|直營)$/.test(value)) {
     return value;
   }
@@ -737,10 +1456,10 @@ function getLocationHint(tags) {
   const houseNumber = cleanAddressValue(tags["addr:housenumber"]);
 
   if (street && houseNumber) {
-    return `${street} ${houseNumber}號`;
+    return t("houseNumber", { street, number: houseNumber });
   }
 
-  if (street) return `${street}附近`;
+  if (street) return t("addressNearby", { name: street });
 
   const district = cleanAddressValue(
     tags["addr:district"] ||
@@ -748,7 +1467,7 @@ function getLocationHint(tags) {
     tags["addr:quarter"]
   );
 
-  if (district) return `${district}附近`;
+  if (district) return t("addressNearby", { name: district });
 
   return "";
 }
@@ -808,7 +1527,7 @@ function renderMarkers() {
     const popupHtml = `
       <strong>${escapeHtml(place.name)}</strong><br>
       ${place.locationHint ? `${escapeHtml(place.locationHint)}<br>` : ""}
-      ${formatDistance(place.distance)} · 約 ${place.minutes} 分鐘
+      ${formatDistance(place.distance)} · ${escapeHtml(t("approxMinutes", { n: place.minutes }))}
     `;
 
     const marker = new maplibregl.Marker({ element: el, anchor: "center" })
@@ -854,8 +1573,8 @@ function applyFilter(filter) {
 
   if (filtered.length === 0 && places.length > 0) {
     showEmptyState(
-      "這個分類目前沒有資料",
-      "可能代表附近真的沒有，也可能是 OpenStreetMap 尚未收錄。",
+      t("categoryEmpty"),
+      t("categoryEmptyText"),
       false
     );
   } else if (places.length > 0) {
@@ -863,8 +1582,8 @@ function applyFilter(filter) {
   }
 
   els.resultMeta.textContent = places.length
-    ? `${filtered.length} 個結果 · ${SEARCH_RADIUS_METERS / 1000} km 內`
-    : "沒有結果";
+    ? t("resultCount", { n: filtered.length, km: SEARCH_RADIUS_METERS / 1000 })
+    : t("noResults");
 }
 
 
@@ -902,10 +1621,10 @@ function updateDiceAvailability() {
   els.diceBtn.disabled = totalEligible === 0;
 
   if (!totalEligible) {
-    els.diceIntro.textContent = `目前 ${DICE_MAX_MINUTES} 分鐘內沒有可抽的店家。`;
+    els.diceIntro.textContent = t("diceNone", { n: DICE_MAX_MINUTES });
   } else if (els.diceResults.classList.contains("hidden")) {
     els.diceIntro.textContent =
-      `目前有 ${totalEligible} 個候選地點；按骰子各抽 1 間超商、咖啡、手搖。`;
+      t("diceCandidates", { n: totalEligible });
   }
 }
 
@@ -919,11 +1638,11 @@ function resetDiceRecommendations() {
   if (!els.diceBtn) return;
 
   els.diceBtn.disabled = true;
-  els.diceButtonText.textContent = "骰一下";
+  els.diceButtonText.textContent = t("roll");
   els.diceResults.innerHTML = "";
   els.diceResults.classList.add("hidden");
   els.diceIntro.classList.remove("hidden");
-  els.diceIntro.textContent = "搜尋完成後按骰子，讓系統幫你決定。";
+  els.diceIntro.textContent = t("diceInitial");
 }
 
 function rollDiceRecommendations() {
@@ -944,7 +1663,7 @@ function rollDiceRecommendations() {
 
   els.diceIntro.classList.add("hidden");
   els.diceResults.classList.remove("hidden");
-  els.diceButtonText.textContent = "再骰一次";
+  els.diceButtonText.textContent = t("rollAgain");
 }
 
 function renderDiceRecommendations(picks) {
@@ -956,7 +1675,7 @@ function renderDiceRecommendations(picks) {
         return `
           <article class="dice-pick-card empty">
             <div class="dice-pick-category">${config.icon} ${config.label}</div>
-            <div class="dice-pick-empty">5 分鐘內暫時沒有資料</div>
+            <div class="dice-pick-empty">${escapeHtml(t("diceNoData"))}</div>
           </article>
         `;
       }
@@ -967,7 +1686,7 @@ function renderDiceRecommendations(picks) {
         <article class="dice-pick-card">
           <div class="dice-pick-head">
             <span class="dice-pick-category">${config.icon} ${config.label}</span>
-            <span class="dice-pick-time">${place.minutes} 分鐘</span>
+            <span class="dice-pick-time">${escapeHtml(t("minutes", { n: place.minutes }))}</span>
           </div>
 
           <div class="dice-pick-name">${escapeHtml(place.name)}</div>
@@ -980,8 +1699,8 @@ function renderDiceRecommendations(picks) {
               target="_blank"
               rel="noopener noreferrer"
               class="dice-nav-button"
-              aria-label="導航到 ${escapeAttr(place.name)}"
-            >導航 ↗</a>
+              aria-label="${escapeAttr(t("navigateTo", { name: place.name }))}"
+            >${escapeHtml(t("nav"))}</a>
           </div>
         </article>
       `;
@@ -999,7 +1718,7 @@ function renderBrandIcon(place) {
     <div
       class="place-icon brand-icon ${brand.className}"
       role="img"
-      aria-label="${escapeAttr(brand.label)} 品牌圖示"
+      aria-label="${escapeAttr(t("brandIcon", { name: brand.label }))}"
       title="${escapeAttr(brand.label)}"
     >
       <span>${escapeHtml(brand.short)}</span>
@@ -1012,7 +1731,7 @@ function renderResults(items) {
     .map((place) => {
       const config = TYPE_CONFIG[place.type];
       const navigationUrl = buildGoogleMapsUrl(place);
-      const openingText = place.openingHours === "24/7" ? " · 24 小時" : "";
+      const openingText = place.openingHours === "24/7" ? ` · ${t("open24")}` : "";
       const favorite = isFavoriteStore(place.id);
 
       return `
@@ -1024,7 +1743,7 @@ function renderResults(items) {
             ${shouldShowLocationHint(place) ? `<div class="place-location" title="${escapeAttr(place.locationHint)}">📍 ${escapeHtml(place.locationHint)}</div>` : ""}
             <p class="place-meta">
               <strong>${formatDistance(place.distance)}</strong>
-              · 約 ${place.minutes} 分鐘${openingText}
+              · ${escapeHtml(t("approxMinutes", { n: place.minutes }))}${openingText}
             </p>
           </div>
           <div class="place-actions">
@@ -1032,16 +1751,16 @@ function renderResults(items) {
               class="favorite-store-button ${favorite ? "active" : ""}"
               type="button"
               data-favorite-store-id="${escapeAttr(place.id)}"
-              aria-label="${favorite ? "取消常去店家" : "加入常去店家"}：${escapeAttr(place.name)}"
-              title="${favorite ? "取消常用" : "加入常用"}"
+              aria-label="${escapeAttr((favorite ? t("removeFavoriteStore") : t("addFavoriteStore")) + ": " + place.name)}"
+              title="${escapeAttr(favorite ? t("removeFavorite") : t("addFavorite"))}"
             >${favorite ? "★" : "☆"}</button>
             <a
               class="nav-button"
               href="${navigationUrl}"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="導航到 ${escapeAttr(place.name)}"
-            >導航 ↗</a>
+              aria-label="${escapeAttr(t("navigateTo", { name: place.name }))}"
+            >${escapeHtml(t("nav"))}</a>
           </div>
         </article>
       `;
@@ -1109,14 +1828,14 @@ function updateSaveCenterButton() {
 
   if (!activeCenter) {
     els.saveCenterBtn.disabled = true;
-    els.saveCenterBtn.textContent = "☆ 常用地點";
+    els.saveCenterBtn.textContent = t("savePlace");
     return;
   }
 
   els.saveCenterBtn.disabled = false;
   els.saveCenterBtn.textContent = isActiveCenterFavorite()
-    ? "★ 已存常用"
-    : "☆ 常用地點";
+    ? t("savedPlace")
+    : t("savePlace");
   els.saveCenterBtn.classList.toggle("active", isActiveCenterFavorite());
 }
 
@@ -1128,7 +1847,7 @@ function openFavoriteLocationModal() {
 
   els.favoriteLocationName.value =
     existing?.label ||
-    (activeCenter.label && activeCenter.label !== "我的位置"
+    (activeCenter.label && activeCenter.mode !== "current"
       ? activeCenter.label
       : "");
 
@@ -1199,7 +1918,7 @@ async function openFavoriteLocation(id) {
     lng: location.lng,
     label: location.label,
     mode: "favorite-location",
-    detail: location.detail || "從常用地點開啟",
+    detail: location.detail || t("favoriteLocationDetail"),
   });
 }
 
@@ -1216,14 +1935,14 @@ async function openFavoriteStore(id) {
     lng: store.lng,
     label: store.name,
     mode: "favorite-store",
-    detail: "從常去店家開啟；以下顯示這家店附近的結果。",
+    detail: t("favoriteStoreDetail"),
   });
 }
 
 function renderFavorites() {
   if (!favoriteLocations.length) {
     els.favoriteLocations.innerHTML =
-      '<span class="favorite-empty">尚未加入常用地點</span>';
+      `<span class="favorite-empty">${escapeHtml(t("noFavoriteLocations"))}</span>`;
   } else {
     els.favoriteLocations.innerHTML = favoriteLocations
       .map(
@@ -1238,7 +1957,7 @@ function renderFavorites() {
               class="favorite-remove"
               type="button"
               data-remove-location="${escapeAttr(location.id)}"
-              aria-label="移除 ${escapeAttr(location.label)}"
+              aria-label="${escapeAttr(t("removeItem", { name: location.label }))}"
             >×</button>
           </div>
         `
@@ -1248,7 +1967,7 @@ function renderFavorites() {
 
   if (!favoriteStores.length) {
     els.favoriteStores.innerHTML =
-      '<span class="favorite-empty">尚未加入常去店家；在搜尋結果按 ☆ 即可收藏</span>';
+      `<span class="favorite-empty">${escapeHtml(t("noFavoriteStores"))}</span>`;
   } else {
     els.favoriteStores.innerHTML = favoriteStores
       .map((store) => {
@@ -1261,7 +1980,7 @@ function renderFavorites() {
               class="favorite-store-main"
               type="button"
               data-open-store="${escapeAttr(store.id)}"
-              title="查看 ${escapeAttr(store.name)} 附近"
+              title="${escapeAttr(t("viewNearby", { name: store.name }))}"
             >
               <span class="favorite-store-icon">${typeIcon}</span>
               <span class="favorite-store-copy">
@@ -1274,13 +1993,13 @@ function renderFavorites() {
               href="${nav}"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="導航到 ${escapeAttr(store.name)}"
+              aria-label="${escapeAttr(t("navigateTo", { name: store.name }))}"
             >↗</a>
             <button
               class="favorite-store-remove"
               type="button"
               data-remove-store="${escapeAttr(store.id)}"
-              aria-label="移除 ${escapeAttr(store.name)}"
+              aria-label="${escapeAttr(t("removeItem", { name: store.name }))}"
             >×</button>
           </article>
         `;
@@ -1298,11 +2017,13 @@ function updateCounts() {
   const convenience = places.filter((p) => p.type === "convenience").length;
   const coffee = places.filter((p) => p.type === "coffee").length;
   const bubbleTea = places.filter((p) => p.type === "bubble_tea").length;
+  const bar = places.filter((p) => p.type === "bar").length;
 
   els.countAll.textContent = places.length;
   els.countConvenience.textContent = convenience;
   els.countCoffee.textContent = coffee;
   els.countBubbleTea.textContent = bubbleTea;
+  els.countBar.textContent = bar;
 }
 
 function formatDistance(meters) {
@@ -1341,6 +2062,9 @@ function escapeAttr(value) {
 }
 
 function bindEvents() {
+  els.languageSelect.addEventListener("change", () => {
+    applyLanguage(els.languageSelect.value);
+  });
   els.locateBtn.addEventListener("click", locateUser);
   els.useMyLocationBtn.addEventListener("click", locateUser);
   els.startBtn.addEventListener("click", locateUser);
@@ -1352,9 +2076,9 @@ function bindEvents() {
   els.confirmFavoriteLocation.addEventListener("click", saveActiveCenterFavorite);
   els.diceBtn.addEventListener("click", rollDiceRecommendations);
 
-  document.querySelectorAll("[data-quick-label]").forEach((button) => {
+  document.querySelectorAll("[data-quick-key]").forEach((button) => {
     button.addEventListener("click", () => {
-      els.favoriteLocationName.value = button.dataset.quickLabel || "";
+      els.favoriteLocationName.value = t(`quick_${button.dataset.quickKey}`) || "";
       els.favoriteLocationName.focus();
     });
   });
@@ -1401,14 +2125,14 @@ function bindEvents() {
   els.taipeiTestBtn.addEventListener("click", async () => {
     centerIntentVersion += 1;
     closeGeocodePanel();
-    els.searchInput.value = "台北車站";
+    els.searchInput.value = t("taipeiMainStation");
 
     await setActiveCenter({
       lat: DEFAULT_CENTER.lat,
       lng: DEFAULT_CENTER.lng,
-      label: "台北車站",
+      label: t("taipeiMainStation"),
       mode: "test",
-      detail: "目前使用台北車站作為測試位置",
+      detail: t("taipeiTestDetail"),
     });
   });
 
@@ -1419,9 +2143,7 @@ function bindEvents() {
 
 initMap();
 bindEvents();
-renderFavorites();
-updateSaveCenterButton();
-resetDiceRecommendations();
+applyLanguage(currentLang, { persist: false });
 
 // 首次進站仍自動嘗試定位；使用者若開始搜尋，搜尋意圖會優先，不會被稍後完成的 GPS 搶回畫面。
 window.addEventListener("load", () => {

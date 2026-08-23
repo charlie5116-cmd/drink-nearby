@@ -1235,3 +1235,71 @@ footer {
     padding-inline: 10px;
   }
 }
+
+
+/* ---------- V0.5.3 搜尋品質提示 ---------- */
+.geocode-message {
+  line-height: 1.55;
+}
+
+
+/* ---------- V0.5.4 多語言 ---------- */
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 38px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: rgba(255,255,255,.88);
+}
+
+.language-control select {
+  max-width: 88px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+html[lang="ja"] body {
+  word-break: normal;
+}
+
+@media (max-width: 430px) {
+  .language-control {
+    padding-inline: 6px;
+  }
+
+  .language-control select {
+    width: 70px;
+    font-size: 10px;
+  }
+}
+
+
+/* ---------- V0.5.5 酒吧分類 ---------- */
+.filters {
+  flex-wrap: wrap;
+}
+
+.marker[data-type="bar"] {
+  background: #2f2734;
+  color: #fff;
+  border-color: rgba(255,255,255,.86);
+}
+
+.place-card:has(.place-icon-fallback) {
+  min-width: 0;
+}
