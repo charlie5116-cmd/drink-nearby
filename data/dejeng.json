@@ -4,13 +4,13 @@
     "brand_id": "dejeng",
     "source": "dejeng_official_dom",
     "source_page": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-    "synced_at": "2026-10-31T23:29:38.659Z",
+    "synced_at": "2026-11-07T23:41:23.721Z",
     "district_count": 19,
     "raw_store_count": 211,
     "store_count": 211,
     "geocoded_count": 0,
     "missing_coordinates": 211,
-    "geocoding_updated_at": "2026-11-01T01:20:13.249Z"
+    "geocoding_updated_at": "2026-11-08T01:32:38.620Z"
   },
   "districts": [
     {
@@ -109,7 +109,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:29:54.819Z"
+      "geocode_last_failed_at": "2026-11-07T23:41:40.367Z"
     },
     {
       "id": "dejeng:北車信陽",
@@ -129,7 +129,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:30:26.509Z"
+      "geocode_last_failed_at": "2026-11-07T23:42:12.266Z"
     },
     {
       "id": "dejeng:台北雙連",
@@ -149,7 +149,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:30:57.929Z"
+      "geocode_last_failed_at": "2026-11-07T23:42:44.088Z"
     },
     {
       "id": "dejeng:台北延三",
@@ -169,7 +169,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:31:29.528Z"
+      "geocode_last_failed_at": "2026-11-07T23:43:15.736Z"
     },
     {
       "id": "dejeng:台北大直",
@@ -189,7 +189,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:32:00.987Z"
+      "geocode_last_failed_at": "2026-11-07T23:43:47.232Z"
     },
     {
       "id": "dejeng:台北松江",
@@ -209,7 +209,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:32:32.440Z"
+      "geocode_last_failed_at": "2026-11-07T23:44:18.852Z"
     },
     {
       "id": "dejeng:新光南西(直營)",
@@ -229,7 +229,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:33:03.966Z"
+      "geocode_last_failed_at": "2026-11-07T23:44:50.585Z"
     },
     {
       "id": "dejeng:台北晴光",
@@ -249,7 +249,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:33:35.453Z"
+      "geocode_last_failed_at": "2026-11-07T23:45:22.164Z"
     },
     {
       "id": "dejeng:台北遼寧",
@@ -269,7 +269,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:34:06.947Z"
+      "geocode_last_failed_at": "2026-11-07T23:45:53.891Z"
     },
     {
       "id": "dejeng:南京三民",
@@ -289,7 +289,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:34:38.384Z"
+      "geocode_last_failed_at": "2026-11-07T23:46:25.638Z"
     },
     {
       "id": "dejeng:台北古亭",
@@ -309,7 +309,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:35:09.679Z"
+      "geocode_last_failed_at": "2026-11-07T23:46:57.192Z"
     },
     {
       "id": "dejeng:台北大安",
@@ -329,7 +329,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:35:41.112Z"
+      "geocode_last_failed_at": "2026-11-07T23:47:28.691Z"
     },
     {
       "id": "dejeng:科技大樓",
@@ -349,7 +349,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:36:12.583Z"
+      "geocode_last_failed_at": "2026-11-07T23:48:00.446Z"
     },
     {
       "id": "dejeng:台北龍山寺",
@@ -369,7 +369,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:36:43.870Z"
+      "geocode_last_failed_at": "2026-11-07T23:48:32.277Z"
     },
     {
       "id": "dejeng:台北西門",
@@ -389,7 +389,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:37:15.407Z"
+      "geocode_last_failed_at": "2026-11-07T23:49:04.544Z"
     },
     {
       "id": "dejeng:台北世貿",
@@ -409,7 +409,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:37:46.768Z"
+      "geocode_last_failed_at": "2026-11-07T23:49:36.397Z"
     },
     {
       "id": "dejeng:新光A8(直營)",
@@ -429,7 +429,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:38:18.053Z"
+      "geocode_last_failed_at": "2026-11-07T23:50:08.267Z"
     },
     {
       "id": "dejeng:台北虎林",
@@ -449,7 +449,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:38:49.473Z"
+      "geocode_last_failed_at": "2026-11-07T23:50:40.007Z"
     },
     {
       "id": "dejeng:台北士林",
@@ -469,7 +469,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:39:20.927Z"
+      "geocode_last_failed_at": "2026-11-07T23:51:11.873Z"
     },
     {
       "id": "dejeng:天母德行",
@@ -489,7 +489,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:39:52.450Z"
+      "geocode_last_failed_at": "2026-11-07T23:51:43.845Z"
     },
     {
       "id": "dejeng:石牌裕民",
@@ -509,7 +509,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:40:24.044Z"
+      "geocode_last_failed_at": "2026-11-07T23:52:15.728Z"
     },
     {
       "id": "dejeng:台北西湖",
@@ -529,7 +529,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:40:55.657Z"
+      "geocode_last_failed_at": "2026-11-07T23:52:47.166Z"
     },
     {
       "id": "dejeng:內湖江南",
@@ -549,7 +549,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:41:27.372Z"
+      "geocode_last_failed_at": "2026-11-07T23:53:18.632Z"
     },
     {
       "id": "dejeng:台北東湖",
@@ -569,7 +569,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:41:58.796Z"
+      "geocode_last_failed_at": "2026-11-07T23:53:50.468Z"
     },
     {
       "id": "dejeng:內湖康寧",
@@ -589,7 +589,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:42:30.542Z"
+      "geocode_last_failed_at": "2026-11-07T23:54:21.993Z"
     },
     {
       "id": "dejeng:台北公館",
@@ -609,7 +609,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:43:01.814Z"
+      "geocode_last_failed_at": "2026-11-07T23:54:53.916Z"
     },
     {
       "id": "dejeng:台北昆陽",
@@ -629,7 +629,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:43:33.215Z"
+      "geocode_last_failed_at": "2026-11-07T23:55:25.582Z"
     },
     {
       "id": "dejeng:台北南港",
@@ -649,7 +649,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:44:04.802Z"
+      "geocode_last_failed_at": "2026-11-07T23:55:57.009Z"
     },
     {
       "id": "dejeng:台北木新",
@@ -669,7 +669,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:44:36.237Z"
+      "geocode_last_failed_at": "2026-11-07T23:56:28.594Z"
     },
     {
       "id": "dejeng:台北政大",
@@ -689,7 +689,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:45:07.663Z"
+      "geocode_last_failed_at": "2026-11-07T23:57:00.270Z"
     },
     {
       "id": "dejeng:台北萬芳",
@@ -709,7 +709,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei",
-      "geocode_last_failed_at": "2026-10-31T23:45:38.952Z"
+      "geocode_last_failed_at": "2026-11-07T23:57:31.978Z"
     },
     {
       "id": "dejeng:基隆廟口",
@@ -729,7 +729,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung",
-      "geocode_last_failed_at": "2026-10-31T23:46:10.599Z"
+      "geocode_last_failed_at": "2026-11-07T23:58:03.579Z"
     },
     {
       "id": "dejeng:基隆海大",
@@ -749,7 +749,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=keelung",
-      "geocode_last_failed_at": "2026-10-31T23:46:42.170Z"
+      "geocode_last_failed_at": "2026-11-07T23:58:35.272Z"
     },
     {
       "id": "dejeng:板橋中山",
@@ -769,7 +769,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:47:13.611Z"
+      "geocode_last_failed_at": "2026-11-07T23:59:07.014Z"
     },
     {
       "id": "dejeng:板橋莒光",
@@ -789,7 +789,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:47:45.277Z"
+      "geocode_last_failed_at": "2026-11-07T23:59:38.427Z"
     },
     {
       "id": "dejeng:板橋新民",
@@ -809,7 +809,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:48:16.989Z"
+      "geocode_last_failed_at": "2026-11-08T00:00:10.348Z"
     },
     {
       "id": "dejeng:汐止中興",
@@ -829,7 +829,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:48:48.453Z"
+      "geocode_last_failed_at": "2026-11-08T00:00:41.739Z"
     },
     {
       "id": "dejeng:汐止忠孝",
@@ -849,7 +849,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:49:19.740Z"
+      "geocode_last_failed_at": "2026-11-08T00:01:13.499Z"
     },
     {
       "id": "dejeng:新店區公所",
@@ -869,7 +869,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:49:51.185Z"
+      "geocode_last_failed_at": "2026-11-08T00:01:45.170Z"
     },
     {
       "id": "dejeng:新店大坪林",
@@ -889,7 +889,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:50:22.776Z"
+      "geocode_last_failed_at": "2026-11-08T00:02:16.578Z"
     },
     {
       "id": "dejeng:永和樂華",
@@ -909,7 +909,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:50:54.419Z"
+      "geocode_last_failed_at": "2026-11-08T00:02:48.426Z"
     },
     {
       "id": "dejeng:永和得和",
@@ -929,7 +929,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:51:25.741Z"
+      "geocode_last_failed_at": "2026-11-08T00:03:20.501Z"
     },
     {
       "id": "dejeng:中和環球",
@@ -949,7 +949,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:51:57.162Z"
+      "geocode_last_failed_at": "2026-11-08T00:03:52.464Z"
     },
     {
       "id": "dejeng:中和員山",
@@ -969,7 +969,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:52:28.868Z"
+      "geocode_last_failed_at": "2026-11-08T00:04:24.081Z"
     },
     {
       "id": "dejeng:中和南勢角",
@@ -989,7 +989,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:53:00.150Z"
+      "geocode_last_failed_at": "2026-11-08T00:04:56.058Z"
     },
     {
       "id": "dejeng:土城中央",
@@ -1009,7 +1009,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:53:31.586Z"
+      "geocode_last_failed_at": "2026-11-08T00:05:27.955Z"
     },
     {
       "id": "dejeng:土城裕民",
@@ -1029,7 +1029,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:54:03.097Z"
+      "geocode_last_failed_at": "2026-11-08T00:05:59.681Z"
     },
     {
       "id": "dejeng:三峽文化",
@@ -1049,7 +1049,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:54:34.768Z"
+      "geocode_last_failed_at": "2026-11-08T00:06:31.649Z"
     },
     {
       "id": "dejeng:樹林中山",
@@ -1069,7 +1069,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:55:06.101Z"
+      "geocode_last_failed_at": "2026-11-08T00:07:03.412Z"
     },
     {
       "id": "dejeng:鶯歌建國",
@@ -1089,7 +1089,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:55:37.620Z"
+      "geocode_last_failed_at": "2026-11-08T00:07:35.113Z"
     },
     {
       "id": "dejeng:三重徐匯",
@@ -1109,7 +1109,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:56:09.159Z"
+      "geocode_last_failed_at": "2026-11-08T00:08:07.000Z"
     },
     {
       "id": "dejeng:三重正義",
@@ -1129,7 +1129,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:56:40.664Z"
+      "geocode_last_failed_at": "2026-11-08T00:08:38.623Z"
     },
     {
       "id": "dejeng:新莊民安",
@@ -1149,7 +1149,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:57:12.211Z"
+      "geocode_last_failed_at": "2026-11-08T00:09:10.123Z"
     },
     {
       "id": "dejeng:新莊輔大",
@@ -1169,7 +1169,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:57:43.775Z"
+      "geocode_last_failed_at": "2026-11-08T00:09:41.975Z"
     },
     {
       "id": "dejeng:新莊新泰",
@@ -1189,7 +1189,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:58:15.225Z"
+      "geocode_last_failed_at": "2026-11-08T00:10:13.509Z"
     },
     {
       "id": "dejeng:泰山明志",
@@ -1209,7 +1209,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:58:46.686Z"
+      "geocode_last_failed_at": "2026-11-08T00:10:45.402Z"
     },
     {
       "id": "dejeng:林口三井",
@@ -1229,7 +1229,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:59:18.249Z"
+      "geocode_last_failed_at": "2026-11-08T00:11:17.069Z"
     },
     {
       "id": "dejeng:林口文化",
@@ -1249,7 +1249,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-10-31T23:59:49.682Z"
+      "geocode_last_failed_at": "2026-11-08T00:11:48.583Z"
     },
     {
       "id": "dejeng:蘆洲光華",
@@ -1269,7 +1269,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-11-01T00:00:21.037Z"
+      "geocode_last_failed_at": "2026-11-08T00:12:20.256Z"
     },
     {
       "id": "dejeng:新北五股",
@@ -1289,7 +1289,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-11-01T00:00:52.465Z"
+      "geocode_last_failed_at": "2026-11-08T00:12:51.843Z"
     },
     {
       "id": "dejeng:淡水英專",
@@ -1309,7 +1309,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-11-01T00:01:23.943Z"
+      "geocode_last_failed_at": "2026-11-08T00:13:23.436Z"
     },
     {
       "id": "dejeng:宜蘭中山",
@@ -1329,7 +1329,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
-      "geocode_last_failed_at": "2026-11-01T00:01:55.393Z"
+      "geocode_last_failed_at": "2026-11-08T00:13:54.965Z"
     },
     {
       "id": "dejeng:礁溪中山",
@@ -1349,7 +1349,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
-      "geocode_last_failed_at": "2026-11-01T00:02:26.807Z"
+      "geocode_last_failed_at": "2026-11-08T00:14:26.318Z"
     },
     {
       "id": "dejeng:宜蘭羅東",
@@ -1369,7 +1369,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yilan",
-      "geocode_last_failed_at": "2026-11-01T00:02:58.266Z"
+      "geocode_last_failed_at": "2026-11-08T00:14:58.293Z"
     },
     {
       "id": "dejeng:新竹民生",
@@ -1389,7 +1389,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:03:29.600Z"
+      "geocode_last_failed_at": "2026-11-08T00:15:29.888Z"
     },
     {
       "id": "dejeng:新竹光復",
@@ -1409,7 +1409,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:04:00.912Z"
+      "geocode_last_failed_at": "2026-11-08T00:16:01.869Z"
     },
     {
       "id": "dejeng:新竹香山",
@@ -1429,7 +1429,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:04:32.359Z"
+      "geocode_last_failed_at": "2026-11-08T00:16:33.526Z"
     },
     {
       "id": "dejeng:竹北勝利",
@@ -1449,7 +1449,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:05:03.941Z"
+      "geocode_last_failed_at": "2026-11-08T00:17:05.238Z"
     },
     {
       "id": "dejeng:竹北博愛",
@@ -1469,7 +1469,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:05:35.584Z"
+      "geocode_last_failed_at": "2026-11-08T00:17:36.796Z"
     },
     {
       "id": "dejeng:新竹湖口",
@@ -1489,7 +1489,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:06:07.324Z"
+      "geocode_last_failed_at": "2026-11-08T00:18:08.554Z"
     },
     {
       "id": "dejeng:新竹新豐",
@@ -1509,7 +1509,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:06:38.772Z"
+      "geocode_last_failed_at": "2026-11-08T00:18:40.160Z"
     },
     {
       "id": "dejeng:新竹寶山",
@@ -1529,7 +1529,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:07:10.416Z"
+      "geocode_last_failed_at": "2026-11-08T00:19:11.864Z"
     },
     {
       "id": "dejeng:新竹竹東",
@@ -1549,7 +1549,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hsinchu",
-      "geocode_last_failed_at": "2026-11-01T00:07:42.130Z"
+      "geocode_last_failed_at": "2026-11-08T00:19:43.701Z"
     },
     {
       "id": "dejeng:中壢中原",
@@ -1569,7 +1569,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:08:13.775Z"
+      "geocode_last_failed_at": "2026-11-08T00:20:15.617Z"
     },
     {
       "id": "dejeng:內壢忠孝",
@@ -1589,7 +1589,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:08:45.445Z"
+      "geocode_last_failed_at": "2026-11-08T00:20:47.294Z"
     },
     {
       "id": "dejeng:桃園青埔",
@@ -1609,7 +1609,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:09:16.897Z"
+      "geocode_last_failed_at": "2026-11-08T00:21:19.116Z"
     },
     {
       "id": "dejeng:中壢新生",
@@ -1629,7 +1629,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:09:48.384Z"
+      "geocode_last_failed_at": "2026-11-08T00:21:50.575Z"
     },
     {
       "id": "dejeng:中壢龍岡",
@@ -1649,7 +1649,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:10:19.923Z"
+      "geocode_last_failed_at": "2026-11-08T00:22:22.372Z"
     },
     {
       "id": "dejeng:桃園平鎮",
@@ -1669,7 +1669,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:10:51.528Z"
+      "geocode_last_failed_at": "2026-11-08T00:22:54.296Z"
     },
     {
       "id": "dejeng:桃園龍潭",
@@ -1689,7 +1689,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:11:23.162Z"
+      "geocode_last_failed_at": "2026-11-08T00:23:26.008Z"
     },
     {
       "id": "dejeng:楊梅大成",
@@ -1709,7 +1709,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:11:54.598Z"
+      "geocode_last_failed_at": "2026-11-08T00:23:57.546Z"
     },
     {
       "id": "dejeng:桃園新屋",
@@ -1729,7 +1729,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:12:26.190Z"
+      "geocode_last_failed_at": "2026-11-08T00:24:29.220Z"
     },
     {
       "id": "dejeng:桃園觀音",
@@ -1749,7 +1749,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:12:57.743Z"
+      "geocode_last_failed_at": "2026-11-08T00:25:00.953Z"
     },
     {
       "id": "dejeng:桃園龍安",
@@ -1769,7 +1769,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:13:29.200Z"
+      "geocode_last_failed_at": "2026-11-08T00:25:32.664Z"
     },
     {
       "id": "dejeng:桃園中興",
@@ -1789,7 +1789,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:14:00.806Z"
+      "geocode_last_failed_at": "2026-11-08T00:26:04.247Z"
     },
     {
       "id": "dejeng:林口長庚",
@@ -1809,7 +1809,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:14:32.268Z"
+      "geocode_last_failed_at": "2026-11-08T00:26:36.011Z"
     },
     {
       "id": "dejeng:八德桃鶯",
@@ -1829,7 +1829,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:15:03.761Z"
+      "geocode_last_failed_at": "2026-11-08T00:27:08.027Z"
     },
     {
       "id": "dejeng:八德廣福",
@@ -1849,7 +1849,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:15:35.233Z"
+      "geocode_last_failed_at": "2026-11-08T00:27:39.791Z"
     },
     {
       "id": "dejeng:桃園大溪",
@@ -1869,7 +1869,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:16:06.756Z"
+      "geocode_last_failed_at": "2026-11-08T00:28:11.391Z"
     },
     {
       "id": "dejeng:桃園大園",
@@ -1889,7 +1889,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:16:38.090Z"
+      "geocode_last_failed_at": "2026-11-08T00:28:43.018Z"
     },
     {
       "id": "dejeng:桃園大竹",
@@ -1909,7 +1909,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:17:09.660Z"
+      "geocode_last_failed_at": "2026-11-08T00:29:15.017Z"
     },
     {
       "id": "dejeng:桃園南崁",
@@ -1929,7 +1929,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T00:17:41.096Z"
+      "geocode_last_failed_at": "2026-11-08T00:29:46.742Z"
     },
     {
       "id": "dejeng:竹南博愛",
@@ -1949,7 +1949,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
-      "geocode_last_failed_at": "2026-11-01T00:18:12.539Z"
+      "geocode_last_failed_at": "2026-11-08T00:30:18.765Z"
     },
     {
       "id": "dejeng:頭份建國",
@@ -1969,7 +1969,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
-      "geocode_last_failed_at": "2026-11-01T00:18:43.817Z"
+      "geocode_last_failed_at": "2026-11-08T00:30:50.676Z"
     },
     {
       "id": "dejeng:苗栗苑裡",
@@ -1989,7 +1989,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
-      "geocode_last_failed_at": "2026-11-01T00:19:15.302Z"
+      "geocode_last_failed_at": "2026-11-08T00:31:22.201Z"
     },
     {
       "id": "dejeng:苗栗府前",
@@ -2009,7 +2009,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
-      "geocode_last_failed_at": "2026-11-01T00:19:46.828Z"
+      "geocode_last_failed_at": "2026-11-08T00:31:54.052Z"
     },
     {
       "id": "dejeng:苗栗公館",
@@ -2029,7 +2029,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=miaoli",
-      "geocode_last_failed_at": "2026-11-01T00:20:18.408Z"
+      "geocode_last_failed_at": "2026-11-08T00:32:25.700Z"
     },
     {
       "id": "dejeng:台中復興",
@@ -2049,7 +2049,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:20:49.969Z"
+      "geocode_last_failed_at": "2026-11-08T00:32:57.254Z"
     },
     {
       "id": "dejeng:台中工學",
@@ -2069,7 +2069,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:21:21.437Z"
+      "geocode_last_failed_at": "2026-11-08T00:33:28.894Z"
     },
     {
       "id": "dejeng:勤美誠品(直營)",
@@ -2089,7 +2089,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:21:52.857Z"
+      "geocode_last_failed_at": "2026-11-08T00:34:00.849Z"
     },
     {
       "id": "dejeng:台中美村(直營)",
@@ -2109,7 +2109,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:22:24.467Z"
+      "geocode_last_failed_at": "2026-11-08T00:34:32.314Z"
     },
     {
       "id": "dejeng:台中中友(直營)",
@@ -2129,7 +2129,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:22:55.870Z"
+      "geocode_last_failed_at": "2026-11-08T00:35:03.966Z"
     },
     {
       "id": "dejeng:台中一中",
@@ -2149,7 +2149,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:23:27.381Z"
+      "geocode_last_failed_at": "2026-11-08T00:35:35.624Z"
     },
     {
       "id": "dejeng:台中學士",
@@ -2169,7 +2169,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:23:58.949Z"
+      "geocode_last_failed_at": "2026-11-08T00:36:07.165Z"
     },
     {
       "id": "dejeng:台中北平",
@@ -2189,7 +2189,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:24:30.504Z"
+      "geocode_last_failed_at": "2026-11-08T00:36:38.813Z"
     },
     {
       "id": "dejeng:台中昌平",
@@ -2209,7 +2209,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:25:01.922Z"
+      "geocode_last_failed_at": "2026-11-08T00:37:10.442Z"
     },
     {
       "id": "dejeng:台中東山",
@@ -2229,7 +2229,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:25:33.385Z"
+      "geocode_last_failed_at": "2026-11-08T00:37:42.001Z"
     },
     {
       "id": "dejeng:新光台中(直營)",
@@ -2249,7 +2249,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:26:04.824Z"
+      "geocode_last_failed_at": "2026-11-08T00:38:13.935Z"
     },
     {
       "id": "dejeng:台中水湳",
@@ -2269,7 +2269,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:26:36.319Z"
+      "geocode_last_failed_at": "2026-11-08T00:38:45.653Z"
     },
     {
       "id": "dejeng:台中中科",
@@ -2289,7 +2289,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:27:07.884Z"
+      "geocode_last_failed_at": "2026-11-08T00:39:17.440Z"
     },
     {
       "id": "dejeng:台中福星",
@@ -2309,7 +2309,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:27:39.230Z"
+      "geocode_last_failed_at": "2026-11-08T00:39:49.029Z"
     },
     {
       "id": "dejeng:台中嶺東",
@@ -2329,7 +2329,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:28:10.889Z"
+      "geocode_last_failed_at": "2026-11-08T00:40:20.674Z"
     },
     {
       "id": "dejeng:台中黎明",
@@ -2349,7 +2349,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:28:42.160Z"
+      "geocode_last_failed_at": "2026-11-08T00:40:51.971Z"
     },
     {
       "id": "dejeng:台中太平",
@@ -2369,7 +2369,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:29:13.720Z"
+      "geocode_last_failed_at": "2026-11-08T00:41:23.678Z"
     },
     {
       "id": "dejeng:太平樹孝",
@@ -2389,7 +2389,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:29:45.266Z"
+      "geocode_last_failed_at": "2026-11-08T00:41:55.461Z"
     },
     {
       "id": "dejeng:大里中興",
@@ -2409,7 +2409,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:30:16.851Z"
+      "geocode_last_failed_at": "2026-11-08T00:42:27.242Z"
     },
     {
       "id": "dejeng:大里成功",
@@ -2429,7 +2429,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:30:48.561Z"
+      "geocode_last_failed_at": "2026-11-08T00:42:59.090Z"
     },
     {
       "id": "dejeng:台中霧峰",
@@ -2449,7 +2449,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:31:19.841Z"
+      "geocode_last_failed_at": "2026-11-08T00:43:30.997Z"
     },
     {
       "id": "dejeng:烏日中山",
@@ -2469,7 +2469,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:31:51.284Z"
+      "geocode_last_failed_at": "2026-11-08T00:44:02.546Z"
     },
     {
       "id": "dejeng:高雄大寮",
@@ -2489,7 +2489,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T00:32:22.689Z"
+      "geocode_last_failed_at": "2026-11-08T00:44:34.289Z"
     },
     {
       "id": "dejeng:豐原廟東",
@@ -2509,7 +2509,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:32:54.344Z"
+      "geocode_last_failed_at": "2026-11-08T00:45:06.155Z"
     },
     {
       "id": "dejeng:豐原南陽",
@@ -2529,7 +2529,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:33:25.916Z"
+      "geocode_last_failed_at": "2026-11-08T00:45:37.817Z"
     },
     {
       "id": "dejeng:台中后里",
@@ -2549,7 +2549,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:33:57.681Z"
+      "geocode_last_failed_at": "2026-11-08T00:46:09.319Z"
     },
     {
       "id": "dejeng:台中東勢",
@@ -2569,7 +2569,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:34:29.271Z"
+      "geocode_last_failed_at": "2026-11-08T00:46:40.902Z"
     },
     {
       "id": "dejeng:台中潭子",
@@ -2589,7 +2589,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:35:00.687Z"
+      "geocode_last_failed_at": "2026-11-08T00:47:12.703Z"
     },
     {
       "id": "dejeng:大雅學府",
@@ -2609,7 +2609,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:35:32.330Z"
+      "geocode_last_failed_at": "2026-11-08T00:47:44.352Z"
     },
     {
       "id": "dejeng:台中神岡",
@@ -2629,7 +2629,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:36:04.949Z"
+      "geocode_last_failed_at": "2026-11-08T00:48:16.182Z"
     },
     {
       "id": "dejeng:台中大肚",
@@ -2649,7 +2649,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:36:36.583Z"
+      "geocode_last_failed_at": "2026-11-08T00:48:47.585Z"
     },
     {
       "id": "dejeng:台中沙鹿",
@@ -2669,7 +2669,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:37:08.160Z"
+      "geocode_last_failed_at": "2026-11-08T00:49:19.421Z"
     },
     {
       "id": "dejeng:台中東海",
@@ -2689,7 +2689,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:37:39.765Z"
+      "geocode_last_failed_at": "2026-11-08T00:49:51.093Z"
     },
     {
       "id": "dejeng:台中梧棲",
@@ -2709,7 +2709,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:38:11.170Z"
+      "geocode_last_failed_at": "2026-11-08T00:50:22.635Z"
     },
     {
       "id": "dejeng:梧棲文昌",
@@ -2729,7 +2729,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:38:42.710Z"
+      "geocode_last_failed_at": "2026-11-08T00:50:54.475Z"
     },
     {
       "id": "dejeng:台中清水",
@@ -2749,7 +2749,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:39:14.387Z"
+      "geocode_last_failed_at": "2026-11-08T00:51:26.048Z"
     },
     {
       "id": "dejeng:台中大甲",
@@ -2769,7 +2769,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taichung",
-      "geocode_last_failed_at": "2026-11-01T00:39:45.936Z"
+      "geocode_last_failed_at": "2026-11-08T00:51:57.535Z"
     },
     {
       "id": "dejeng:彰化大埔",
@@ -2789,7 +2789,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:40:17.360Z"
+      "geocode_last_failed_at": "2026-11-08T00:52:29.018Z"
     },
     {
       "id": "dejeng:彰化民族",
@@ -2809,7 +2809,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:40:49.139Z"
+      "geocode_last_failed_at": "2026-11-08T00:53:00.621Z"
     },
     {
       "id": "dejeng:彰化秀水",
@@ -2829,7 +2829,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:41:20.413Z"
+      "geocode_last_failed_at": "2026-11-08T00:53:32.233Z"
     },
     {
       "id": "dejeng:鹿港中山",
@@ -2849,7 +2849,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:41:51.995Z"
+      "geocode_last_failed_at": "2026-11-08T00:54:04.027Z"
     },
     {
       "id": "dejeng:彰化和美",
@@ -2869,7 +2869,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:42:23.426Z"
+      "geocode_last_failed_at": "2026-11-08T00:54:35.703Z"
     },
     {
       "id": "dejeng:彰化伸港",
@@ -2889,7 +2889,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:42:55.159Z"
+      "geocode_last_failed_at": "2026-11-08T00:55:07.265Z"
     },
     {
       "id": "dejeng:員林中正",
@@ -2909,7 +2909,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:43:26.660Z"
+      "geocode_last_failed_at": "2026-11-08T00:55:39.093Z"
     },
     {
       "id": "dejeng:彰化社頭",
@@ -2929,7 +2929,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:43:58.114Z"
+      "geocode_last_failed_at": "2026-11-08T00:56:10.774Z"
     },
     {
       "id": "dejeng:彰化永靖",
@@ -2949,7 +2949,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:44:29.544Z"
+      "geocode_last_failed_at": "2026-11-08T00:56:42.402Z"
     },
     {
       "id": "dejeng:彰化溪湖",
@@ -2969,7 +2969,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:45:01.088Z"
+      "geocode_last_failed_at": "2026-11-08T00:57:13.951Z"
     },
     {
       "id": "dejeng:彰化大村",
@@ -2989,7 +2989,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:45:32.512Z"
+      "geocode_last_failed_at": "2026-11-08T00:57:45.477Z"
     },
     {
       "id": "dejeng:北斗中華",
@@ -3009,7 +3009,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:46:04.004Z"
+      "geocode_last_failed_at": "2026-11-08T00:58:17.295Z"
     },
     {
       "id": "dejeng:彰化二林",
@@ -3029,7 +3029,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=changhua",
-      "geocode_last_failed_at": "2026-11-01T00:46:35.431Z"
+      "geocode_last_failed_at": "2026-11-08T00:58:48.840Z"
     },
     {
       "id": "dejeng:南投民族",
@@ -3049,7 +3049,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
-      "geocode_last_failed_at": "2026-11-01T00:47:06.953Z"
+      "geocode_last_failed_at": "2026-11-08T00:59:20.399Z"
     },
     {
       "id": "dejeng:南投草屯",
@@ -3069,7 +3069,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
-      "geocode_last_failed_at": "2026-11-01T00:47:38.517Z"
+      "geocode_last_failed_at": "2026-11-08T00:59:52.170Z"
     },
     {
       "id": "dejeng:埔里中正",
@@ -3089,7 +3089,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
-      "geocode_last_failed_at": "2026-11-01T00:48:10.123Z"
+      "geocode_last_failed_at": "2026-11-08T01:00:23.632Z"
     },
     {
       "id": "dejeng:南投水里",
@@ -3109,7 +3109,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=nantou",
-      "geocode_last_failed_at": "2026-11-01T00:48:41.537Z"
+      "geocode_last_failed_at": "2026-11-08T01:00:55.312Z"
     },
     {
       "id": "dejeng:嘉義民族",
@@ -3129,7 +3129,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
-      "geocode_last_failed_at": "2026-11-01T00:49:13.269Z"
+      "geocode_last_failed_at": "2026-11-08T01:01:27.018Z"
     },
     {
       "id": "dejeng:嘉義太保",
@@ -3149,7 +3149,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
-      "geocode_last_failed_at": "2026-11-01T00:49:44.877Z"
+      "geocode_last_failed_at": "2026-11-08T01:01:58.921Z"
     },
     {
       "id": "dejeng:嘉義朴子",
@@ -3169,7 +3169,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
-      "geocode_last_failed_at": "2026-11-01T00:50:16.183Z"
+      "geocode_last_failed_at": "2026-11-08T01:02:30.746Z"
     },
     {
       "id": "dejeng:嘉義民雄",
@@ -3189,7 +3189,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
-      "geocode_last_failed_at": "2026-11-01T00:50:47.617Z"
+      "geocode_last_failed_at": "2026-11-08T01:03:02.220Z"
     },
     {
       "id": "dejeng:嘉義大林",
@@ -3209,7 +3209,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=chiayi",
-      "geocode_last_failed_at": "2026-11-01T00:51:18.878Z"
+      "geocode_last_failed_at": "2026-11-08T01:03:33.824Z"
     },
     {
       "id": "dejeng:雲林斗南",
@@ -3229,7 +3229,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
-      "geocode_last_failed_at": "2026-11-01T00:51:50.333Z"
+      "geocode_last_failed_at": "2026-11-08T01:04:05.649Z"
     },
     {
       "id": "dejeng:虎尾中正",
@@ -3249,7 +3249,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
-      "geocode_last_failed_at": "2026-11-01T00:52:21.632Z"
+      "geocode_last_failed_at": "2026-11-08T01:04:37.312Z"
     },
     {
       "id": "dejeng:斗六中山",
@@ -3269,7 +3269,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
-      "geocode_last_failed_at": "2026-11-01T00:52:53.233Z"
+      "geocode_last_failed_at": "2026-11-08T01:05:09.235Z"
     },
     {
       "id": "dejeng:西螺中山",
@@ -3289,7 +3289,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
-      "geocode_last_failed_at": "2026-11-01T00:53:25.477Z"
+      "geocode_last_failed_at": "2026-11-08T01:05:40.611Z"
     },
     {
       "id": "dejeng:北港大同",
@@ -3309,7 +3309,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=yunlin",
-      "geocode_last_failed_at": "2026-11-01T00:53:56.974Z"
+      "geocode_last_failed_at": "2026-11-08T01:06:12.398Z"
     },
     {
       "id": "dejeng:台南美術館",
@@ -3329,7 +3329,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:54:28.565Z"
+      "geocode_last_failed_at": "2026-11-08T01:06:43.854Z"
     },
     {
       "id": "dejeng:台南東門",
@@ -3349,7 +3349,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:55:00.177Z"
+      "geocode_last_failed_at": "2026-11-08T01:07:16.064Z"
     },
     {
       "id": "dejeng:台南金華",
@@ -3369,7 +3369,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:55:31.446Z"
+      "geocode_last_failed_at": "2026-11-08T01:07:47.730Z"
     },
     {
       "id": "dejeng:台南公園",
@@ -3389,7 +3389,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:56:03.049Z"
+      "geocode_last_failed_at": "2026-11-08T01:08:19.353Z"
     },
     {
       "id": "dejeng:台南安平",
@@ -3409,7 +3409,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:56:34.734Z"
+      "geocode_last_failed_at": "2026-11-08T01:08:51.147Z"
     },
     {
       "id": "dejeng:台南海佃",
@@ -3429,7 +3429,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:57:05.972Z"
+      "geocode_last_failed_at": "2026-11-08T01:09:22.755Z"
     },
     {
       "id": "dejeng:台南大灣",
@@ -3449,7 +3449,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:57:37.543Z"
+      "geocode_last_failed_at": "2026-11-08T01:09:54.345Z"
     },
     {
       "id": "dejeng:永康中正",
@@ -3469,7 +3469,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:58:08.976Z"
+      "geocode_last_failed_at": "2026-11-08T01:10:25.849Z"
     },
     {
       "id": "dejeng:永康中華",
@@ -3489,7 +3489,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:58:40.521Z"
+      "geocode_last_failed_at": "2026-11-08T01:10:57.314Z"
     },
     {
       "id": "dejeng:台南歸仁",
@@ -3509,7 +3509,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:59:12.053Z"
+      "geocode_last_failed_at": "2026-11-08T01:11:29.350Z"
     },
     {
       "id": "dejeng:仁德中清",
@@ -3529,7 +3529,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T00:59:43.616Z"
+      "geocode_last_failed_at": "2026-11-08T01:12:01.253Z"
     },
     {
       "id": "dejeng:麻豆中山",
@@ -3549,7 +3549,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T01:00:15.097Z"
+      "geocode_last_failed_at": "2026-11-08T01:12:32.801Z"
     },
     {
       "id": "dejeng:台南佳里",
@@ -3569,7 +3569,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T01:00:46.606Z"
+      "geocode_last_failed_at": "2026-11-08T01:13:04.689Z"
     },
     {
       "id": "dejeng:台南新營",
@@ -3589,7 +3589,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T01:01:18.490Z"
+      "geocode_last_failed_at": "2026-11-08T01:13:36.464Z"
     },
     {
       "id": "dejeng:台南善化",
@@ -3609,7 +3609,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T01:01:50.080Z"
+      "geocode_last_failed_at": "2026-11-08T01:14:08.249Z"
     },
     {
       "id": "dejeng:台南新市",
@@ -3629,7 +3629,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=tainan",
-      "geocode_last_failed_at": "2026-11-01T01:02:21.619Z"
+      "geocode_last_failed_at": "2026-11-08T01:14:40.020Z"
     },
     {
       "id": "dejeng:高雄六合",
@@ -3649,7 +3649,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:02:53.321Z"
+      "geocode_last_failed_at": "2026-11-08T01:15:11.831Z"
     },
     {
       "id": "dejeng:高雄文橫",
@@ -3669,7 +3669,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:03:24.593Z"
+      "geocode_last_failed_at": "2026-11-08T01:15:43.562Z"
     },
     {
       "id": "dejeng:高雄自強",
@@ -3689,7 +3689,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:03:56.019Z"
+      "geocode_last_failed_at": "2026-11-08T01:16:15.183Z"
     },
     {
       "id": "dejeng:高雄文化",
@@ -3709,7 +3709,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:04:27.337Z"
+      "geocode_last_failed_at": "2026-11-08T01:16:46.567Z"
     },
     {
       "id": "dejeng:高雄武廟",
@@ -3729,7 +3729,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:04:58.769Z"
+      "geocode_last_failed_at": "2026-11-08T01:17:18.525Z"
     },
     {
       "id": "dejeng:高雄鹽埕",
@@ -3749,7 +3749,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:05:30.392Z"
+      "geocode_last_failed_at": "2026-11-08T01:17:50.271Z"
     },
     {
       "id": "dejeng:高雄美術館",
@@ -3769,7 +3769,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:06:01.830Z"
+      "geocode_last_failed_at": "2026-11-08T01:18:21.779Z"
     },
     {
       "id": "dejeng:高雄瑞隆",
@@ -3789,7 +3789,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:06:33.117Z"
+      "geocode_last_failed_at": "2026-11-08T01:18:53.722Z"
     },
     {
       "id": "dejeng:高雄大昌",
@@ -3809,7 +3809,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:07:04.539Z"
+      "geocode_last_failed_at": "2026-11-08T01:19:25.614Z"
     },
     {
       "id": "dejeng:高雄十全",
@@ -3829,7 +3829,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:07:36.111Z"
+      "geocode_last_failed_at": "2026-11-08T01:19:57.485Z"
     },
     {
       "id": "dejeng:楠梓德賢",
@@ -3849,7 +3849,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:08:07.601Z"
+      "geocode_last_failed_at": "2026-11-08T01:20:29.301Z"
     },
     {
       "id": "dejeng:高雄小港",
@@ -3869,7 +3869,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:08:39.194Z"
+      "geocode_last_failed_at": "2026-11-08T01:21:00.849Z"
     },
     {
       "id": "dejeng:左營左大",
@@ -3889,7 +3889,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:09:10.669Z"
+      "geocode_last_failed_at": "2026-11-08T01:21:32.819Z"
     },
     {
       "id": "dejeng:左營裕誠",
@@ -3909,7 +3909,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:09:42.161Z"
+      "geocode_last_failed_at": "2026-11-08T01:22:04.760Z"
     },
     {
       "id": "dejeng:高雄仁武",
@@ -3929,7 +3929,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:10:13.714Z"
+      "geocode_last_failed_at": "2026-11-08T01:22:36.564Z"
     },
     {
       "id": "dejeng:高雄大社",
@@ -3949,7 +3949,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:10:45.784Z"
+      "geocode_last_failed_at": "2026-11-08T01:23:08.471Z"
     },
     {
       "id": "dejeng:高雄岡山",
@@ -3969,7 +3969,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:11:17.244Z"
+      "geocode_last_failed_at": "2026-11-08T01:23:40.421Z"
     },
     {
       "id": "dejeng:高雄路竹",
@@ -3989,7 +3989,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:11:48.835Z"
+      "geocode_last_failed_at": "2026-11-08T01:24:12.169Z"
     },
     {
       "id": "dejeng:鳳山中山",
@@ -4009,7 +4009,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:12:20.459Z"
+      "geocode_last_failed_at": "2026-11-08T01:24:43.843Z"
     },
     {
       "id": "dejeng:高雄五甲",
@@ -4029,7 +4029,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:12:52.159Z"
+      "geocode_last_failed_at": "2026-11-08T01:25:15.311Z"
     },
     {
       "id": "dejeng:鳳山青年",
@@ -4049,7 +4049,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:13:23.694Z"
+      "geocode_last_failed_at": "2026-11-08T01:25:46.987Z"
     },
     {
       "id": "dejeng:高雄林園",
@@ -4069,7 +4069,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=kaohsiung",
-      "geocode_last_failed_at": "2026-11-01T01:13:55.304Z"
+      "geocode_last_failed_at": "2026-11-08T01:26:18.639Z"
     },
     {
       "id": "dejeng:澎湖馬公",
@@ -4089,7 +4089,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=penghu",
-      "geocode_last_failed_at": "2026-11-01T01:14:27.072Z"
+      "geocode_last_failed_at": "2026-11-08T01:26:50.500Z"
     },
     {
       "id": "dejeng:金門金湖",
@@ -4109,7 +4109,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan",
-      "geocode_last_failed_at": "2026-11-01T01:14:58.761Z"
+      "geocode_last_failed_at": "2026-11-08T01:27:21.914Z"
     },
     {
       "id": "dejeng:金門金城",
@@ -4129,7 +4129,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taipei-taiwan",
-      "geocode_last_failed_at": "2026-11-01T01:15:30.192Z"
+      "geocode_last_failed_at": "2026-11-08T01:27:53.442Z"
     },
     {
       "id": "dejeng:屏東民生",
@@ -4149,7 +4149,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
-      "geocode_last_failed_at": "2026-11-01T01:16:01.452Z"
+      "geocode_last_failed_at": "2026-11-08T01:28:25.190Z"
     },
     {
       "id": "dejeng:屏東廣東",
@@ -4169,7 +4169,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
-      "geocode_last_failed_at": "2026-11-01T01:16:32.719Z"
+      "geocode_last_failed_at": "2026-11-08T01:28:56.985Z"
     },
     {
       "id": "dejeng:東港中正",
@@ -4189,7 +4189,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
-      "geocode_last_failed_at": "2026-11-01T01:17:04.180Z"
+      "geocode_last_failed_at": "2026-11-08T01:29:28.425Z"
     },
     {
       "id": "dejeng:屏東琉球",
@@ -4209,7 +4209,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
-      "geocode_last_failed_at": "2026-11-01T01:17:35.632Z"
+      "geocode_last_failed_at": "2026-11-08T01:30:00.178Z"
     },
     {
       "id": "dejeng:恆春恒南",
@@ -4229,7 +4229,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=pingtung",
-      "geocode_last_failed_at": "2026-11-01T01:18:07.074Z"
+      "geocode_last_failed_at": "2026-11-08T01:30:31.920Z"
     },
     {
       "id": "dejeng:台東傳廣",
@@ -4249,7 +4249,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taitung",
-      "geocode_last_failed_at": "2026-11-01T01:18:38.495Z"
+      "geocode_last_failed_at": "2026-11-08T01:31:03.405Z"
     },
     {
       "id": "dejeng:花蓮中山",
@@ -4269,7 +4269,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=hualien",
-      "geocode_last_failed_at": "2026-11-01T01:19:09.947Z"
+      "geocode_last_failed_at": "2026-11-08T01:31:34.975Z"
     },
     {
       "id": "dejeng:桃園中正",
@@ -4289,7 +4289,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=taoyuan",
-      "geocode_last_failed_at": "2026-11-01T01:19:41.595Z"
+      "geocode_last_failed_at": "2026-11-08T01:32:06.766Z"
     },
     {
       "id": "dejeng:淡水民生",
@@ -4309,7 +4309,7 @@
       "geocode_display_name": null,
       "source": "dejeng_official_dom",
       "source_url": "https://dejeng.com/stores/?country=taiwan&dist=new-taipei",
-      "geocode_last_failed_at": "2026-11-01T01:20:13.249Z"
+      "geocode_last_failed_at": "2026-11-08T01:32:38.620Z"
     }
   ]
 }
